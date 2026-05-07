@@ -100,7 +100,7 @@ export function HomeScreen({ onStart, pokemonCount, totalMeta, loading }: HomeSc
       </div>
 
       {/* Loading / status */}
-      <div className="mt-8 text-center w-full max-w-sm">
+      <div className="mt-8 text-center w-full max-w-sm mb-12">
         {pokemonCount < totalMeta && totalMeta > 0 ? (
           <div className="space-y-2">
             <div className="h-1 rounded-full bg-bg-secondary overflow-hidden">
@@ -118,6 +118,14 @@ export function HomeScreen({ onStart, pokemonCount, totalMeta, loading }: HomeSc
             {pokemonCount} Pokémon ready
           </p>
         )}
+      </div>
+
+      {/* Footer / Legal Disclaimer */}
+      <div className="mt-auto pt-8 max-w-md text-center">
+        <p className="text-[9px] leading-relaxed text-text-muted/60">
+          Pokémon and all respective names are trademark &amp; &copy; of Nintendo 1996-{new Date().getFullYear()}.
+          This project is not affiliated with Nintendo, The Pokémon Company, Game Freak, or Smogon.
+        </p>
       </div>
     </div>
   );
