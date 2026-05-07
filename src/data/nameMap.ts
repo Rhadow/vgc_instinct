@@ -100,25 +100,7 @@ const SPECIAL_NAMES: Record<string, string> = {
   "Ogerpon-Hearthflame": "ogerpon-hearthflame-mask",
   "Ogerpon-Cornerstone": "ogerpon-cornerstone-mask",
 
-  // Aegislash
   "Aegislash": "aegislash-shield",
-
-  // Basculegion female form
-  "Basculegion-F": "basculegion-female",
-
-  // Lycanroc forms
-  "Lycanroc-Dusk": "lycanroc-dusk",
-  "Lycanroc-Midnight": "lycanroc-midnight",
-
-  // Gourgeist forms
-  "Gourgeist-Super": "gourgeist-super",
-
-  // Hisui forms not yet mapped
-  "Goodra-Hisui": "goodra-hisui",
-  "Avalugg-Hisui": "avalugg-hisui",
-
-  // Floette Eternal Flower (AZ's Floette)
-  "Floette-Eternal": "floette-eternal",
 
   // Custom Champions Mega Evolutions — not in PokeAPI, fall back to base form
   "Floette-Mega": "floette",

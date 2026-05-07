@@ -7,7 +7,6 @@ import type { PokemonMetaData } from './types';
 export const FALLBACK_META: Record<string, PokemonMetaData> = {
   'Incineroar': {
     name: 'Incineroar',
-    usage: 0.1,
     usage: 0.5,
     spreads: [
       { nature: 'Careful', hp: 252, atk: 0, def: 4, spa: 0, spd: 252, spe: 0 },
@@ -31,7 +30,6 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Landorus-Therian': {
     name: 'Landorus-Therian',
-    usage: 0.1,
     usage: 0.1,
     spreads: [
       { nature: 'Adamant', hp: 4, atk: 252, def: 0, spa: 0, spd: 0, spe: 252 },

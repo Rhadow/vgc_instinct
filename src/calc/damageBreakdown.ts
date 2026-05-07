@@ -6,9 +6,7 @@
 import { Generations, Move, Pokemon, Field, calculate } from '@smogon/calc';
 import type { AppPokemon, AppField } from '../data/types';
 import { getMegaStone, isMegaEvolution } from '../data/nameMap';
-import { getItemDisplayName } from '../data/itemSpriteMap';
 import { getMoveDisplayName } from '../data/moveNames';
-import { getAbilityDisplayName } from '../data/abilityNames';
 
 const gen = Generations.get(9);
 
@@ -73,13 +71,6 @@ function getEffectivenessLabel(mult: number): string {
   return `×${mult}`;
 }
 
-/** Weather abilities and their corresponding weather */
-const WEATHER_ABILITIES: Record<string, string> = {
-  Drought: 'Sun',
-  Drizzle: 'Rain',
-  'Sand Stream': 'Sand',
-  'Snow Warning': 'Snow',
-};
 
 /** Weather-boosted move types */
 const WEATHER_BOOST: Record<string, { boosted: string; weakened: string }> = {
@@ -171,7 +162,7 @@ function getKoChance(
       : new Field();
 
     const result = calculate(gen, atkMon, defMon, move, calcField);
-    const koText = result.kpiDesc?.() ?? result.fullDesc();
+    const koText = result.kochance?.().text ?? result.fullDesc();
 
     // Extract KO chance from the description
     if (koText.includes('guaranteed OHKO')) return 'Guaranteed OHKO';

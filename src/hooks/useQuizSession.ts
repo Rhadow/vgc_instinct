@@ -19,7 +19,7 @@ interface UseQuizSessionReturn {
   score: number;
   answers: QuizAnswer[];
   loading: boolean;
-  startSession: (mode: QuizMode) => Promise<void>;
+  startSession: (mode: QuizMode, metaMode?: boolean) => Promise<void>;
   submitDamageAnswer: (index: number) => void;
   submitSpeedAnswer: (order: number[]) => void;
   nextQuestion: () => Promise<void>;

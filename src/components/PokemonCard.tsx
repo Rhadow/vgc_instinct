@@ -7,13 +7,7 @@ import { getTypeColor } from '../data/typeColors';
 /** Generic item icon fallback from Showdown */
 const GENERIC_ITEM_ICON = 'https://play.pokemonshowdown.com/sprites/itemicons/0.png';
 
-/** Title-case a string like "intimidate" → "Intimidate" */
-function titleCase(str: string): string {
-  return str
-    .split(/[\s-]+/)
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(' ');
-}
+
 
 interface PokemonCardProps {
   pokemon: AppPokemon;

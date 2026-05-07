@@ -1,5 +1,5 @@
 import type { AppPokemon, AppField, PokemonMetaData, PokemonFullData, SpeedContext } from '../data/types';
-import type { DamageQuestion, SpeedQuestion, QuizQuestion, QuizAnswer } from './questionTypes';
+import type { DamageQuestion, SpeedQuestion, QuizAnswer } from './questionTypes';
 import { calcDamage } from '../calc/damage';
 import { calcSpeedOrder } from '../calc/speed';
 import { Generations, Move } from '@smogon/calc';
@@ -255,7 +255,7 @@ export async function generateDamageQuestion(
     // Generate random field conditions
     const field = generateDamageField(attacker, defender);
 
-    const result = calcDamage(attacker, defender, moveName, field);
+    const result = calcDamage(attacker, defender, moveName, field ?? undefined);
     if (!result || result.maxPercent === 0) continue;
 
     history.add(key);

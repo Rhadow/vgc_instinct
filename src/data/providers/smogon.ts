@@ -32,6 +32,7 @@ interface SmogonChaosData {
     Items: Record<string, number>;
     Spreads: Record<string, number>;
     Moves: Record<string, number>;
+    usage?: number;
   }>;
 }
 
@@ -43,10 +44,11 @@ export function parseSmogonChaosJson(raw: SmogonChaosData): Record<string, Pokem
     const moves = getTopN<string>(entry.Moves, 5);
     const items = getTopN<string>(entry.Items, 3);
     const abilities = getTopN<string>(entry.Abilities, 2);
+    const usage = entry.usage || 0;
 
     // Only include Pokémon that have at least one spread and one move
     if (spreads.length > 0 && moves.length > 0) {
-      result[name] = { name, spreads, moves, items, abilities };
+      result[name] = { name, usage, spreads, moves, items, abilities };
     }
   }
 
