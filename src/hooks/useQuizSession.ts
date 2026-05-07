@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import type { QuizMode } from '../data/types';
 import type { QuizQuestion, QuizAnswer } from '../quiz/questionTypes';
 import type { DamageQuestion, SpeedQuestion } from '../quiz/questionTypes';
@@ -12,6 +12,7 @@ type QuizState = 'idle' | 'playing' | 'answered' | 'results';
 interface UseQuizSessionReturn {
   state: QuizState;
   mode: QuizMode | null;
+  metaMode: boolean;
   currentQuestion: QuizQuestion | null;
   currentIndex: number;
   totalQuestions: number;
@@ -28,30 +29,36 @@ interface UseQuizSessionReturn {
 export function useQuizSession(dataSource: QuizDataSource | null): UseQuizSessionReturn {
   const [state, setState] = useState<QuizState>('idle');
   const [mode, setMode] = useState<QuizMode | null>(null);
+  const [metaMode, setMetaMode] = useState<boolean>(false);
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  const generateQuestion = useCallback(async (quizMode: QuizMode): Promise<QuizQuestion | null> => {
+  // Track question history to prevent repeats within a session
+  const historyRef = useRef<Set<string>>(new Set());
+
+  const generateQuestion = useCallback(async (quizMode: QuizMode, isMetaMode: boolean): Promise<QuizQuestion | null> => {
     if (!dataSource) return null;
     if (quizMode === 'damage') {
-      return generateDamageQuestion(dataSource);
+      return generateDamageQuestion(dataSource, historyRef.current, 20, isMetaMode);
     } else {
-      return generateSpeedQuestion(dataSource);
+      return generateSpeedQuestion(dataSource, historyRef.current, 10, isMetaMode);
     }
   }, [dataSource]);
 
-  const startSession = useCallback(async (quizMode: QuizMode) => {
+  const startSession = useCallback(async (quizMode: QuizMode, isMetaMode: boolean = false) => {
     setLoading(true);
     setMode(quizMode);
+    setMetaMode(isMetaMode);
     setAnswers([]);
     setScore(0);
     setCurrentIndex(0);
     setQuestions([]);
+    historyRef.current = new Set(); // Reset history for new session
 
-    const q = await generateQuestion(quizMode);
+    const q = await generateQuestion(quizMode, isMetaMode);
     if (q) {
       setQuestions([q]);
       setState('playing');
@@ -83,7 +90,6 @@ export function useQuizSession(dataSource: QuizDataSource | null): UseQuizSessio
     const nextIdx = currentIndex + 1;
 
     if (nextIdx >= TOTAL_QUESTIONS) {
-      // Session complete
       const finalScore = score;
       if (mode) saveHighScore(mode, finalScore);
       setState('results');
@@ -91,14 +97,14 @@ export function useQuizSession(dataSource: QuizDataSource | null): UseQuizSessio
     }
 
     setLoading(true);
-    const q = await generateQuestion(mode!);
+    const q = await generateQuestion(mode!, metaMode);
     if (q) {
       setQuestions((prev) => [...prev, q]);
       setCurrentIndex(nextIdx);
       setState('playing');
     }
     setLoading(false);
-  }, [currentIndex, score, mode, generateQuestion]);
+  }, [currentIndex, score, mode, metaMode, generateQuestion]);
 
   const reset = useCallback(() => {
     setState('idle');
@@ -107,11 +113,13 @@ export function useQuizSession(dataSource: QuizDataSource | null): UseQuizSessio
     setAnswers([]);
     setCurrentIndex(0);
     setScore(0);
+    historyRef.current = new Set();
   }, []);
 
   return {
     state,
     mode,
+    metaMode,
     currentQuestion: questions[currentIndex] ?? null,
     currentIndex,
     totalQuestions: TOTAL_QUESTIONS,

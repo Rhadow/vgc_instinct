@@ -73,9 +73,10 @@ async function main() {
     const moves = getTopN(entry.Moves || {}, 5);
     const items = getTopN(entry.Items || {}, 3);
     const abilities = getTopN(entry.Abilities || {}, 2);
+    const usage = entry.usage || 0;
 
     if (spreads.length > 0 && moves.length > 0) {
-      result[name] = { name, spreads, moves, items, abilities };
+      result[name] = { name, usage, spreads, moves, items, abilities };
     }
   }
 

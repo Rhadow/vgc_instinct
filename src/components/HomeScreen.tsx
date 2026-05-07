@@ -1,80 +1,121 @@
+import { useState } from 'react';
 import { getHighScore } from '../quiz/engine';
 import type { QuizMode } from '../data/types';
 
 interface HomeScreenProps {
-  onStart: (mode: QuizMode) => void;
+  onStart: (mode: QuizMode, metaMode: boolean) => void;
   pokemonCount: number;
+  totalMeta: number;
   loading: boolean;
 }
 
-export function HomeScreen({ onStart, pokemonCount, loading }: HomeScreenProps) {
+export function HomeScreen({ onStart, pokemonCount, totalMeta, loading }: HomeScreenProps) {
+  const [metaMode, setMetaMode] = useState(false);
   const damageHighScore = getHighScore('damage');
   const speedHighScore = getHighScore('speed');
+  const isLoading = loading || pokemonCount < 4;
+  const loadPct = totalMeta > 0 ? Math.round((pokemonCount / totalMeta) * 100) : 0;
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center px-4 py-8 animate-fade-in">
       {/* Header */}
       <div className="text-center mb-10">
-        <h1 className="text-4xl font-extrabold tracking-tight mb-2 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink bg-clip-text text-transparent">
-          Instinct
-        </h1>
-        <p className="text-text-secondary text-sm max-w-xs mx-auto">
-          Train your competitive Pokémon instincts. Champions VGC 2026 • Reg M-A
+        <div className="relative inline-block mb-3">
+          <h1 className="text-5xl font-extrabold tracking-tighter bg-gradient-to-br from-accent-blue via-accent-purple to-accent-pink bg-clip-text text-transparent drop-shadow-sm">
+            Instinct
+          </h1>
+          <div className="absolute -inset-4 bg-gradient-to-r from-accent-blue/10 via-accent-purple/10 to-accent-pink/10 rounded-2xl blur-xl -z-10" />
+        </div>
+        <p className="text-text-secondary text-sm max-w-xs mx-auto leading-relaxed">
+          Sharpen your VGC instincts with real damage calcs and speed tiers.
         </p>
+        <p className="text-text-muted text-xs mt-1">Champions 2026 · Regulation M-A</p>
       </div>
 
       {/* Mode buttons */}
       <div className="w-full max-w-sm space-y-4">
         <button
-          onClick={() => onStart('damage')}
-          disabled={loading || pokemonCount < 2}
-          className="w-full group relative overflow-hidden rounded-2xl bg-gradient-to-r from-accent-red/20 to-accent-amber/20 border border-accent-red/30 p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:border-accent-red/60 hover:shadow-lg hover:shadow-accent-red/10 disabled:opacity-40 disabled:hover:scale-100"
+          onClick={() => onStart('damage', metaMode)}
+          disabled={isLoading || pokemonCount < 2}
+          className="w-full group relative overflow-hidden rounded-2xl border p-5 text-left transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40 disabled:hover:scale-100 bg-gradient-to-br from-bg-card to-bg-card/80 border-border hover:border-accent-red/40 hover:shadow-xl hover:shadow-accent-red/5"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-accent-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute top-0 right-0 w-24 h-24 bg-accent-red/5 rounded-full blur-2xl -translate-y-6 translate-x-6 group-hover:bg-accent-red/10 transition-colors" />
           <div className="relative">
-            <div className="flex items-center justify-between mb-2">
-              <h2 className="text-xl font-bold text-text-primary">⚔️ Damage Quiz</h2>
+            <div className="flex items-center justify-between mb-1.5">
+              <h2 className="text-lg font-bold text-text-primary flex items-center gap-2">
+                <span className="text-xl">⚔️</span> Damage Quiz
+              </h2>
               {damageHighScore > 0 && (
-                <span className="text-xs font-medium bg-accent-amber/20 text-accent-amber px-2 py-0.5 rounded-full">
+                <span className="text-[10px] font-semibold bg-accent-amber/15 text-accent-amber px-2 py-0.5 rounded-full border border-accent-amber/20">
                   Best: {damageHighScore}
                 </span>
               )}
             </div>
-            <p className="text-sm text-text-secondary">
+            <p className="text-xs text-text-muted leading-relaxed">
               Guess the damage range from real calcs. 10 questions, multiple choice.
             </p>
           </div>
         </button>
 
         <button
-          onClick={() => onStart('speed')}
-          disabled={loading || pokemonCount < 4}
-          className="w-full group relative overflow-hidden rounded-2xl bg-gradient-to-r from-accent-blue/20 to-accent-purple/20 border border-accent-blue/30 p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:border-accent-blue/60 hover:shadow-lg hover:shadow-accent-blue/10 disabled:opacity-40 disabled:hover:scale-100"
+          onClick={() => onStart('speed', metaMode)}
+          disabled={isLoading || pokemonCount < 4}
+          className="w-full group relative overflow-hidden rounded-2xl border p-5 text-left transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40 disabled:hover:scale-100 bg-gradient-to-br from-bg-card to-bg-card/80 border-border hover:border-accent-blue/40 hover:shadow-xl hover:shadow-accent-blue/5"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-accent-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute top-0 right-0 w-24 h-24 bg-accent-blue/5 rounded-full blur-2xl -translate-y-6 translate-x-6 group-hover:bg-accent-blue/10 transition-colors" />
           <div className="relative">
-            <div className="flex items-center justify-between mb-2">
-              <h2 className="text-xl font-bold text-text-primary">⚡ Speed Quiz</h2>
+            <div className="flex items-center justify-between mb-1.5">
+              <h2 className="text-lg font-bold text-text-primary flex items-center gap-2">
+                <span className="text-xl">⚡</span> Speed Quiz
+              </h2>
               {speedHighScore > 0 && (
-                <span className="text-xs font-medium bg-accent-blue/20 text-accent-blue px-2 py-0.5 rounded-full">
+                <span className="text-[10px] font-semibold bg-accent-blue/15 text-accent-blue px-2 py-0.5 rounded-full border border-accent-blue/20">
                   Best: {speedHighScore}
                 </span>
               )}
             </div>
-            <p className="text-sm text-text-secondary">
+            <p className="text-xs text-text-muted leading-relaxed">
               Sort 4 Pokémon by turn order with field conditions. Drag to arrange.
             </p>
           </div>
         </button>
+
+        <div className="pt-2">
+          <label className="flex items-center justify-center gap-2 cursor-pointer group">
+            <div className="relative">
+              <input 
+                type="checkbox" 
+                className="sr-only" 
+                checked={metaMode} 
+                onChange={(e) => setMetaMode(e.target.checked)} 
+              />
+              <div className={`block w-10 h-6 rounded-full transition-colors ${metaMode ? 'bg-accent-blue' : 'bg-bg-secondary'}`}></div>
+              <div className={`absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform ${metaMode ? 'translate-x-4' : 'translate-x-0'}`}></div>
+            </div>
+            <span className="text-sm font-semibold text-text-secondary group-hover:text-text-primary transition-colors">
+              Meta Mode
+            </span>
+          </label>
+        </div>
       </div>
 
       {/* Loading / status */}
-      <div className="mt-8 text-center">
-        {loading ? (
-          <p className="text-text-muted text-xs animate-pulse">Loading Pokémon data...</p>
+      <div className="mt-8 text-center w-full max-w-sm">
+        {pokemonCount < totalMeta && totalMeta > 0 ? (
+          <div className="space-y-2">
+            <div className="h-1 rounded-full bg-bg-secondary overflow-hidden">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-accent-blue/60 to-accent-purple/60 transition-all duration-500"
+                style={{ width: `${loadPct}%` }}
+              />
+            </div>
+            <p className="text-text-muted text-[11px]">
+              Loading Pokémon data… {pokemonCount} / {totalMeta} ({loadPct}%)
+            </p>
+          </div>
         ) : (
-          <p className="text-text-muted text-xs">
-            {pokemonCount} Pokémon loaded from Champions meta
+          <p className="text-text-muted text-[11px]">
+            {pokemonCount} Pokémon ready
           </p>
         )}
       </div>

@@ -60,7 +60,7 @@ describe('calcFinalSpeed', () => {
     const pokemon = makePokemon({
       baseStats: { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 },
       spread: { nature: 'Timid', hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 252 },
-      item: 'Choice Scarf',
+      item: 'choicescarf',
     });
     const ctx: SpeedContext = { pokemon, trickRoom: false, tailwind: false, statStage: 0, paralysis: false };
     // 167 * 1.5 = 250.5 → 250
@@ -101,7 +101,7 @@ describe('calcFinalSpeed', () => {
     const pokemon = makePokemon({
       baseStats: { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 },
       spread: { nature: 'Timid', hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 252 },
-      item: 'Choice Scarf',
+      item: 'choicescarf',
     });
     const ctx: SpeedContext = { pokemon, trickRoom: false, tailwind: true, statStage: 0, paralysis: false };
     // 167 * 1.5 = 250 (Scarf), then * 2 = 500 (Tailwind)
@@ -152,5 +152,61 @@ describe('calcSpeedOrder', () => {
 
     expect(result[0].pokemon.name).toBe('Slow');
     expect(result[1].pokemon.name).toBe('Fast');
+  });
+});
+
+describe('weather speed abilities', () => {
+  it('Swift Swim doubles speed in Rain', () => {
+    const pokemon = makePokemon({
+      baseStats: { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 },
+      spread: { nature: 'Timid', hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 252 },
+      ability: 'Swift Swim',
+    });
+    const ctx: SpeedContext = { pokemon, trickRoom: false, tailwind: false, statStage: 0, paralysis: false, weather: 'Rain' };
+    // 167 * 2 = 334
+    expect(calcFinalSpeed(ctx)).toBe(334);
+  });
+
+  it('Chlorophyll doubles speed in Sun', () => {
+    const pokemon = makePokemon({
+      baseStats: { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 },
+      spread: { nature: 'Timid', hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 252 },
+      ability: 'Chlorophyll',
+    });
+    const ctx: SpeedContext = { pokemon, trickRoom: false, tailwind: false, statStage: 0, paralysis: false, weather: 'Sun' };
+    expect(calcFinalSpeed(ctx)).toBe(334);
+  });
+
+  it('Swift Swim does NOT double speed without Rain', () => {
+    const pokemon = makePokemon({
+      baseStats: { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 },
+      spread: { nature: 'Timid', hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 252 },
+      ability: 'Swift Swim',
+    });
+    const ctx: SpeedContext = { pokemon, trickRoom: false, tailwind: false, statStage: 0, paralysis: false, weather: 'Sun' };
+    // Wrong weather — no boost
+    expect(calcFinalSpeed(ctx)).toBe(167);
+  });
+
+  it('Sand Rush doubles speed in Sand', () => {
+    const pokemon = makePokemon({
+      baseStats: { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 },
+      spread: { nature: 'Jolly', hp: 0, atk: 252, def: 0, spa: 0, spd: 0, spe: 252 },
+      ability: 'Sand Rush',
+    });
+    const ctx: SpeedContext = { pokemon, trickRoom: false, tailwind: false, statStage: 0, paralysis: false, weather: 'Sand' };
+    // 167 * 2 = 334
+    expect(calcFinalSpeed(ctx)).toBe(334);
+  });
+
+  it('weather ability stacks with Tailwind', () => {
+    const pokemon = makePokemon({
+      baseStats: { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 },
+      spread: { nature: 'Timid', hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 252 },
+      ability: 'Swift Swim',
+    });
+    const ctx: SpeedContext = { pokemon, trickRoom: false, tailwind: true, statStage: 0, paralysis: false, weather: 'Rain' };
+    // 167 * 2 (Swift Swim) = 334, then * 2 (Tailwind) = 668
+    expect(calcFinalSpeed(ctx)).toBe(668);
   });
 });

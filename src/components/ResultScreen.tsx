@@ -1,5 +1,6 @@
 import type { QuizAnswer } from '../quiz/questionTypes';
 import type { DamageQuestion } from '../quiz/questionTypes';
+import { getMoveDisplayName } from '../data/moveNames';
 
 interface ResultScreenProps {
   score: number;
@@ -67,7 +68,7 @@ export function ResultScreen({ score, totalQuestions, answers, mode, onRestart, 
               <div className="flex-1 min-w-0">
                 <p className="text-xs text-text-primary truncate">
                   {isDamage
-                    ? `${q.attacker.name} → ${q.defender.name} (${q.moveName})`
+                    ? `${q.attacker.name} → ${q.defender.name} (${getMoveDisplayName(q.moveName)})`
                     : `Speed order (${answer.question.type})`
                   }
                 </p>

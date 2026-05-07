@@ -1,0 +1,4975 @@
+{
+  "Sneasler": {
+    "name": "Sneasler",
+    "baseStats": {
+      "hp": 80,
+      "atk": 130,
+      "def": 60,
+      "spa": 40,
+      "spd": 80,
+      "spe": 120
+    },
+    "types": [
+      "Fighting",
+      "Poison"
+    ],
+    "abilities": [
+      "Pressure",
+      "Unburden",
+      "Poison Touch"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/903.png"
+  },
+  "Aerodactyl": {
+    "name": "Aerodactyl",
+    "baseStats": {
+      "hp": 80,
+      "atk": 105,
+      "def": 65,
+      "spa": 60,
+      "spd": 75,
+      "spe": 130
+    },
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "abilities": [
+      "Rock Head",
+      "Pressure",
+      "Unnerve"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png"
+  },
+  "Incineroar": {
+    "name": "Incineroar",
+    "baseStats": {
+      "hp": 95,
+      "atk": 115,
+      "def": 90,
+      "spa": 80,
+      "spd": 90,
+      "spe": 60
+    },
+    "types": [
+      "Fire",
+      "Dark"
+    ],
+    "abilities": [
+      "Blaze",
+      "Intimidate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/727.png"
+  },
+  "Floette-Mega": {
+    "name": "Floette-Mega",
+    "baseStats": {
+      "hp": 54,
+      "atk": 45,
+      "def": 47,
+      "spa": 75,
+      "spd": 98,
+      "spe": 52
+    },
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Flower Veil",
+      "Symbiosis"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/670.png"
+  },
+  "Kingambit": {
+    "name": "Kingambit",
+    "baseStats": {
+      "hp": 100,
+      "atk": 135,
+      "def": 120,
+      "spa": 60,
+      "spd": 85,
+      "spe": 50
+    },
+    "types": [
+      "Dark",
+      "Steel"
+    ],
+    "abilities": [
+      "Defiant",
+      "Supreme Overlord",
+      "Pressure"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/983.png"
+  },
+  "Garchomp": {
+    "name": "Garchomp",
+    "baseStats": {
+      "hp": 108,
+      "atk": 130,
+      "def": 95,
+      "spa": 80,
+      "spd": 85,
+      "spe": 102
+    },
+    "types": [
+      "Dragon",
+      "Ground"
+    ],
+    "abilities": [
+      "Sand Veil",
+      "Rough Skin"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/445.png"
+  },
+  "Pelipper": {
+    "name": "Pelipper",
+    "baseStats": {
+      "hp": 60,
+      "atk": 50,
+      "def": 100,
+      "spa": 95,
+      "spd": 70,
+      "spe": 65
+    },
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Drizzle",
+      "Rain Dish"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/279.png"
+  },
+  "Charizard-Mega-Y": {
+    "name": "Charizard-Mega-Y",
+    "baseStats": {
+      "hp": 78,
+      "atk": 104,
+      "def": 78,
+      "spa": 159,
+      "spd": 115,
+      "spe": 100
+    },
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "abilities": [
+      "Drought"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10035.png"
+  },
+  "Basculegion": {
+    "name": "Basculegion",
+    "baseStats": {
+      "hp": 120,
+      "atk": 112,
+      "def": 65,
+      "spa": 80,
+      "spd": 75,
+      "spe": 78
+    },
+    "types": [
+      "Water",
+      "Ghost"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Adaptability",
+      "Mold Breaker"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/902.png"
+  },
+  "Sinistcha": {
+    "name": "Sinistcha",
+    "baseStats": {
+      "hp": 71,
+      "atk": 60,
+      "def": 106,
+      "spa": 121,
+      "spd": 80,
+      "spe": 70
+    },
+    "types": [
+      "Grass",
+      "Ghost"
+    ],
+    "abilities": [
+      "Hospitality",
+      "Heatproof"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1013.png"
+  },
+  "Rotom-Wash": {
+    "name": "Rotom-Wash",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "types": [
+      "Electric",
+      "Water"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10009.png"
+  },
+  "Milotic": {
+    "name": "Milotic",
+    "baseStats": {
+      "hp": 95,
+      "atk": 60,
+      "def": 79,
+      "spa": 100,
+      "spd": 125,
+      "spe": 81
+    },
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Marvel Scale",
+      "Competitive",
+      "Cute Charm"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/350.png"
+  },
+  "Archaludon": {
+    "name": "Archaludon",
+    "baseStats": {
+      "hp": 90,
+      "atk": 105,
+      "def": 130,
+      "spa": 125,
+      "spd": 65,
+      "spe": 85
+    },
+    "types": [
+      "Steel",
+      "Dragon"
+    ],
+    "abilities": [
+      "Stamina",
+      "Sturdy",
+      "Stalwart"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1018.png"
+  },
+  "Froslass-Mega": {
+    "name": "Froslass-Mega",
+    "baseStats": {
+      "hp": 70,
+      "atk": 80,
+      "def": 70,
+      "spa": 80,
+      "spd": 70,
+      "spe": 110
+    },
+    "types": [
+      "Ice",
+      "Ghost"
+    ],
+    "abilities": [
+      "Snow Cloak",
+      "Cursed Body"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/478.png"
+  },
+  "Talonflame": {
+    "name": "Talonflame",
+    "baseStats": {
+      "hp": 78,
+      "atk": 81,
+      "def": 71,
+      "spa": 74,
+      "spd": 69,
+      "spe": 126
+    },
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "abilities": [
+      "Flame Body",
+      "Gale Wings"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/663.png"
+  },
+  "Farigiraf": {
+    "name": "Farigiraf",
+    "baseStats": {
+      "hp": 120,
+      "atk": 90,
+      "def": 70,
+      "spa": 110,
+      "spd": 70,
+      "spe": 60
+    },
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "abilities": [
+      "Cud Chew",
+      "Armor Tail",
+      "Sap Sipper"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/981.png"
+  },
+  "Maushold": {
+    "name": "Maushold",
+    "baseStats": {
+      "hp": 74,
+      "atk": 75,
+      "def": 70,
+      "spa": 65,
+      "spd": 75,
+      "spe": 111
+    },
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Friend Guard",
+      "Cheek Pouch",
+      "Technician"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/925.png"
+  },
+  "Whimsicott": {
+    "name": "Whimsicott",
+    "baseStats": {
+      "hp": 60,
+      "atk": 67,
+      "def": 85,
+      "spa": 77,
+      "spd": 75,
+      "spe": 116
+    },
+    "types": [
+      "Grass",
+      "Fairy"
+    ],
+    "abilities": [
+      "Prankster",
+      "Infiltrator",
+      "Chlorophyll"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/547.png"
+  },
+  "Aegislash": {
+    "name": "Aegislash",
+    "baseStats": {
+      "hp": 60,
+      "atk": 50,
+      "def": 140,
+      "spa": 50,
+      "spd": 140,
+      "spe": 60
+    },
+    "types": [
+      "Steel",
+      "Ghost"
+    ],
+    "abilities": [
+      "Stance Change"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/681.png"
+  },
+  "Tyranitar-Mega": {
+    "name": "Tyranitar-Mega",
+    "baseStats": {
+      "hp": 100,
+      "atk": 164,
+      "def": 150,
+      "spa": 95,
+      "spd": 120,
+      "spe": 71
+    },
+    "types": [
+      "Rock",
+      "Dark"
+    ],
+    "abilities": [
+      "Sand Stream"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10049.png"
+  },
+  "Corviknight": {
+    "name": "Corviknight",
+    "baseStats": {
+      "hp": 98,
+      "atk": 87,
+      "def": 105,
+      "spa": 53,
+      "spd": 85,
+      "spe": 67
+    },
+    "types": [
+      "Flying",
+      "Steel"
+    ],
+    "abilities": [
+      "Pressure",
+      "Unnerve",
+      "Mirror Armor"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/823.png"
+  },
+  "Excadrill": {
+    "name": "Excadrill",
+    "baseStats": {
+      "hp": 110,
+      "atk": 135,
+      "def": 60,
+      "spa": 50,
+      "spd": 65,
+      "spe": 88
+    },
+    "types": [
+      "Ground",
+      "Steel"
+    ],
+    "abilities": [
+      "Sand Rush",
+      "Sand Force",
+      "Mold Breaker"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/530.png"
+  },
+  "Venusaur": {
+    "name": "Venusaur",
+    "baseStats": {
+      "hp": 80,
+      "atk": 82,
+      "def": 83,
+      "spa": 100,
+      "spd": 100,
+      "spe": 80
+    },
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Chlorophyll"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
+  },
+  "Blastoise-Mega": {
+    "name": "Blastoise-Mega",
+    "baseStats": {
+      "hp": 79,
+      "atk": 103,
+      "def": 120,
+      "spa": 135,
+      "spd": 115,
+      "spe": 78
+    },
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Mega Launcher"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10036.png"
+  },
+  "Gengar-Mega": {
+    "name": "Gengar-Mega",
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 80,
+      "spa": 170,
+      "spd": 95,
+      "spe": 130
+    },
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "abilities": [
+      "Shadow Tag"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10038.png"
+  },
+  "Delphox-Mega": {
+    "name": "Delphox-Mega",
+    "baseStats": {
+      "hp": 75,
+      "atk": 69,
+      "def": 72,
+      "spa": 114,
+      "spd": 100,
+      "spe": 104
+    },
+    "types": [
+      "Fire",
+      "Psychic"
+    ],
+    "abilities": [
+      "Blaze",
+      "Magician"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/655.png"
+  },
+  "Torkoal": {
+    "name": "Torkoal",
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 140,
+      "spa": 85,
+      "spd": 70,
+      "spe": 20
+    },
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "White Smoke",
+      "Drought",
+      "Shell Armor"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/324.png"
+  },
+  "Meganium-Mega": {
+    "name": "Meganium-Mega",
+    "baseStats": {
+      "hp": 80,
+      "atk": 82,
+      "def": 100,
+      "spa": 83,
+      "spd": 100,
+      "spe": 80
+    },
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Leaf Guard"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/154.png"
+  },
+  "Sylveon": {
+    "name": "Sylveon",
+    "baseStats": {
+      "hp": 95,
+      "atk": 65,
+      "def": 65,
+      "spa": 110,
+      "spd": 130,
+      "spe": 60
+    },
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Cute Charm",
+      "Pixilate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png"
+  },
+  "Aerodactyl-Mega": {
+    "name": "Aerodactyl-Mega",
+    "baseStats": {
+      "hp": 80,
+      "atk": 135,
+      "def": 85,
+      "spa": 70,
+      "spd": 95,
+      "spe": 150
+    },
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "abilities": [
+      "Tough Claws"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10042.png"
+  },
+  "Gardevoir-Mega": {
+    "name": "Gardevoir-Mega",
+    "baseStats": {
+      "hp": 68,
+      "atk": 85,
+      "def": 65,
+      "spa": 165,
+      "spd": 135,
+      "spe": 100
+    },
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "abilities": [
+      "Pixilate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10051.png"
+  },
+  "Sableye": {
+    "name": "Sableye",
+    "baseStats": {
+      "hp": 50,
+      "atk": 75,
+      "def": 75,
+      "spa": 65,
+      "spd": 65,
+      "spe": 50
+    },
+    "types": [
+      "Dark",
+      "Ghost"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Stall",
+      "Prankster"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/302.png"
+  },
+  "Ninetales-Alola": {
+    "name": "Ninetales-Alola",
+    "baseStats": {
+      "hp": 73,
+      "atk": 67,
+      "def": 75,
+      "spa": 81,
+      "spd": 100,
+      "spe": 109
+    },
+    "types": [
+      "Ice",
+      "Fairy"
+    ],
+    "abilities": [
+      "Snow Cloak",
+      "Snow Warning"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10104.png"
+  },
+  "Scizor-Mega": {
+    "name": "Scizor-Mega",
+    "baseStats": {
+      "hp": 70,
+      "atk": 150,
+      "def": 140,
+      "spa": 65,
+      "spd": 100,
+      "spe": 75
+    },
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Technician"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10046.png"
+  },
+  "Kommo-o": {
+    "name": "Kommo-o",
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 125,
+      "spa": 100,
+      "spd": 105,
+      "spe": 85
+    },
+    "types": [
+      "Dragon",
+      "Fighting"
+    ],
+    "abilities": [
+      "Bulletproof",
+      "Soundproof",
+      "Overcoat"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/784.png"
+  },
+  "Primarina": {
+    "name": "Primarina",
+    "baseStats": {
+      "hp": 80,
+      "atk": 74,
+      "def": 74,
+      "spa": 126,
+      "spd": 116,
+      "spe": 60
+    },
+    "types": [
+      "Water",
+      "Fairy"
+    ],
+    "abilities": [
+      "Torrent",
+      "Liquid Voice"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/730.png"
+  },
+  "Kangaskhan-Mega": {
+    "name": "Kangaskhan-Mega",
+    "baseStats": {
+      "hp": 105,
+      "atk": 125,
+      "def": 100,
+      "spa": 60,
+      "spd": 100,
+      "spe": 100
+    },
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Parental Bond"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10039.png"
+  },
+  "Tyranitar": {
+    "name": "Tyranitar",
+    "baseStats": {
+      "hp": 100,
+      "atk": 134,
+      "def": 110,
+      "spa": 95,
+      "spd": 100,
+      "spe": 61
+    },
+    "types": [
+      "Rock",
+      "Dark"
+    ],
+    "abilities": [
+      "Sand Stream",
+      "Unnerve"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png"
+  },
+  "Scovillain-Mega": {
+    "name": "Scovillain-Mega",
+    "baseStats": {
+      "hp": 65,
+      "atk": 108,
+      "def": 65,
+      "spa": 108,
+      "spd": 65,
+      "spe": 75
+    },
+    "types": [
+      "Grass",
+      "Fire"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Insomnia",
+      "Moody"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/952.png"
+  },
+  "Dragonite-Mega": {
+    "name": "Dragonite-Mega",
+    "baseStats": {
+      "hp": 91,
+      "atk": 134,
+      "def": 95,
+      "spa": 100,
+      "spd": 100,
+      "spe": 80
+    },
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "abilities": [
+      "Inner Focus",
+      "Multiscale"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png"
+  },
+  "Dragonite": {
+    "name": "Dragonite",
+    "baseStats": {
+      "hp": 91,
+      "atk": 134,
+      "def": 95,
+      "spa": 100,
+      "spd": 100,
+      "spe": 80
+    },
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "abilities": [
+      "Inner Focus",
+      "Multiscale"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png"
+  },
+  "Hydreigon": {
+    "name": "Hydreigon",
+    "baseStats": {
+      "hp": 92,
+      "atk": 105,
+      "def": 90,
+      "spa": 125,
+      "spd": 90,
+      "spe": 98
+    },
+    "types": [
+      "Dark",
+      "Dragon"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/635.png"
+  },
+  "Glimmora-Mega": {
+    "name": "Glimmora-Mega",
+    "baseStats": {
+      "hp": 83,
+      "atk": 55,
+      "def": 90,
+      "spa": 130,
+      "spd": 81,
+      "spe": 86
+    },
+    "types": [
+      "Rock",
+      "Poison"
+    ],
+    "abilities": [
+      "Toxic Debris",
+      "Corrosion"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/970.png"
+  },
+  "Politoed": {
+    "name": "Politoed",
+    "baseStats": {
+      "hp": 90,
+      "atk": 75,
+      "def": 75,
+      "spa": 90,
+      "spd": 100,
+      "spe": 70
+    },
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Water Absorb",
+      "Damp",
+      "Drizzle"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/186.png"
+  },
+  "Tsareena": {
+    "name": "Tsareena",
+    "baseStats": {
+      "hp": 72,
+      "atk": 120,
+      "def": 98,
+      "spa": 50,
+      "spd": 98,
+      "spe": 72
+    },
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Leaf Guard",
+      "Queenly Majesty",
+      "Sweet Veil"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/763.png"
+  },
+  "Rotom-Heat": {
+    "name": "Rotom-Heat",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "types": [
+      "Electric",
+      "Fire"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10008.png"
+  },
+  "Dragapult": {
+    "name": "Dragapult",
+    "baseStats": {
+      "hp": 88,
+      "atk": 120,
+      "def": 75,
+      "spa": 100,
+      "spd": 75,
+      "spe": 142
+    },
+    "types": [
+      "Dragon",
+      "Ghost"
+    ],
+    "abilities": [
+      "Clear Body",
+      "Infiltrator",
+      "Cursed Body"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/887.png"
+  },
+  "Volcarona": {
+    "name": "Volcarona",
+    "baseStats": {
+      "hp": 85,
+      "atk": 60,
+      "def": 65,
+      "spa": 135,
+      "spd": 105,
+      "spe": 100
+    },
+    "types": [
+      "Bug",
+      "Fire"
+    ],
+    "abilities": [
+      "Flame Body",
+      "Swarm"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png"
+  },
+  "Venusaur-Mega": {
+    "name": "Venusaur-Mega",
+    "baseStats": {
+      "hp": 80,
+      "atk": 100,
+      "def": 123,
+      "spa": 122,
+      "spd": 120,
+      "spe": 80
+    },
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "abilities": [
+      "Thick Fat"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10033.png"
+  },
+  "Aggron-Mega": {
+    "name": "Aggron-Mega",
+    "baseStats": {
+      "hp": 70,
+      "atk": 140,
+      "def": 230,
+      "spa": 60,
+      "spd": 80,
+      "spe": 50
+    },
+    "types": [
+      "Steel"
+    ],
+    "abilities": [
+      "Filter"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10053.png"
+  },
+  "Starmie-Mega": {
+    "name": "Starmie-Mega",
+    "baseStats": {
+      "hp": 60,
+      "atk": 75,
+      "def": 85,
+      "spa": 100,
+      "spd": 85,
+      "spe": 115
+    },
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "abilities": [
+      "Illuminate",
+      "Natural Cure",
+      "Analytic"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png"
+  },
+  "Clefable": {
+    "name": "Clefable",
+    "baseStats": {
+      "hp": 95,
+      "atk": 70,
+      "def": 73,
+      "spa": 95,
+      "spd": 90,
+      "spe": 60
+    },
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Cute Charm",
+      "Magic Guard",
+      "Unaware"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png"
+  },
+  "Zoroark-Hisui": {
+    "name": "Zoroark-Hisui",
+    "baseStats": {
+      "hp": 55,
+      "atk": 100,
+      "def": 60,
+      "spa": 125,
+      "spd": 60,
+      "spe": 110
+    },
+    "types": [
+      "Normal",
+      "Ghost"
+    ],
+    "abilities": [
+      "Illusion"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10239.png"
+  },
+  "Golurk-Mega": {
+    "name": "Golurk-Mega",
+    "baseStats": {
+      "hp": 89,
+      "atk": 124,
+      "def": 80,
+      "spa": 55,
+      "spd": 80,
+      "spe": 55
+    },
+    "types": [
+      "Ground",
+      "Ghost"
+    ],
+    "abilities": [
+      "Iron Fist",
+      "Klutz",
+      "No Guard"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/623.png"
+  },
+  "Palafin": {
+    "name": "Palafin",
+    "baseStats": {
+      "hp": 100,
+      "atk": 70,
+      "def": 72,
+      "spa": 53,
+      "spd": 62,
+      "spe": 100
+    },
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Zero To Hero"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/964.png"
+  },
+  "Charizard-Mega-X": {
+    "name": "Charizard-Mega-X",
+    "baseStats": {
+      "hp": 78,
+      "atk": 130,
+      "def": 111,
+      "spa": 130,
+      "spd": 85,
+      "spe": 100
+    },
+    "types": [
+      "Fire",
+      "Dragon"
+    ],
+    "abilities": [
+      "Tough Claws"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png"
+  },
+  "Crabominable-Mega": {
+    "name": "Crabominable-Mega",
+    "baseStats": {
+      "hp": 97,
+      "atk": 132,
+      "def": 77,
+      "spa": 62,
+      "spd": 67,
+      "spe": 43
+    },
+    "types": [
+      "Fighting",
+      "Ice"
+    ],
+    "abilities": [
+      "Hyper Cutter",
+      "Iron Fist",
+      "Anger Point"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/740.png"
+  },
+  "Arcanine-Hisui": {
+    "name": "Arcanine-Hisui",
+    "baseStats": {
+      "hp": 95,
+      "atk": 115,
+      "def": 80,
+      "spa": 95,
+      "spd": 80,
+      "spe": 90
+    },
+    "types": [
+      "Fire",
+      "Rock"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Flash Fire",
+      "Rock Head"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10230.png"
+  },
+  "Typhlosion-Hisui": {
+    "name": "Typhlosion-Hisui",
+    "baseStats": {
+      "hp": 73,
+      "atk": 84,
+      "def": 78,
+      "spa": 119,
+      "spd": 85,
+      "spe": 95
+    },
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "abilities": [
+      "Blaze",
+      "Frisk"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10233.png"
+  },
+  "Lopunny-Mega": {
+    "name": "Lopunny-Mega",
+    "baseStats": {
+      "hp": 65,
+      "atk": 136,
+      "def": 94,
+      "spa": 54,
+      "spd": 96,
+      "spe": 135
+    },
+    "types": [
+      "Normal",
+      "Fighting"
+    ],
+    "abilities": [
+      "Scrappy"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10088.png"
+  },
+  "Hatterene": {
+    "name": "Hatterene",
+    "baseStats": {
+      "hp": 57,
+      "atk": 90,
+      "def": 95,
+      "spa": 136,
+      "spd": 103,
+      "spe": 29
+    },
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "abilities": [
+      "Healer",
+      "Anticipation",
+      "Magic Bounce"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/858.png"
+  },
+  "Orthworm": {
+    "name": "Orthworm",
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 145,
+      "spa": 60,
+      "spd": 55,
+      "spe": 65
+    },
+    "types": [
+      "Steel"
+    ],
+    "abilities": [
+      "Earth Eater",
+      "Sand Veil"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/968.png"
+  },
+  "Meowscarada": {
+    "name": "Meowscarada",
+    "baseStats": {
+      "hp": 76,
+      "atk": 110,
+      "def": 70,
+      "spa": 81,
+      "spd": 70,
+      "spe": 123
+    },
+    "types": [
+      "Grass",
+      "Dark"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Protean"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/908.png"
+  },
+  "Oranguru": {
+    "name": "Oranguru",
+    "baseStats": {
+      "hp": 90,
+      "atk": 60,
+      "def": 80,
+      "spa": 90,
+      "spd": 110,
+      "spe": 60
+    },
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "abilities": [
+      "Inner Focus",
+      "Telepathy",
+      "Symbiosis"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/765.png"
+  },
+  "Gyarados-Mega": {
+    "name": "Gyarados-Mega",
+    "baseStats": {
+      "hp": 95,
+      "atk": 155,
+      "def": 109,
+      "spa": 70,
+      "spd": 130,
+      "spe": 81
+    },
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Mold Breaker"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10041.png"
+  },
+  "Camerupt-Mega": {
+    "name": "Camerupt-Mega",
+    "baseStats": {
+      "hp": 70,
+      "atk": 120,
+      "def": 100,
+      "spa": 145,
+      "spd": 105,
+      "spe": 20
+    },
+    "types": [
+      "Fire",
+      "Ground"
+    ],
+    "abilities": [
+      "Sheer Force"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10087.png"
+  },
+  "Manectric-Mega": {
+    "name": "Manectric-Mega",
+    "baseStats": {
+      "hp": 70,
+      "atk": 75,
+      "def": 80,
+      "spa": 135,
+      "spd": 80,
+      "spe": 135
+    },
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Intimidate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10055.png"
+  },
+  "Mimikyu": {
+    "name": "Mimikyu",
+    "baseStats": {
+      "hp": 55,
+      "atk": 90,
+      "def": 80,
+      "spa": 50,
+      "spd": 105,
+      "spe": 96
+    },
+    "types": [
+      "Ghost",
+      "Fairy"
+    ],
+    "abilities": [
+      "Disguise"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/778.png"
+  },
+  "Mamoswine": {
+    "name": "Mamoswine",
+    "baseStats": {
+      "hp": 110,
+      "atk": 130,
+      "def": 80,
+      "spa": 70,
+      "spd": 60,
+      "spe": 80
+    },
+    "types": [
+      "Ice",
+      "Ground"
+    ],
+    "abilities": [
+      "Oblivious",
+      "Snow Cloak",
+      "Thick Fat"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/473.png"
+  },
+  "Gyarados": {
+    "name": "Gyarados",
+    "baseStats": {
+      "hp": 95,
+      "atk": 125,
+      "def": 79,
+      "spa": 60,
+      "spd": 100,
+      "spe": 81
+    },
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Moxie"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png"
+  },
+  "Drampa-Mega": {
+    "name": "Drampa-Mega",
+    "baseStats": {
+      "hp": 78,
+      "atk": 60,
+      "def": 85,
+      "spa": 135,
+      "spd": 91,
+      "spe": 36
+    },
+    "types": [
+      "Normal",
+      "Dragon"
+    ],
+    "abilities": [
+      "Berserk",
+      "Sap Sipper",
+      "Cloud Nine"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/780.png"
+  },
+  "Scizor": {
+    "name": "Scizor",
+    "baseStats": {
+      "hp": 70,
+      "atk": 130,
+      "def": 100,
+      "spa": 55,
+      "spd": 80,
+      "spe": 65
+    },
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Swarm",
+      "Technician",
+      "Light Metal"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/212.png"
+  },
+  "Basculegion-F": {
+    "name": "Basculegion-F",
+    "baseStats": {
+      "hp": 120,
+      "atk": 92,
+      "def": 65,
+      "spa": 100,
+      "spd": 75,
+      "spe": 78
+    },
+    "types": [
+      "Water",
+      "Ghost"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Adaptability",
+      "Mold Breaker"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10248.png"
+  },
+  "Kangaskhan": {
+    "name": "Kangaskhan",
+    "baseStats": {
+      "hp": 105,
+      "atk": 95,
+      "def": 80,
+      "spa": 40,
+      "spd": 80,
+      "spe": 90
+    },
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Early Bird",
+      "Scrappy",
+      "Inner Focus"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/115.png"
+  },
+  "Gallade": {
+    "name": "Gallade",
+    "baseStats": {
+      "hp": 68,
+      "atk": 125,
+      "def": 65,
+      "spa": 65,
+      "spd": 115,
+      "spe": 80
+    },
+    "types": [
+      "Psychic",
+      "Fighting"
+    ],
+    "abilities": [
+      "Steadfast",
+      "Sharpness",
+      "Justified"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/475.png"
+  },
+  "Tauros-Paldea-Aqua": {
+    "name": "Tauros-Paldea-Aqua",
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 105,
+      "spa": 30,
+      "spd": 70,
+      "spe": 100
+    },
+    "types": [
+      "Fighting",
+      "Water"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Anger Point",
+      "Cud Chew"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10252.png"
+  },
+  "Tinkaton": {
+    "name": "Tinkaton",
+    "baseStats": {
+      "hp": 85,
+      "atk": 75,
+      "def": 77,
+      "spa": 70,
+      "spd": 105,
+      "spe": 94
+    },
+    "types": [
+      "Fairy",
+      "Steel"
+    ],
+    "abilities": [
+      "Mold Breaker",
+      "Own Tempo",
+      "Pickpocket"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/959.png"
+  },
+  "Rotom-Frost": {
+    "name": "Rotom-Frost",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "types": [
+      "Electric",
+      "Ice"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10010.png"
+  },
+  "Ceruledge": {
+    "name": "Ceruledge",
+    "baseStats": {
+      "hp": 75,
+      "atk": 125,
+      "def": 80,
+      "spa": 60,
+      "spd": 100,
+      "spe": 85
+    },
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "abilities": [
+      "Flash Fire",
+      "Weak Armor"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/937.png"
+  },
+  "Lucario-Mega": {
+    "name": "Lucario-Mega",
+    "baseStats": {
+      "hp": 70,
+      "atk": 145,
+      "def": 88,
+      "spa": 140,
+      "spd": 70,
+      "spe": 112
+    },
+    "types": [
+      "Fighting",
+      "Steel"
+    ],
+    "abilities": [
+      "Adaptability"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10059.png"
+  },
+  "Vivillon": {
+    "name": "Vivillon",
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Shield Dust",
+      "Compound Eyes",
+      "Friend Guard"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/666.png"
+  },
+  "Heliolisk": {
+    "name": "Heliolisk",
+    "baseStats": {
+      "hp": 62,
+      "atk": 55,
+      "def": 52,
+      "spa": 109,
+      "spd": 94,
+      "spe": 109
+    },
+    "types": [
+      "Electric",
+      "Normal"
+    ],
+    "abilities": [
+      "Dry Skin",
+      "Sand Veil",
+      "Solar Power"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/695.png"
+  },
+  "Azumarill": {
+    "name": "Azumarill",
+    "baseStats": {
+      "hp": 100,
+      "atk": 50,
+      "def": 80,
+      "spa": 60,
+      "spd": 80,
+      "spe": 50
+    },
+    "types": [
+      "Water",
+      "Fairy"
+    ],
+    "abilities": [
+      "Thick Fat",
+      "Huge Power",
+      "Sap Sipper"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/184.png"
+  },
+  "Gengar": {
+    "name": "Gengar",
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 60,
+      "spa": 130,
+      "spd": 75,
+      "spe": 110
+    },
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "abilities": [
+      "Cursed Body"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png"
+  },
+  "Araquanid": {
+    "name": "Araquanid",
+    "baseStats": {
+      "hp": 68,
+      "atk": 70,
+      "def": 92,
+      "spa": 50,
+      "spd": 132,
+      "spe": 42
+    },
+    "types": [
+      "Water",
+      "Bug"
+    ],
+    "abilities": [
+      "Water Bubble",
+      "Water Absorb"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/752.png"
+  },
+  "Meowstic": {
+    "name": "Meowstic",
+    "baseStats": {
+      "hp": 74,
+      "atk": 48,
+      "def": 76,
+      "spa": 83,
+      "spd": 81,
+      "spe": 104
+    },
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Infiltrator",
+      "Prankster"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/678.png"
+  },
+  "Gardevoir": {
+    "name": "Gardevoir",
+    "baseStats": {
+      "hp": 68,
+      "atk": 65,
+      "def": 65,
+      "spa": 125,
+      "spd": 115,
+      "spe": 80
+    },
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "abilities": [
+      "Synchronize",
+      "Trace",
+      "Telepathy"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/282.png"
+  },
+  "Garchomp-Mega": {
+    "name": "Garchomp-Mega",
+    "baseStats": {
+      "hp": 108,
+      "atk": 170,
+      "def": 115,
+      "spa": 120,
+      "spd": 95,
+      "spe": 92
+    },
+    "types": [
+      "Dragon",
+      "Ground"
+    ],
+    "abilities": [
+      "Sand Force"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10058.png"
+  },
+  "Skarmory-Mega": {
+    "name": "Skarmory-Mega",
+    "baseStats": {
+      "hp": 65,
+      "atk": 80,
+      "def": 140,
+      "spa": 40,
+      "spd": 70,
+      "spe": 70
+    },
+    "types": [
+      "Steel",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Sturdy",
+      "Weak Armor"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/227.png"
+  },
+  "Snorlax": {
+    "name": "Snorlax",
+    "baseStats": {
+      "hp": 160,
+      "atk": 110,
+      "def": 65,
+      "spa": 65,
+      "spd": 110,
+      "spe": 30
+    },
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Immunity",
+      "Thick Fat",
+      "Gluttony"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png"
+  },
+  "Weavile": {
+    "name": "Weavile",
+    "baseStats": {
+      "hp": 70,
+      "atk": 120,
+      "def": 65,
+      "spa": 45,
+      "spd": 85,
+      "spe": 125
+    },
+    "types": [
+      "Dark",
+      "Ice"
+    ],
+    "abilities": [
+      "Pressure",
+      "Pickpocket"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/461.png"
+  },
+  "Goodra-Hisui": {
+    "name": "Goodra-Hisui",
+    "baseStats": {
+      "hp": 80,
+      "atk": 100,
+      "def": 100,
+      "spa": 110,
+      "spd": 150,
+      "spe": 60
+    },
+    "types": [
+      "Steel",
+      "Dragon"
+    ],
+    "abilities": [
+      "Sap Sipper",
+      "Shell Armor",
+      "Gooey"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10242.png"
+  },
+  "Arcanine": {
+    "name": "Arcanine",
+    "baseStats": {
+      "hp": 90,
+      "atk": 110,
+      "def": 80,
+      "spa": 100,
+      "spd": 80,
+      "spe": 95
+    },
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Flash Fire",
+      "Justified"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png"
+  },
+  "Empoleon": {
+    "name": "Empoleon",
+    "baseStats": {
+      "hp": 84,
+      "atk": 86,
+      "def": 88,
+      "spa": 111,
+      "spd": 101,
+      "spe": 60
+    },
+    "types": [
+      "Water",
+      "Steel"
+    ],
+    "abilities": [
+      "Torrent",
+      "Competitive"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/395.png"
+  },
+  "Feraligatr-Mega": {
+    "name": "Feraligatr-Mega",
+    "baseStats": {
+      "hp": 85,
+      "atk": 105,
+      "def": 100,
+      "spa": 79,
+      "spd": 83,
+      "spe": 78
+    },
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Torrent",
+      "Sheer Force"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/160.png"
+  },
+  "Raichu": {
+    "name": "Raichu",
+    "baseStats": {
+      "hp": 60,
+      "atk": 90,
+      "def": 55,
+      "spa": 90,
+      "spd": 80,
+      "spe": 110
+    },
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static",
+      "Lightning Rod"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png"
+  },
+  "Glimmora": {
+    "name": "Glimmora",
+    "baseStats": {
+      "hp": 83,
+      "atk": 55,
+      "def": 90,
+      "spa": 130,
+      "spd": 81,
+      "spe": 86
+    },
+    "types": [
+      "Rock",
+      "Poison"
+    ],
+    "abilities": [
+      "Toxic Debris",
+      "Corrosion"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/970.png"
+  },
+  "Espathra": {
+    "name": "Espathra",
+    "baseStats": {
+      "hp": 95,
+      "atk": 60,
+      "def": 60,
+      "spa": 101,
+      "spd": 60,
+      "spe": 105
+    },
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Opportunist",
+      "Frisk",
+      "Speed Boost"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/956.png"
+  },
+  "Chandelure-Mega": {
+    "name": "Chandelure-Mega",
+    "baseStats": {
+      "hp": 60,
+      "atk": 55,
+      "def": 90,
+      "spa": 145,
+      "spd": 90,
+      "spe": 80
+    },
+    "types": [
+      "Ghost",
+      "Fire"
+    ],
+    "abilities": [
+      "Flash Fire",
+      "Flame Body",
+      "Infiltrator"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/609.png"
+  },
+  "Conkeldurr": {
+    "name": "Conkeldurr",
+    "baseStats": {
+      "hp": 105,
+      "atk": 140,
+      "def": 95,
+      "spa": 55,
+      "spd": 65,
+      "spe": 45
+    },
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Guts",
+      "Sheer Force",
+      "Iron Fist"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/534.png"
+  },
+  "Blastoise": {
+    "name": "Blastoise",
+    "baseStats": {
+      "hp": 79,
+      "atk": 83,
+      "def": 100,
+      "spa": 85,
+      "spd": 105,
+      "spe": 78
+    },
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Torrent",
+      "Rain Dish"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
+  },
+  "Vanilluxe": {
+    "name": "Vanilluxe",
+    "baseStats": {
+      "hp": 71,
+      "atk": 95,
+      "def": 85,
+      "spa": 110,
+      "spd": 95,
+      "spe": 79
+    },
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Ice Body",
+      "Snow Warning",
+      "Weak Armor"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/584.png"
+  },
+  "Chesnaught-Mega": {
+    "name": "Chesnaught-Mega",
+    "baseStats": {
+      "hp": 88,
+      "atk": 107,
+      "def": 122,
+      "spa": 74,
+      "spd": 75,
+      "spe": 64
+    },
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Bulletproof"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/652.png"
+  },
+  "Ampharos-Mega": {
+    "name": "Ampharos-Mega",
+    "baseStats": {
+      "hp": 90,
+      "atk": 95,
+      "def": 105,
+      "spa": 165,
+      "spd": 110,
+      "spe": 45
+    },
+    "types": [
+      "Electric",
+      "Dragon"
+    ],
+    "abilities": [
+      "Mold Breaker"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10045.png"
+  },
+  "Rotom-Mow": {
+    "name": "Rotom-Mow",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "types": [
+      "Electric",
+      "Grass"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10012.png"
+  },
+  "Kleavor": {
+    "name": "Kleavor",
+    "baseStats": {
+      "hp": 70,
+      "atk": 135,
+      "def": 95,
+      "spa": 45,
+      "spd": 70,
+      "spe": 85
+    },
+    "types": [
+      "Bug",
+      "Rock"
+    ],
+    "abilities": [
+      "Swarm",
+      "Sheer Force",
+      "Sharpness"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/900.png"
+  },
+  "Greninja-Mega": {
+    "name": "Greninja-Mega",
+    "baseStats": {
+      "hp": 72,
+      "atk": 95,
+      "def": 67,
+      "spa": 103,
+      "spd": 71,
+      "spe": 122
+    },
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Torrent",
+      "Protean"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/658.png"
+  },
+  "Chandelure": {
+    "name": "Chandelure",
+    "baseStats": {
+      "hp": 60,
+      "atk": 55,
+      "def": 90,
+      "spa": 145,
+      "spd": 90,
+      "spe": 80
+    },
+    "types": [
+      "Ghost",
+      "Fire"
+    ],
+    "abilities": [
+      "Flash Fire",
+      "Flame Body",
+      "Infiltrator"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/609.png"
+  },
+  "Slowking-Galar": {
+    "name": "Slowking-Galar",
+    "baseStats": {
+      "hp": 95,
+      "atk": 65,
+      "def": 80,
+      "spa": 110,
+      "spd": 110,
+      "spe": 30
+    },
+    "types": [
+      "Poison",
+      "Psychic"
+    ],
+    "abilities": [
+      "Curious Medicine",
+      "Own Tempo",
+      "Regenerator"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10172.png"
+  },
+  "Samurott-Hisui": {
+    "name": "Samurott-Hisui",
+    "baseStats": {
+      "hp": 90,
+      "atk": 108,
+      "def": 80,
+      "spa": 100,
+      "spd": 65,
+      "spe": 85
+    },
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Torrent",
+      "Sharpness"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10236.png"
+  },
+  "Clefable-Mega": {
+    "name": "Clefable-Mega",
+    "baseStats": {
+      "hp": 95,
+      "atk": 70,
+      "def": 73,
+      "spa": 95,
+      "spd": 90,
+      "spe": 60
+    },
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Cute Charm",
+      "Magic Guard",
+      "Unaware"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png"
+  },
+  "Floette-Eternal": {
+    "name": "Floette-Eternal",
+    "baseStats": {
+      "hp": 74,
+      "atk": 65,
+      "def": 67,
+      "spa": 125,
+      "spd": 128,
+      "spe": 92
+    },
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Flower Veil",
+      "Symbiosis"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10061.png"
+  },
+  "Chimecho-Mega": {
+    "name": "Chimecho-Mega",
+    "baseStats": {
+      "hp": 75,
+      "atk": 50,
+      "def": 80,
+      "spa": 95,
+      "spd": 90,
+      "spe": 65
+    },
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/358.png"
+  },
+  "Abomasnow-Mega": {
+    "name": "Abomasnow-Mega",
+    "baseStats": {
+      "hp": 90,
+      "atk": 132,
+      "def": 105,
+      "spa": 132,
+      "spd": 105,
+      "spe": 30
+    },
+    "types": [
+      "Grass",
+      "Ice"
+    ],
+    "abilities": [
+      "Snow Warning"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10060.png"
+  },
+  "Hawlucha-Mega": {
+    "name": "Hawlucha-Mega",
+    "baseStats": {
+      "hp": 78,
+      "atk": 92,
+      "def": 75,
+      "spa": 74,
+      "spd": 63,
+      "spe": 118
+    },
+    "types": [
+      "Fighting",
+      "Flying"
+    ],
+    "abilities": [
+      "Limber",
+      "Unburden",
+      "Mold Breaker"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/701.png"
+  },
+  "Excadrill-Mega": {
+    "name": "Excadrill-Mega",
+    "baseStats": {
+      "hp": 110,
+      "atk": 135,
+      "def": 60,
+      "spa": 50,
+      "spd": 65,
+      "spe": 88
+    },
+    "types": [
+      "Ground",
+      "Steel"
+    ],
+    "abilities": [
+      "Sand Rush",
+      "Sand Force",
+      "Mold Breaker"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/530.png"
+  },
+  "Klefki": {
+    "name": "Klefki",
+    "baseStats": {
+      "hp": 57,
+      "atk": 80,
+      "def": 91,
+      "spa": 80,
+      "spd": 87,
+      "spe": 75
+    },
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "abilities": [
+      "Prankster",
+      "Magician"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/707.png"
+  },
+  "Alakazam-Mega": {
+    "name": "Alakazam-Mega",
+    "baseStats": {
+      "hp": 55,
+      "atk": 50,
+      "def": 65,
+      "spa": 175,
+      "spd": 105,
+      "spe": 150
+    },
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Trace"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10037.png"
+  },
+  "Banette-Mega": {
+    "name": "Banette-Mega",
+    "baseStats": {
+      "hp": 64,
+      "atk": 165,
+      "def": 75,
+      "spa": 93,
+      "spd": 83,
+      "spe": 75
+    },
+    "types": [
+      "Ghost"
+    ],
+    "abilities": [
+      "Prankster"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10056.png"
+  },
+  "Slowbro-Mega": {
+    "name": "Slowbro-Mega",
+    "baseStats": {
+      "hp": 95,
+      "atk": 75,
+      "def": 180,
+      "spa": 130,
+      "spd": 80,
+      "spe": 30
+    },
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "abilities": [
+      "Shell Armor"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10071.png"
+  },
+  "Alakazam": {
+    "name": "Alakazam",
+    "baseStats": {
+      "hp": 55,
+      "atk": 50,
+      "def": 45,
+      "spa": 135,
+      "spd": 95,
+      "spe": 120
+    },
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Synchronize",
+      "Inner Focus",
+      "Magic Guard"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png"
+  },
+  "Armarouge": {
+    "name": "Armarouge",
+    "baseStats": {
+      "hp": 85,
+      "atk": 60,
+      "def": 100,
+      "spa": 125,
+      "spd": 80,
+      "spe": 75
+    },
+    "types": [
+      "Fire",
+      "Psychic"
+    ],
+    "abilities": [
+      "Flash Fire",
+      "Weak Armor"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/936.png"
+  },
+  "Mudsdale": {
+    "name": "Mudsdale",
+    "baseStats": {
+      "hp": 100,
+      "atk": 125,
+      "def": 100,
+      "spa": 55,
+      "spd": 85,
+      "spe": 35
+    },
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "Own Tempo",
+      "Stamina",
+      "Inner Focus"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/750.png"
+  },
+  "Rhyperior": {
+    "name": "Rhyperior",
+    "baseStats": {
+      "hp": 115,
+      "atk": 140,
+      "def": 130,
+      "spa": 55,
+      "spd": 55,
+      "spe": 40
+    },
+    "types": [
+      "Ground",
+      "Rock"
+    ],
+    "abilities": [
+      "Lightning Rod",
+      "Solid Rock",
+      "Reckless"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/464.png"
+  },
+  "Lucario": {
+    "name": "Lucario",
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 70,
+      "spa": 115,
+      "spd": 70,
+      "spe": 90
+    },
+    "types": [
+      "Fighting",
+      "Steel"
+    ],
+    "abilities": [
+      "Steadfast",
+      "Inner Focus",
+      "Justified"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png"
+  },
+  "Slowking": {
+    "name": "Slowking",
+    "baseStats": {
+      "hp": 95,
+      "atk": 75,
+      "def": 80,
+      "spa": 100,
+      "spd": 110,
+      "spe": 30
+    },
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "abilities": [
+      "Oblivious",
+      "Own Tempo",
+      "Regenerator"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/199.png"
+  },
+  "Glaceon": {
+    "name": "Glaceon",
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 110,
+      "spa": 130,
+      "spd": 95,
+      "spe": 65
+    },
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Snow Cloak",
+      "Ice Body"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/471.png"
+  },
+  "Krookodile": {
+    "name": "Krookodile",
+    "baseStats": {
+      "hp": 95,
+      "atk": 117,
+      "def": 80,
+      "spa": 65,
+      "spd": 70,
+      "spe": 92
+    },
+    "types": [
+      "Ground",
+      "Dark"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Moxie",
+      "Anger Point"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/553.png"
+  },
+  "Gallade-Mega": {
+    "name": "Gallade-Mega",
+    "baseStats": {
+      "hp": 68,
+      "atk": 165,
+      "def": 95,
+      "spa": 65,
+      "spd": 115,
+      "spe": 110
+    },
+    "types": [
+      "Psychic",
+      "Fighting"
+    ],
+    "abilities": [
+      "Inner Focus"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10068.png"
+  },
+  "Altaria-Mega": {
+    "name": "Altaria-Mega",
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 110,
+      "spa": 110,
+      "spd": 105,
+      "spe": 80
+    },
+    "types": [
+      "Dragon",
+      "Fairy"
+    ],
+    "abilities": [
+      "Pixilate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10067.png"
+  },
+  "Noivern": {
+    "name": "Noivern",
+    "baseStats": {
+      "hp": 85,
+      "atk": 70,
+      "def": 80,
+      "spa": 97,
+      "spd": 80,
+      "spe": 123
+    },
+    "types": [
+      "Flying",
+      "Dragon"
+    ],
+    "abilities": [
+      "Frisk",
+      "Infiltrator",
+      "Telepathy"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/715.png"
+  },
+  "Decidueye-Hisui": {
+    "name": "Decidueye-Hisui",
+    "baseStats": {
+      "hp": 88,
+      "atk": 112,
+      "def": 80,
+      "spa": 95,
+      "spd": 95,
+      "spe": 60
+    },
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Scrappy"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10244.png"
+  },
+  "Victreebel-Mega": {
+    "name": "Victreebel-Mega",
+    "baseStats": {
+      "hp": 80,
+      "atk": 105,
+      "def": 65,
+      "spa": 100,
+      "spd": 70,
+      "spe": 70
+    },
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Gluttony"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png"
+  },
+  "Heracross-Mega": {
+    "name": "Heracross-Mega",
+    "baseStats": {
+      "hp": 80,
+      "atk": 185,
+      "def": 115,
+      "spa": 40,
+      "spd": 105,
+      "spe": 75
+    },
+    "types": [
+      "Bug",
+      "Fighting"
+    ],
+    "abilities": [
+      "Skill Link"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10047.png"
+  },
+  "Beedrill-Mega": {
+    "name": "Beedrill-Mega",
+    "baseStats": {
+      "hp": 65,
+      "atk": 150,
+      "def": 40,
+      "spa": 15,
+      "spd": 80,
+      "spe": 145
+    },
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "abilities": [
+      "Adaptability"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10090.png"
+  },
+  "Cofagrigus": {
+    "name": "Cofagrigus",
+    "baseStats": {
+      "hp": 58,
+      "atk": 50,
+      "def": 145,
+      "spa": 95,
+      "spd": 105,
+      "spe": 30
+    },
+    "types": [
+      "Ghost"
+    ],
+    "abilities": [
+      "Mummy"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/563.png"
+  },
+  "Bellibolt": {
+    "name": "Bellibolt",
+    "baseStats": {
+      "hp": 109,
+      "atk": 64,
+      "def": 91,
+      "spa": 103,
+      "spd": 83,
+      "spe": 45
+    },
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Electromorphosis",
+      "Static",
+      "Damp"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/939.png"
+  },
+  "Ditto": {
+    "name": "Ditto",
+    "baseStats": {
+      "hp": 48,
+      "atk": 48,
+      "def": 48,
+      "spa": 48,
+      "spd": 48,
+      "spe": 48
+    },
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Limber",
+      "Imposter"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png"
+  },
+  "Umbreon": {
+    "name": "Umbreon",
+    "baseStats": {
+      "hp": 95,
+      "atk": 65,
+      "def": 110,
+      "spa": 60,
+      "spd": 130,
+      "spe": 65
+    },
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Synchronize",
+      "Inner Focus"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png"
+  },
+  "Jolteon": {
+    "name": "Jolteon",
+    "baseStats": {
+      "hp": 65,
+      "atk": 65,
+      "def": 60,
+      "spa": 110,
+      "spd": 95,
+      "spe": 130
+    },
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Volt Absorb",
+      "Quick Feet"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png"
+  },
+  "Drampa": {
+    "name": "Drampa",
+    "baseStats": {
+      "hp": 78,
+      "atk": 60,
+      "def": 85,
+      "spa": 135,
+      "spd": 91,
+      "spe": 36
+    },
+    "types": [
+      "Normal",
+      "Dragon"
+    ],
+    "abilities": [
+      "Berserk",
+      "Sap Sipper",
+      "Cloud Nine"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/780.png"
+  },
+  "Alcremie": {
+    "name": "Alcremie",
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 75,
+      "spa": 110,
+      "spd": 121,
+      "spe": 64
+    },
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Sweet Veil",
+      "Aroma Veil"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/869.png"
+  },
+  "Altaria": {
+    "name": "Altaria",
+    "baseStats": {
+      "hp": 75,
+      "atk": 70,
+      "def": 90,
+      "spa": 70,
+      "spd": 105,
+      "spe": 80
+    },
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "abilities": [
+      "Natural Cure",
+      "Cloud Nine"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/334.png"
+  },
+  "Lycanroc": {
+    "name": "Lycanroc",
+    "baseStats": {
+      "hp": 75,
+      "atk": 115,
+      "def": 65,
+      "spa": 55,
+      "spd": 65,
+      "spe": 112
+    },
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Sand Rush",
+      "Steadfast"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/745.png"
+  },
+  "Garganacl": {
+    "name": "Garganacl",
+    "baseStats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 130,
+      "spa": 45,
+      "spd": 90,
+      "spe": 35
+    },
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Purifying Salt",
+      "Sturdy",
+      "Clear Body"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/934.png"
+  },
+  "Hydrapple": {
+    "name": "Hydrapple",
+    "baseStats": {
+      "hp": 106,
+      "atk": 80,
+      "def": 110,
+      "spa": 120,
+      "spd": 80,
+      "spe": 44
+    },
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "abilities": [
+      "Supersweet Syrup",
+      "Regenerator",
+      "Sticky Hold"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1019.png"
+  },
+  "Tauros-Paldea-Blaze": {
+    "name": "Tauros-Paldea-Blaze",
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 105,
+      "spa": 30,
+      "spd": 70,
+      "spe": 100
+    },
+    "types": [
+      "Fighting",
+      "Fire"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Anger Point",
+      "Cud Chew"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10251.png"
+  },
+  "Toxicroak": {
+    "name": "Toxicroak",
+    "baseStats": {
+      "hp": 83,
+      "atk": 106,
+      "def": 65,
+      "spa": 86,
+      "spd": 65,
+      "spe": 85
+    },
+    "types": [
+      "Poison",
+      "Fighting"
+    ],
+    "abilities": [
+      "Anticipation",
+      "Dry Skin",
+      "Poison Touch"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/454.png"
+  },
+  "Liepard": {
+    "name": "Liepard",
+    "baseStats": {
+      "hp": 64,
+      "atk": 88,
+      "def": 50,
+      "spa": 88,
+      "spd": 50,
+      "spe": 106
+    },
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Limber",
+      "Unburden",
+      "Prankster"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/510.png"
+  },
+  "Greninja": {
+    "name": "Greninja",
+    "baseStats": {
+      "hp": 72,
+      "atk": 95,
+      "def": 67,
+      "spa": 103,
+      "spd": 71,
+      "spe": 122
+    },
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Torrent",
+      "Protean"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/658.png"
+  },
+  "Passimian": {
+    "name": "Passimian",
+    "baseStats": {
+      "hp": 100,
+      "atk": 120,
+      "def": 90,
+      "spa": 40,
+      "spd": 60,
+      "spe": 80
+    },
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Receiver",
+      "Defiant"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/766.png"
+  },
+  "Skeledirge": {
+    "name": "Skeledirge",
+    "baseStats": {
+      "hp": 104,
+      "atk": 75,
+      "def": 100,
+      "spa": 110,
+      "spd": 75,
+      "spe": 66
+    },
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "abilities": [
+      "Blaze",
+      "Unaware"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/911.png"
+  },
+  "Reuniclus": {
+    "name": "Reuniclus",
+    "baseStats": {
+      "hp": 110,
+      "atk": 65,
+      "def": 75,
+      "spa": 125,
+      "spd": 85,
+      "spe": 30
+    },
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Overcoat",
+      "Magic Guard",
+      "Regenerator"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/579.png"
+  },
+  "Gliscor": {
+    "name": "Gliscor",
+    "baseStats": {
+      "hp": 75,
+      "atk": 95,
+      "def": 125,
+      "spa": 45,
+      "spd": 75,
+      "spe": 95
+    },
+    "types": [
+      "Ground",
+      "Flying"
+    ],
+    "abilities": [
+      "Hyper Cutter",
+      "Sand Veil",
+      "Poison Heal"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/472.png"
+  },
+  "Toxapex": {
+    "name": "Toxapex",
+    "baseStats": {
+      "hp": 50,
+      "atk": 63,
+      "def": 152,
+      "spa": 53,
+      "spd": 142,
+      "spe": 35
+    },
+    "types": [
+      "Poison",
+      "Water"
+    ],
+    "abilities": [
+      "Merciless",
+      "Limber",
+      "Regenerator"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/748.png"
+  },
+  "Wyrdeer": {
+    "name": "Wyrdeer",
+    "baseStats": {
+      "hp": 103,
+      "atk": 105,
+      "def": 72,
+      "spa": 105,
+      "spd": 75,
+      "spe": 65
+    },
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Frisk",
+      "Sap Sipper"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/899.png"
+  },
+  "Pidgeot-Mega": {
+    "name": "Pidgeot-Mega",
+    "baseStats": {
+      "hp": 83,
+      "atk": 80,
+      "def": 80,
+      "spa": 135,
+      "spd": 80,
+      "spe": 121
+    },
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "No Guard"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10073.png"
+  },
+  "Quaquaval": {
+    "name": "Quaquaval",
+    "baseStats": {
+      "hp": 85,
+      "atk": 120,
+      "def": 80,
+      "spa": 85,
+      "spd": 75,
+      "spe": 85
+    },
+    "types": [
+      "Water",
+      "Fighting"
+    ],
+    "abilities": [
+      "Torrent",
+      "Moxie"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/914.png"
+  },
+  "Emboar-Mega": {
+    "name": "Emboar-Mega",
+    "baseStats": {
+      "hp": 110,
+      "atk": 123,
+      "def": 65,
+      "spa": 100,
+      "spd": 65,
+      "spe": 65
+    },
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "abilities": [
+      "Blaze",
+      "Reckless"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/500.png"
+  },
+  "Pinsir-Mega": {
+    "name": "Pinsir-Mega",
+    "baseStats": {
+      "hp": 65,
+      "atk": 155,
+      "def": 120,
+      "spa": 65,
+      "spd": 90,
+      "spe": 105
+    },
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Aerilate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10040.png"
+  },
+  "Aromatisse": {
+    "name": "Aromatisse",
+    "baseStats": {
+      "hp": 101,
+      "atk": 72,
+      "def": 72,
+      "spa": 99,
+      "spd": 89,
+      "spe": 29
+    },
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Healer",
+      "Aroma Veil"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/683.png"
+  },
+  "Slowbro": {
+    "name": "Slowbro",
+    "baseStats": {
+      "hp": 95,
+      "atk": 75,
+      "def": 110,
+      "spa": 100,
+      "spd": 80,
+      "spe": 30
+    },
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "abilities": [
+      "Oblivious",
+      "Own Tempo",
+      "Regenerator"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png"
+  },
+  "Hippowdon": {
+    "name": "Hippowdon",
+    "baseStats": {
+      "hp": 108,
+      "atk": 112,
+      "def": 118,
+      "spa": 68,
+      "spd": 72,
+      "spe": 47
+    },
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "Sand Stream",
+      "Sand Force"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/450.png"
+  },
+  "Lycanroc-Dusk": {
+    "name": "Lycanroc-Dusk",
+    "baseStats": {
+      "hp": 75,
+      "atk": 117,
+      "def": 65,
+      "spa": 55,
+      "spd": 65,
+      "spe": 110
+    },
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Tough Claws"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10152.png"
+  },
+  "Torterra": {
+    "name": "Torterra",
+    "baseStats": {
+      "hp": 95,
+      "atk": 109,
+      "def": 105,
+      "spa": 75,
+      "spd": 85,
+      "spe": 56
+    },
+    "types": [
+      "Grass",
+      "Ground"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Shell Armor"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/389.png"
+  },
+  "Serperior": {
+    "name": "Serperior",
+    "baseStats": {
+      "hp": 75,
+      "atk": 75,
+      "def": 95,
+      "spa": 75,
+      "spd": 95,
+      "spe": 113
+    },
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Contrary"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/497.png"
+  },
+  "Runerigus": {
+    "name": "Runerigus",
+    "baseStats": {
+      "hp": 58,
+      "atk": 95,
+      "def": 145,
+      "spa": 50,
+      "spd": 105,
+      "spe": 30
+    },
+    "types": [
+      "Ground",
+      "Ghost"
+    ],
+    "abilities": [
+      "Wandering Spirit"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/867.png"
+  },
+  "Machamp": {
+    "name": "Machamp",
+    "baseStats": {
+      "hp": 90,
+      "atk": 130,
+      "def": 80,
+      "spa": 65,
+      "spd": 85,
+      "spe": 55
+    },
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Guts",
+      "No Guard",
+      "Steadfast"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png"
+  },
+  "Slowbro-Galar": {
+    "name": "Slowbro-Galar",
+    "baseStats": {
+      "hp": 95,
+      "atk": 100,
+      "def": 95,
+      "spa": 100,
+      "spd": 70,
+      "spe": 30
+    },
+    "types": [
+      "Poison",
+      "Psychic"
+    ],
+    "abilities": [
+      "Quick Draw",
+      "Own Tempo",
+      "Regenerator"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10165.png"
+  },
+  "Steelix-Mega": {
+    "name": "Steelix-Mega",
+    "baseStats": {
+      "hp": 75,
+      "atk": 125,
+      "def": 230,
+      "spa": 55,
+      "spd": 95,
+      "spe": 30
+    },
+    "types": [
+      "Steel",
+      "Ground"
+    ],
+    "abilities": [
+      "Sand Force"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10072.png"
+  },
+  "Mr. Rime": {
+    "name": "Mr. Rime",
+    "baseStats": {
+      "hp": 80,
+      "atk": 85,
+      "def": 75,
+      "spa": 110,
+      "spd": 100,
+      "spe": 70
+    },
+    "types": [
+      "Ice",
+      "Psychic"
+    ],
+    "abilities": [
+      "Tangled Feet",
+      "Screen Cleaner",
+      "Ice Body"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/866.png"
+  },
+  "Spiritomb": {
+    "name": "Spiritomb",
+    "baseStats": {
+      "hp": 50,
+      "atk": 92,
+      "def": 108,
+      "spa": 92,
+      "spd": 108,
+      "spe": 35
+    },
+    "types": [
+      "Ghost",
+      "Dark"
+    ],
+    "abilities": [
+      "Pressure",
+      "Infiltrator"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/442.png"
+  },
+  "Ariados": {
+    "name": "Ariados",
+    "baseStats": {
+      "hp": 70,
+      "atk": 90,
+      "def": 70,
+      "spa": 60,
+      "spd": 70,
+      "spe": 40
+    },
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "abilities": [
+      "Swarm",
+      "Insomnia",
+      "Sniper"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/168.png"
+  },
+  "Infernape": {
+    "name": "Infernape",
+    "baseStats": {
+      "hp": 76,
+      "atk": 104,
+      "def": 71,
+      "spa": 104,
+      "spd": 71,
+      "spe": 108
+    },
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "abilities": [
+      "Blaze",
+      "Iron Fist"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/392.png"
+  },
+  "Clawitzer": {
+    "name": "Clawitzer",
+    "baseStats": {
+      "hp": 71,
+      "atk": 73,
+      "def": 88,
+      "spa": 120,
+      "spd": 89,
+      "spe": 59
+    },
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Mega Launcher"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/693.png"
+  },
+  "Pangoro": {
+    "name": "Pangoro",
+    "baseStats": {
+      "hp": 95,
+      "atk": 124,
+      "def": 78,
+      "spa": 69,
+      "spd": 71,
+      "spe": 58
+    },
+    "types": [
+      "Fighting",
+      "Dark"
+    ],
+    "abilities": [
+      "Iron Fist",
+      "Mold Breaker",
+      "Scrappy"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/675.png"
+  },
+  "Ninetales": {
+    "name": "Ninetales",
+    "baseStats": {
+      "hp": 73,
+      "atk": 76,
+      "def": 75,
+      "spa": 81,
+      "spd": 100,
+      "spe": 100
+    },
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Flash Fire",
+      "Drought"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png"
+  },
+  "Medicham-Mega": {
+    "name": "Medicham-Mega",
+    "baseStats": {
+      "hp": 60,
+      "atk": 100,
+      "def": 85,
+      "spa": 80,
+      "spd": 85,
+      "spe": 100
+    },
+    "types": [
+      "Fighting",
+      "Psychic"
+    ],
+    "abilities": [
+      "Pure Power"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10054.png"
+  },
+  "Salazzle": {
+    "name": "Salazzle",
+    "baseStats": {
+      "hp": 68,
+      "atk": 64,
+      "def": 60,
+      "spa": 111,
+      "spd": 60,
+      "spe": 117
+    },
+    "types": [
+      "Poison",
+      "Fire"
+    ],
+    "abilities": [
+      "Corrosion",
+      "Oblivious"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/758.png"
+  },
+  "Audino-Mega": {
+    "name": "Audino-Mega",
+    "baseStats": {
+      "hp": 103,
+      "atk": 60,
+      "def": 126,
+      "spa": 80,
+      "spd": 126,
+      "spe": 50
+    },
+    "types": [
+      "Normal",
+      "Fairy"
+    ],
+    "abilities": [
+      "Healer"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10069.png"
+  },
+  "Chesnaught": {
+    "name": "Chesnaught",
+    "baseStats": {
+      "hp": 88,
+      "atk": 107,
+      "def": 122,
+      "spa": 74,
+      "spd": 75,
+      "spe": 64
+    },
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Bulletproof"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/652.png"
+  },
+  "Beartic": {
+    "name": "Beartic",
+    "baseStats": {
+      "hp": 95,
+      "atk": 130,
+      "def": 80,
+      "spa": 70,
+      "spd": 80,
+      "spe": 50
+    },
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Snow Cloak",
+      "Slush Rush",
+      "Swift Swim"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/614.png"
+  },
+  "Pikachu": {
+    "name": "Pikachu",
+    "baseStats": {
+      "hp": 35,
+      "atk": 55,
+      "def": 40,
+      "spa": 50,
+      "spd": 50,
+      "spe": 90
+    },
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static",
+      "Lightning Rod"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+  },
+  "Hawlucha": {
+    "name": "Hawlucha",
+    "baseStats": {
+      "hp": 78,
+      "atk": 92,
+      "def": 75,
+      "spa": 74,
+      "spd": 63,
+      "spe": 118
+    },
+    "types": [
+      "Fighting",
+      "Flying"
+    ],
+    "abilities": [
+      "Limber",
+      "Unburden",
+      "Mold Breaker"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/701.png"
+  },
+  "Sharpedo-Mega": {
+    "name": "Sharpedo-Mega",
+    "baseStats": {
+      "hp": 70,
+      "atk": 140,
+      "def": 70,
+      "spa": 110,
+      "spd": 65,
+      "spe": 105
+    },
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Strong Jaw"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10070.png"
+  },
+  "Meowstic-M-Mega": {
+    "name": "Meowstic-M-Mega",
+    "baseStats": {
+      "hp": 74,
+      "atk": 48,
+      "def": 76,
+      "spa": 83,
+      "spd": 81,
+      "spe": 104
+    },
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Infiltrator",
+      "Prankster"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/678.png"
+  },
+  "Medicham": {
+    "name": "Medicham",
+    "baseStats": {
+      "hp": 60,
+      "atk": 60,
+      "def": 75,
+      "spa": 60,
+      "spd": 75,
+      "spe": 80
+    },
+    "types": [
+      "Fighting",
+      "Psychic"
+    ],
+    "abilities": [
+      "Pure Power",
+      "Telepathy"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/308.png"
+  },
+  "Aurorus": {
+    "name": "Aurorus",
+    "baseStats": {
+      "hp": 123,
+      "atk": 77,
+      "def": 72,
+      "spa": 99,
+      "spd": 92,
+      "spe": 58
+    },
+    "types": [
+      "Rock",
+      "Ice"
+    ],
+    "abilities": [
+      "Refrigerate",
+      "Snow Warning"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/699.png"
+  },
+  "Vaporeon": {
+    "name": "Vaporeon",
+    "baseStats": {
+      "hp": 130,
+      "atk": 65,
+      "def": 60,
+      "spa": 110,
+      "spd": 95,
+      "spe": 65
+    },
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Water Absorb",
+      "Hydration"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png"
+  },
+  "Houndoom-Mega": {
+    "name": "Houndoom-Mega",
+    "baseStats": {
+      "hp": 75,
+      "atk": 90,
+      "def": 90,
+      "spa": 140,
+      "spd": 90,
+      "spe": 115
+    },
+    "types": [
+      "Dark",
+      "Fire"
+    ],
+    "abilities": [
+      "Solar Power"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10048.png"
+  },
+  "Luxray": {
+    "name": "Luxray",
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 79,
+      "spa": 95,
+      "spd": 79,
+      "spe": 70
+    },
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Rivalry",
+      "Intimidate",
+      "Guts"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/405.png"
+  },
+  "Flapple": {
+    "name": "Flapple",
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 80,
+      "spa": 95,
+      "spd": 60,
+      "spe": 70
+    },
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "abilities": [
+      "Ripen",
+      "Gluttony",
+      "Hustle"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/841.png"
+  },
+  "Meowstic-F-Mega": {
+    "name": "Meowstic-F-Mega",
+    "baseStats": {
+      "hp": 74,
+      "atk": 48,
+      "def": 76,
+      "spa": 83,
+      "spd": 81,
+      "spe": 104
+    },
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Infiltrator",
+      "Competitive"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10025.png"
+  },
+  "Espeon": {
+    "name": "Espeon",
+    "baseStats": {
+      "hp": 65,
+      "atk": 65,
+      "def": 60,
+      "spa": 130,
+      "spd": 95,
+      "spe": 110
+    },
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Synchronize",
+      "Magic Bounce"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/196.png"
+  },
+  "Trevenant": {
+    "name": "Trevenant",
+    "baseStats": {
+      "hp": 85,
+      "atk": 110,
+      "def": 76,
+      "spa": 65,
+      "spd": 82,
+      "spe": 56
+    },
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "abilities": [
+      "Natural Cure",
+      "Frisk",
+      "Harvest"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/709.png"
+  },
+  "Scovillain": {
+    "name": "Scovillain",
+    "baseStats": {
+      "hp": 65,
+      "atk": 108,
+      "def": 65,
+      "spa": 108,
+      "spd": 65,
+      "spe": 75
+    },
+    "types": [
+      "Grass",
+      "Fire"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Insomnia",
+      "Moody"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/952.png"
+  },
+  "Sharpedo": {
+    "name": "Sharpedo",
+    "baseStats": {
+      "hp": 70,
+      "atk": 120,
+      "def": 40,
+      "spa": 95,
+      "spd": 40,
+      "spe": 95
+    },
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Rough Skin",
+      "Speed Boost"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/319.png"
+  },
+  "Diggersby": {
+    "name": "Diggersby",
+    "baseStats": {
+      "hp": 85,
+      "atk": 56,
+      "def": 77,
+      "spa": 50,
+      "spd": 77,
+      "spe": 78
+    },
+    "types": [
+      "Normal",
+      "Ground"
+    ],
+    "abilities": [
+      "Pickup",
+      "Cheek Pouch",
+      "Huge Power"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/660.png"
+  },
+  "Charizard": {
+    "name": "Charizard",
+    "baseStats": {
+      "hp": 78,
+      "atk": 84,
+      "def": 78,
+      "spa": 109,
+      "spd": 85,
+      "spe": 100
+    },
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "abilities": [
+      "Blaze",
+      "Solar Power"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
+  },
+  "Sableye-Mega": {
+    "name": "Sableye-Mega",
+    "baseStats": {
+      "hp": 50,
+      "atk": 85,
+      "def": 125,
+      "spa": 85,
+      "spd": 115,
+      "spe": 20
+    },
+    "types": [
+      "Dark",
+      "Ghost"
+    ],
+    "abilities": [
+      "Magic Bounce"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10066.png"
+  },
+  "Avalugg-Hisui": {
+    "name": "Avalugg-Hisui",
+    "baseStats": {
+      "hp": 95,
+      "atk": 127,
+      "def": 184,
+      "spa": 34,
+      "spd": 36,
+      "spe": 38
+    },
+    "types": [
+      "Ice",
+      "Rock"
+    ],
+    "abilities": [
+      "Strong Jaw",
+      "Ice Body",
+      "Sturdy"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10243.png"
+  },
+  "Sandaconda": {
+    "name": "Sandaconda",
+    "baseStats": {
+      "hp": 72,
+      "atk": 107,
+      "def": 125,
+      "spa": 65,
+      "spd": 70,
+      "spe": 71
+    },
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "Sand Spit",
+      "Shed Skin",
+      "Sand Veil"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/844.png"
+  },
+  "Audino": {
+    "name": "Audino",
+    "baseStats": {
+      "hp": 103,
+      "atk": 60,
+      "def": 86,
+      "spa": 60,
+      "spd": 86,
+      "spe": 50
+    },
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Healer",
+      "Regenerator",
+      "Klutz"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/531.png"
+  },
+  "Abomasnow": {
+    "name": "Abomasnow",
+    "baseStats": {
+      "hp": 90,
+      "atk": 92,
+      "def": 75,
+      "spa": 92,
+      "spd": 85,
+      "spe": 60
+    },
+    "types": [
+      "Grass",
+      "Ice"
+    ],
+    "abilities": [
+      "Snow Warning",
+      "Soundproof"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/460.png"
+  },
+  "Rampardos": {
+    "name": "Rampardos",
+    "baseStats": {
+      "hp": 97,
+      "atk": 165,
+      "def": 60,
+      "spa": 65,
+      "spd": 50,
+      "spe": 58
+    },
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Mold Breaker",
+      "Sheer Force"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/409.png"
+  },
+  "Typhlosion": {
+    "name": "Typhlosion",
+    "baseStats": {
+      "hp": 78,
+      "atk": 84,
+      "def": 78,
+      "spa": 109,
+      "spd": 85,
+      "spe": 100
+    },
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Blaze",
+      "Flash Fire"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png"
+  },
+  "Goodra": {
+    "name": "Goodra",
+    "baseStats": {
+      "hp": 90,
+      "atk": 100,
+      "def": 70,
+      "spa": 110,
+      "spd": 150,
+      "spe": 80
+    },
+    "types": [
+      "Dragon"
+    ],
+    "abilities": [
+      "Sap Sipper",
+      "Hydration",
+      "Gooey"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/706.png"
+  },
+  "Tyrantrum": {
+    "name": "Tyrantrum",
+    "baseStats": {
+      "hp": 82,
+      "atk": 121,
+      "def": 119,
+      "spa": 69,
+      "spd": 59,
+      "spe": 71
+    },
+    "types": [
+      "Rock",
+      "Dragon"
+    ],
+    "abilities": [
+      "Strong Jaw",
+      "Rock Head"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/697.png"
+  },
+  "Leafeon": {
+    "name": "Leafeon",
+    "baseStats": {
+      "hp": 65,
+      "atk": 110,
+      "def": 130,
+      "spa": 60,
+      "spd": 65,
+      "spe": 95
+    },
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Leaf Guard",
+      "Chlorophyll"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/470.png"
+  },
+  "Glalie-Mega": {
+    "name": "Glalie-Mega",
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 80,
+      "spa": 120,
+      "spd": 80,
+      "spe": 100
+    },
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Refrigerate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10074.png"
+  },
+  "Gourgeist-Super": {
+    "name": "Gourgeist-Super",
+    "baseStats": {
+      "hp": 85,
+      "atk": 100,
+      "def": 122,
+      "spa": 58,
+      "spd": 75,
+      "spe": 54
+    },
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "abilities": [
+      "Pickup",
+      "Frisk",
+      "Insomnia"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10032.png"
+  },
+  "Golurk": {
+    "name": "Golurk",
+    "baseStats": {
+      "hp": 89,
+      "atk": 124,
+      "def": 80,
+      "spa": 55,
+      "spd": 80,
+      "spe": 55
+    },
+    "types": [
+      "Ground",
+      "Ghost"
+    ],
+    "abilities": [
+      "Iron Fist",
+      "Klutz",
+      "No Guard"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/623.png"
+  },
+  "Roserade": {
+    "name": "Roserade",
+    "baseStats": {
+      "hp": 60,
+      "atk": 70,
+      "def": 65,
+      "spa": 125,
+      "spd": 105,
+      "spe": 90
+    },
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "abilities": [
+      "Natural Cure",
+      "Poison Point",
+      "Technician"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/407.png"
+  },
+  "Avalugg": {
+    "name": "Avalugg",
+    "baseStats": {
+      "hp": 95,
+      "atk": 117,
+      "def": 184,
+      "spa": 44,
+      "spd": 46,
+      "spe": 28
+    },
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Own Tempo",
+      "Ice Body",
+      "Sturdy"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/713.png"
+  },
+  "Appletun": {
+    "name": "Appletun",
+    "baseStats": {
+      "hp": 110,
+      "atk": 85,
+      "def": 80,
+      "spa": 100,
+      "spd": 80,
+      "spe": 30
+    },
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "abilities": [
+      "Ripen",
+      "Gluttony",
+      "Thick Fat"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/842.png"
+  },
+  "Bastiodon": {
+    "name": "Bastiodon",
+    "baseStats": {
+      "hp": 60,
+      "atk": 52,
+      "def": 168,
+      "spa": 47,
+      "spd": 138,
+      "spe": 30
+    },
+    "types": [
+      "Rock",
+      "Steel"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Soundproof"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/411.png"
+  },
+  "Morpeko": {
+    "name": "Morpeko",
+    "baseStats": {
+      "hp": 58,
+      "atk": 95,
+      "def": 58,
+      "spa": 70,
+      "spd": 58,
+      "spe": 97
+    },
+    "types": [
+      "Electric",
+      "Dark"
+    ],
+    "abilities": [
+      "Hunger Switch"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/877.png"
+  },
+  "Absol": {
+    "name": "Absol",
+    "baseStats": {
+      "hp": 65,
+      "atk": 130,
+      "def": 60,
+      "spa": 75,
+      "spd": 60,
+      "spe": 75
+    },
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Pressure",
+      "Super Luck",
+      "Justified"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/359.png"
+  },
+  "Flareon": {
+    "name": "Flareon",
+    "baseStats": {
+      "hp": 65,
+      "atk": 130,
+      "def": 60,
+      "spa": 95,
+      "spd": 110,
+      "spe": 65
+    },
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Flash Fire",
+      "Guts"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png"
+  },
+  "Steelix": {
+    "name": "Steelix",
+    "baseStats": {
+      "hp": 75,
+      "atk": 85,
+      "def": 200,
+      "spa": 55,
+      "spd": 65,
+      "spe": 30
+    },
+    "types": [
+      "Steel",
+      "Ground"
+    ],
+    "abilities": [
+      "Rock Head",
+      "Sturdy",
+      "Sheer Force"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/208.png"
+  },
+  "Toucannon": {
+    "name": "Toucannon",
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 75,
+      "spa": 75,
+      "spd": 75,
+      "spe": 60
+    },
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Skill Link",
+      "Sheer Force"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/733.png"
+  },
+  "Raichu-Alola": {
+    "name": "Raichu-Alola",
+    "baseStats": {
+      "hp": 60,
+      "atk": 85,
+      "def": 50,
+      "spa": 95,
+      "spd": 85,
+      "spe": 110
+    },
+    "types": [
+      "Electric",
+      "Psychic"
+    ],
+    "abilities": [
+      "Surge Surfer"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10100.png"
+  },
+  "Skarmory": {
+    "name": "Skarmory",
+    "baseStats": {
+      "hp": 65,
+      "atk": 80,
+      "def": 140,
+      "spa": 40,
+      "spd": 70,
+      "spe": 70
+    },
+    "types": [
+      "Steel",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Sturdy",
+      "Weak Armor"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/227.png"
+  },
+  "Froslass": {
+    "name": "Froslass",
+    "baseStats": {
+      "hp": 70,
+      "atk": 80,
+      "def": 70,
+      "spa": 80,
+      "spd": 70,
+      "spe": 110
+    },
+    "types": [
+      "Ice",
+      "Ghost"
+    ],
+    "abilities": [
+      "Snow Cloak",
+      "Cursed Body"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/478.png"
+  },
+  "Manectric": {
+    "name": "Manectric",
+    "baseStats": {
+      "hp": 70,
+      "atk": 75,
+      "def": 60,
+      "spa": 105,
+      "spd": 60,
+      "spe": 105
+    },
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static",
+      "Lightning Rod",
+      "Minus"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/310.png"
+  },
+  "Starmie": {
+    "name": "Starmie",
+    "baseStats": {
+      "hp": 60,
+      "atk": 75,
+      "def": 85,
+      "spa": 100,
+      "spd": 85,
+      "spe": 115
+    },
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "abilities": [
+      "Illuminate",
+      "Natural Cure",
+      "Analytic"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png"
+  },
+  "Simipour": {
+    "name": "Simipour",
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 63,
+      "spa": 98,
+      "spd": 63,
+      "spe": 101
+    },
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Gluttony",
+      "Torrent"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/516.png"
+  },
+  "Emolga": {
+    "name": "Emolga",
+    "baseStats": {
+      "hp": 55,
+      "atk": 75,
+      "def": 60,
+      "spa": 75,
+      "spd": 60,
+      "spe": 103
+    },
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "abilities": [
+      "Static",
+      "Motor Drive"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/587.png"
+  },
+  "Crabominable": {
+    "name": "Crabominable",
+    "baseStats": {
+      "hp": 97,
+      "atk": 132,
+      "def": 77,
+      "spa": 62,
+      "spd": 67,
+      "spe": 43
+    },
+    "types": [
+      "Fighting",
+      "Ice"
+    ],
+    "abilities": [
+      "Hyper Cutter",
+      "Iron Fist",
+      "Anger Point"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/740.png"
+  },
+  "Absol-Mega": {
+    "name": "Absol-Mega",
+    "baseStats": {
+      "hp": 65,
+      "atk": 150,
+      "def": 60,
+      "spa": 115,
+      "spd": 60,
+      "spe": 115
+    },
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Magic Bounce"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10057.png"
+  },
+  "Aggron": {
+    "name": "Aggron",
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 180,
+      "spa": 60,
+      "spd": 60,
+      "spe": 50
+    },
+    "types": [
+      "Steel",
+      "Rock"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Rock Head",
+      "Heavy Metal"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/306.png"
+  },
+  "Decidueye": {
+    "name": "Decidueye",
+    "baseStats": {
+      "hp": 78,
+      "atk": 107,
+      "def": 75,
+      "spa": 100,
+      "spd": 100,
+      "spe": 70
+    },
+    "types": [
+      "Grass",
+      "Ghost"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Long Reach"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/724.png"
+  },
+  "Stunfisk": {
+    "name": "Stunfisk",
+    "baseStats": {
+      "hp": 109,
+      "atk": 66,
+      "def": 84,
+      "spa": 81,
+      "spd": 99,
+      "spe": 32
+    },
+    "types": [
+      "Ground",
+      "Electric"
+    ],
+    "abilities": [
+      "Static",
+      "Limber",
+      "Sand Veil"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/618.png"
+  },
+  "Castform": {
+    "name": "Castform",
+    "baseStats": {
+      "hp": 70,
+      "atk": 70,
+      "def": 70,
+      "spa": 70,
+      "spd": 70,
+      "spe": 70
+    },
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Forecast"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/351.png"
+  },
+  "Heracross": {
+    "name": "Heracross",
+    "baseStats": {
+      "hp": 80,
+      "atk": 125,
+      "def": 75,
+      "spa": 40,
+      "spd": 95,
+      "spe": 85
+    },
+    "types": [
+      "Bug",
+      "Fighting"
+    ],
+    "abilities": [
+      "Swarm",
+      "Guts",
+      "Moxie"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/214.png"
+  },
+  "Zoroark": {
+    "name": "Zoroark",
+    "baseStats": {
+      "hp": 60,
+      "atk": 105,
+      "def": 60,
+      "spa": 120,
+      "spd": 60,
+      "spe": 105
+    },
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Illusion"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/571.png"
+  },
+  "Polteageist": {
+    "name": "Polteageist",
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 65,
+      "spa": 134,
+      "spd": 114,
+      "spe": 70
+    },
+    "types": [
+      "Ghost"
+    ],
+    "abilities": [
+      "Weak Armor",
+      "Cursed Body"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/855.png"
+  },
+  "Florges": {
+    "name": "Florges",
+    "baseStats": {
+      "hp": 78,
+      "atk": 65,
+      "def": 68,
+      "spa": 112,
+      "spd": 154,
+      "spe": 75
+    },
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Flower Veil",
+      "Symbiosis"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/671.png"
+  },
+  "Rotom-Fan": {
+    "name": "Rotom-Fan",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10011.png"
+  },
+  "Arbok": {
+    "name": "Arbok",
+    "baseStats": {
+      "hp": 60,
+      "atk": 95,
+      "def": 69,
+      "spa": 65,
+      "spd": 79,
+      "spe": 80
+    },
+    "types": [
+      "Poison"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Shed Skin",
+      "Unnerve"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/24.png"
+  },
+  "Chimecho": {
+    "name": "Chimecho",
+    "baseStats": {
+      "hp": 75,
+      "atk": 50,
+      "def": 80,
+      "spa": 95,
+      "spd": 90,
+      "spe": 65
+    },
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/358.png"
+  },
+  "Lycanroc-Midnight": {
+    "name": "Lycanroc-Midnight",
+    "baseStats": {
+      "hp": 85,
+      "atk": 115,
+      "def": 75,
+      "spa": 55,
+      "spd": 75,
+      "spe": 82
+    },
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Vital Spirit",
+      "No Guard"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10126.png"
+  },
+  "Gourgeist": {
+    "name": "Gourgeist",
+    "baseStats": {
+      "hp": 65,
+      "atk": 90,
+      "def": 122,
+      "spa": 58,
+      "spd": 75,
+      "spe": 84
+    },
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "abilities": [
+      "Pickup",
+      "Frisk",
+      "Insomnia"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/711.png"
+  },
+  "Garbodor": {
+    "name": "Garbodor",
+    "baseStats": {
+      "hp": 80,
+      "atk": 95,
+      "def": 82,
+      "spa": 60,
+      "spd": 82,
+      "spe": 75
+    },
+    "types": [
+      "Poison"
+    ],
+    "abilities": [
+      "Stench",
+      "Weak Armor",
+      "Aftermath"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/569.png"
+  },
+  "Glalie": {
+    "name": "Glalie",
+    "baseStats": {
+      "hp": 80,
+      "atk": 80,
+      "def": 80,
+      "spa": 80,
+      "spd": 80,
+      "spe": 80
+    },
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Inner Focus",
+      "Ice Body",
+      "Moody"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/362.png"
+  },
+  "Delphox": {
+    "name": "Delphox",
+    "baseStats": {
+      "hp": 75,
+      "atk": 69,
+      "def": 72,
+      "spa": 114,
+      "spd": 100,
+      "spe": 104
+    },
+    "types": [
+      "Fire",
+      "Psychic"
+    ],
+    "abilities": [
+      "Blaze",
+      "Magician"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/655.png"
+  },
+  "Ampharos": {
+    "name": "Ampharos",
+    "baseStats": {
+      "hp": 90,
+      "atk": 75,
+      "def": 85,
+      "spa": 115,
+      "spd": 90,
+      "spe": 55
+    },
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static",
+      "Plus"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/181.png"
+  },
+  "Dedenne": {
+    "name": "Dedenne",
+    "baseStats": {
+      "hp": 67,
+      "atk": 58,
+      "def": 57,
+      "spa": 81,
+      "spd": 67,
+      "spe": 101
+    },
+    "types": [
+      "Electric",
+      "Fairy"
+    ],
+    "abilities": [
+      "Cheek Pouch",
+      "Pickup",
+      "Plus"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/702.png"
+  },
+  "Emboar": {
+    "name": "Emboar",
+    "baseStats": {
+      "hp": 110,
+      "atk": 123,
+      "def": 65,
+      "spa": 100,
+      "spd": 65,
+      "spe": 65
+    },
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "abilities": [
+      "Blaze",
+      "Reckless"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/500.png"
+  },
+  "Simisage": {
+    "name": "Simisage",
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 63,
+      "spa": 98,
+      "spd": 63,
+      "spe": 101
+    },
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Gluttony",
+      "Overgrow"
+    ],
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/512.png"
+  }
+}

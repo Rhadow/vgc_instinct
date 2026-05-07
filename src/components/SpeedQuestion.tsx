@@ -18,6 +18,8 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import type { SpeedQuestion } from '../quiz/questionTypes';
+import type { SpeedContext } from '../data/types';
+import { calcFinalSpeedWithBreakdown } from '../calc/speed';
 import { PokemonCard } from './PokemonCard';
 
 interface SpeedQuestionViewProps {
@@ -31,13 +33,13 @@ function SortableCard({
   question,
   index,
   answered,
-  correctPosition,
+  isCorrectPos,
 }: {
   id: string;
   question: SpeedQuestion;
   index: number;
   answered: boolean;
-  correctPosition: number | null;
+  isCorrectPos: boolean | null;
 }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
     useSortable({ id, disabled: answered });
@@ -54,8 +56,8 @@ function SortableCard({
   const sprite = question.sprites[pokemonIndex];
 
   let highlight: 'correct' | 'wrong' | null = null;
-  if (answered && correctPosition !== null) {
-    highlight = correctPosition === index ? 'correct' : 'wrong';
+  if (answered && isCorrectPos !== null) {
+    highlight = isCorrectPos ? 'correct' : 'wrong';
   }
 
   const speed = answered
@@ -82,9 +84,17 @@ function SortableCard({
   );
 }
 
+const WEATHER_EMOJI: Record<string, string> = {
+  Sun: '☀️',
+  Rain: '🌧️',
+  Sand: '🏜️',
+  Snow: '❄️',
+};
+
 export function SpeedQuestionView({ question, onAnswer, answered }: SpeedQuestionViewProps) {
   const initialOrder = question.pokemons.map((_, i) => `card-${i}`);
   const [items, setItems] = useState(initialOrder);
+  const [showBreakdown, setShowBreakdown] = useState(false);
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
@@ -108,9 +118,23 @@ export function SpeedQuestionView({ question, onAnswer, answered }: SpeedQuestio
     onAnswer(order);
   };
 
-  // Map correct positions for highlighting
-  const correctIndices = answered
-    ? question.correctOrder.map((r) => question.pokemons.indexOf(r.pokemon))
+  // Map correct positions for highlighting no longer uses absolute indices,
+  // we will check speeds inline for ties.
+
+  // Generate speed breakdowns for each Pokémon
+  const breakdowns = answered
+    ? question.correctOrder.map((r) => {
+        const i = question.pokemons.indexOf(r.pokemon);
+        const ctx: SpeedContext = {
+          pokemon: r.pokemon,
+          trickRoom: question.trickRoom,
+          tailwind: question.tailwind[i],
+          statStage: question.statStages[i],
+          paralysis: question.paralysis[i],
+          weather: question.weather,
+        };
+        return calcFinalSpeedWithBreakdown(ctx);
+      })
     : null;
 
   return (
@@ -120,6 +144,11 @@ export function SpeedQuestionView({ question, onAnswer, answered }: SpeedQuestio
         {question.trickRoom && (
           <span className="bg-accent-pink/20 text-accent-pink border border-accent-pink/30 text-xs font-medium px-3 py-1 rounded-full">
             🔮 Trick Room
+          </span>
+        )}
+        {question.weather && (
+          <span className="bg-accent-amber/20 text-accent-amber border border-accent-amber/30 text-xs font-medium px-3 py-1 rounded-full">
+            {WEATHER_EMOJI[question.weather]} {question.weather}
           </span>
         )}
         {question.tailwind.some(Boolean) && (
@@ -137,7 +166,7 @@ export function SpeedQuestionView({ question, onAnswer, answered }: SpeedQuestio
             📉 Speed {question.statStages.find((s) => s !== 0)}: {question.pokemons.filter((_, i) => question.statStages[i] !== 0).map((p) => p.name).join(', ')}
           </span>
         )}
-        {!question.trickRoom && !question.tailwind.some(Boolean) && !question.paralysis.some(Boolean) && !question.statStages.some((s) => s !== 0) && (
+        {!question.trickRoom && !question.weather && !question.tailwind.some(Boolean) && !question.paralysis.some(Boolean) && !question.statStages.some((s) => s !== 0) && (
           <span className="text-text-muted text-xs">No field conditions</span>
         )}
       </div>
@@ -152,9 +181,13 @@ export function SpeedQuestionView({ question, onAnswer, answered }: SpeedQuestio
           <div className="space-y-3">
             {items.map((id, index) => {
               const pokemonIndex = parseInt(id.split('-')[1]);
-              const correctPos = correctIndices
-                ? correctIndices.indexOf(pokemonIndex)
-                : null;
+              
+              let isCorrectPos: boolean | null = null;
+              if (answered) {
+                const userSpeed = question.correctOrder.find((r) => r.pokemon === question.pokemons[pokemonIndex])?.finalSpeed;
+                const expectedSpeed = question.correctOrder[index].finalSpeed;
+                isCorrectPos = userSpeed === expectedSpeed;
+              }
 
               return (
                 <SortableCard
@@ -163,7 +196,7 @@ export function SpeedQuestionView({ question, onAnswer, answered }: SpeedQuestio
                   question={question}
                   index={index}
                   answered={answered}
-                  correctPosition={correctPos !== null && correctPos === index ? index : correctPos}
+                  isCorrectPos={isCorrectPos}
                 />
               );
             })}
@@ -179,6 +212,46 @@ export function SpeedQuestionView({ question, onAnswer, answered }: SpeedQuestio
         >
           Submit Order
         </button>
+      )}
+
+      {/* Speed breakdown detail (after answer) */}
+      {answered && breakdowns && (
+        <div className="mt-4">
+          <button
+            onClick={() => setShowBreakdown(!showBreakdown)}
+            className="w-full text-xs text-text-muted hover:text-text-secondary transition-colors text-center py-2"
+          >
+            {showBreakdown ? '▲ Hide Calculation Details' : '▼ Show Calculation Details'}
+          </button>
+
+          {showBreakdown && (
+            <div className="bg-bg-secondary rounded-xl p-4 space-y-4 animate-fade-in border border-border">
+              {question.correctOrder.map((result, orderIdx) => {
+                const bd = breakdowns[orderIdx];
+                return (
+                  <div key={orderIdx} className="space-y-1">
+                    <p className="text-xs font-bold text-text-primary">
+                      #{orderIdx + 1} {result.pokemon.name}
+                      <span className="ml-2 text-accent-blue font-mono">→ {result.finalSpeed}</span>
+                    </p>
+                    {bd.breakdown.map((step, stepIdx) => (
+                      <div key={stepIdx} className="flex items-baseline gap-2 text-[11px] text-text-secondary pl-4">
+                        <span className="text-text-muted shrink-0">{stepIdx === 0 ? '=' : '→'}</span>
+                        <span className="font-mono text-accent-blue">{step.value}</span>
+                        <span className="text-text-muted truncate">{step.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })}
+              {question.trickRoom && (
+                <p className="text-[11px] text-accent-pink italic pt-1 border-t border-border">
+                  🔮 Trick Room reverses turn order — slowest moves first
+                </p>
+              )}
+            </div>
+          )}
+        </div>
       )}
     </div>
   );

@@ -23,7 +23,9 @@ export interface AppPokemon {
   name: string;
   baseStats: BaseStats;
   types: string[];
+  /** Display name (e.g. "Swift Swim", "Intimidate"). Normalized at the data boundary. */
   ability: string;
+  /** Smogon ID (e.g. "choicescarf", "sitrusberry"). Use getItemDisplayName() for rendering. */
   item: string;
   spread: EVSpread;
   level: number;
@@ -48,6 +50,7 @@ export interface AppField {
 
 export interface PokemonMetaData {
   name: string;
+  usage: number;
   spreads: EVSpread[];
   moves: string[];
   items: string[];
@@ -77,6 +80,7 @@ export interface SpeedContext {
   tailwind: boolean;
   statStage: number; // -6 to +6
   paralysis: boolean;
+  weather?: 'Sun' | 'Rain' | 'Sand' | 'Snow';
 }
 
 export interface SpeedResult {

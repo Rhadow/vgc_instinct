@@ -16,7 +16,7 @@ const SPEED_NATURES_MINUS = [
 ];
 
 /** Stat stage multiplier table: stage → multiplier fraction [numerator, denominator] */
-const STAGE_MULTIPLIERS: Record<number, [number, number]> = {
+const STAGE_MULTIPLIERS: Record<string, [number, number]> = {
   '-6': [2, 8],
   '-5': [2, 7],
   '-4': [2, 6],
@@ -32,10 +32,24 @@ const STAGE_MULTIPLIERS: Record<number, [number, number]> = {
   '6': [8, 2],
 };
 
+/** Weather-based speed-doubling abilities */
+const WEATHER_SPEED_ABILITIES: Record<string, string> = {
+  'Swift Swim': 'Rain',
+  'Chlorophyll': 'Sun',
+  'Sand Rush': 'Sand',
+  'Slush Rush': 'Snow',
+};
+
 function getNatureMultiplier(nature: string): number {
   if (SPEED_NATURES_PLUS.includes(nature)) return 1.1;
   if (SPEED_NATURES_MINUS.includes(nature)) return 0.9;
   return 1.0;
+}
+
+function getNatureLabel(nature: string): string {
+  if (SPEED_NATURES_PLUS.includes(nature)) return '+Spe';
+  if (SPEED_NATURES_MINUS.includes(nature)) return '-Spe';
+  return 'neutral';
 }
 
 /**
@@ -54,56 +68,102 @@ export function calcBaseStat(
   return raw;
 }
 
+export interface SpeedBreakdownStep {
+  label: string;
+  value: number;
+  formula?: string;
+}
+
 /**
- * Calculate the final in-battle speed after all modifiers.
+ * Calculate the final in-battle speed after all modifiers,
+ * returning both the final speed and a step-by-step breakdown.
  * 
  * Modifier application order (each applied then floored):
  * 1. Stat stages (Icy Wind, Electroweb, etc.)
  * 2. Paralysis (×0.5)
  * 3. Items: Choice Scarf (×1.5), Iron Ball (×0.5)
- * 4. Abilities: speed-doubling abilities in weather
+ * 4. Abilities: weather speed-doubling (Swift Swim, Chlorophyll, Sand Rush, Slush Rush)
  * 5. Tailwind (×2)
  */
 export function calcFinalSpeed(ctx: SpeedContext): number {
+  return calcFinalSpeedWithBreakdown(ctx).finalSpeed;
+}
+
+export function calcFinalSpeedWithBreakdown(ctx: SpeedContext): {
+  finalSpeed: number;
+  breakdown: SpeedBreakdownStep[];
+} {
   const { pokemon } = ctx;
   const iv = pokemon.ivs?.spe ?? 31;
-  let speed = calcBaseStat(pokemon.baseStats.spe, iv, pokemon.spread.spe, pokemon.spread.nature);
+  const baseSpe = pokemon.baseStats.spe;
+  const ev = pokemon.spread.spe;
+  const nature = pokemon.spread.nature;
+
+  const breakdown: SpeedBreakdownStep[] = [];
+
+  let speed = calcBaseStat(baseSpe, iv, ev, nature);
+  breakdown.push({
+    label: `Base stat (${baseSpe} base, ${ev} EV, ${iv} IV, ${getNatureLabel(nature)})`,
+    value: speed,
+    formula: `floor((floor((2×${baseSpe}+${iv}+floor(${ev}/4))×50/100)+5)×${getNatureMultiplier(nature)})`,
+  });
 
   // 1. Stat stages
   if (ctx.statStage !== 0) {
     const clampedStage = Math.max(-6, Math.min(6, ctx.statStage));
-    const [num, den] = STAGE_MULTIPLIERS[clampedStage.toString() as unknown as number] ?? [1, 1];
+    const [num, den] = STAGE_MULTIPLIERS[clampedStage.toString()] ?? [1, 1];
     speed = Math.floor(speed * num / den);
+    breakdown.push({
+      label: `Speed stage ${ctx.statStage > 0 ? '+' : ''}${ctx.statStage} (×${num}/${den})`,
+      value: speed,
+    });
   }
 
   // 2. Paralysis
   if (ctx.paralysis) {
     speed = Math.floor(speed * 0.5);
+    breakdown.push({
+      label: 'Paralysis (×0.5)',
+      value: speed,
+    });
   }
 
   // 3. Items
-  if (pokemon.item === 'Choice Scarf') {
+  if (pokemon.item === 'choicescarf') {
     speed = Math.floor(speed * 1.5);
+    breakdown.push({
+      label: 'Choice Scarf (×1.5)',
+      value: speed,
+    });
   }
-  if (pokemon.item === 'Iron Ball') {
+  if (pokemon.item === 'ironball') {
     speed = Math.floor(speed * 0.5);
+    breakdown.push({
+      label: 'Iron Ball (×0.5)',
+      value: speed,
+    });
   }
 
-  // 4. Abilities (speed-doubling)
-  const ability = pokemon.ability;
-  if (['Unburden'].includes(ability)) {
-    // Unburden doubles speed when item is consumed — simplified for quiz context
-    // In quiz mode we treat it as active if the ability is Unburden
+  // 4. Weather abilities
+  const abilityWeather = WEATHER_SPEED_ABILITIES[pokemon.ability];
+  if (abilityWeather && ctx.weather === abilityWeather) {
+    speed = Math.floor(speed * 2);
+    breakdown.push({
+      label: `${pokemon.ability} in ${ctx.weather} (×2)`,
+      value: speed,
+    });
   }
-  // Swift Swim, Chlorophyll, Sand Rush, Slush Rush — would need weather context
-  // For quiz generation, the engine will handle these when setting up the question
 
   // 5. Tailwind
   if (ctx.tailwind) {
     speed = Math.floor(speed * 2);
+    breakdown.push({
+      label: 'Tailwind (×2)',
+      value: speed,
+    });
   }
 
-  return speed;
+  return { finalSpeed: speed, breakdown };
 }
 
 /**

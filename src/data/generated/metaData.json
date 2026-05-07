@@ -1,6 +1,7 @@
 {
   "Sneasler": {
     "name": "Sneasler",
+    "usage": 0.4385189,
     "spreads": [
       {
         "nature": "Jolly",
@@ -49,6 +50,7 @@
   },
   "Garchomp": {
     "name": "Garchomp",
+    "usage": 0.37232109999999996,
     "spreads": [
       {
         "nature": "Jolly",
@@ -97,6 +99,7 @@
   },
   "Incineroar": {
     "name": "Incineroar",
+    "usage": 0.3682858,
     "spreads": [
       {
         "nature": "Careful",
@@ -145,6 +148,7 @@
   },
   "Kingambit": {
     "name": "Kingambit",
+    "usage": 0.3380545,
     "spreads": [
       {
         "nature": "Adamant",
@@ -193,6 +197,7 @@
   },
   "Basculegion": {
     "name": "Basculegion",
+    "usage": 0.3270075,
     "spreads": [
       {
         "nature": "Jolly",
@@ -241,6 +246,7 @@
   },
   "Sinistcha": {
     "name": "Sinistcha",
+    "usage": 0.2842768,
     "spreads": [
       {
         "nature": "Bold",
@@ -289,6 +295,7 @@
   },
   "Floette-Mega": {
     "name": "Floette-Mega",
+    "usage": 0.1921677,
     "spreads": [
       {
         "nature": "Timid",
@@ -334,6 +341,7 @@
   },
   "Aerodactyl": {
     "name": "Aerodactyl",
+    "usage": 0.1607041,
     "spreads": [
       {
         "nature": "Jolly",
@@ -382,6 +390,7 @@
   },
   "Pelipper": {
     "name": "Pelipper",
+    "usage": 0.1526047,
     "spreads": [
       {
         "nature": "Timid",
@@ -430,6 +439,7 @@
   },
   "Charizard-Mega-Y": {
     "name": "Charizard-Mega-Y",
+    "usage": 0.1470251,
     "spreads": [
       {
         "nature": "Timid",
@@ -475,6 +485,7 @@
   },
   "Rotom-Wash": {
     "name": "Rotom-Wash",
+    "usage": 0.1466828,
     "spreads": [
       {
         "nature": "Timid",
@@ -522,6 +533,7 @@
   },
   "Farigiraf": {
     "name": "Farigiraf",
+    "usage": 0.1452775,
     "spreads": [
       {
         "nature": "Quiet",
@@ -570,6 +582,7 @@
   },
   "Archaludon": {
     "name": "Archaludon",
+    "usage": 0.1322536,
     "spreads": [
       {
         "nature": "Timid",
@@ -618,6 +631,7 @@
   },
   "Milotic": {
     "name": "Milotic",
+    "usage": 0.12137460000000001,
     "spreads": [
       {
         "nature": "Bold",
@@ -666,6 +680,7 @@
   },
   "Whimsicott": {
     "name": "Whimsicott",
+    "usage": 0.11471450000000001,
     "spreads": [
       {
         "nature": "Timid",
@@ -714,6 +729,7 @@
   },
   "Aegislash": {
     "name": "Aegislash",
+    "usage": 0.0872979,
     "spreads": [
       {
         "nature": "Adamant",
@@ -761,6 +777,7 @@
   },
   "Froslass-Mega": {
     "name": "Froslass-Mega",
+    "usage": 0.0835862,
     "spreads": [
       {
         "nature": "Timid",
@@ -806,6 +823,7 @@
   },
   "Talonflame": {
     "name": "Talonflame",
+    "usage": 0.07700109999999999,
     "spreads": [
       {
         "nature": "Jolly",
@@ -854,6 +872,7 @@
   },
   "Tyranitar-Mega": {
     "name": "Tyranitar-Mega",
+    "usage": 0.07584010000000001,
     "spreads": [
       {
         "nature": "Adamant",
@@ -899,6 +918,7 @@
   },
   "Maushold": {
     "name": "Maushold",
+    "usage": 0.0748436,
     "spreads": [
       {
         "nature": "Jolly",
@@ -947,6 +967,7 @@
   },
   "Gengar-Mega": {
     "name": "Gengar-Mega",
+    "usage": 0.0729956,
     "spreads": [
       {
         "nature": "Timid",
@@ -992,6 +1013,7 @@
   },
   "Delphox-Mega": {
     "name": "Delphox-Mega",
+    "usage": 0.0674906,
     "spreads": [
       {
         "nature": "Timid",
@@ -1037,6 +1059,7 @@
   },
   "Corviknight": {
     "name": "Corviknight",
+    "usage": 0.06616380000000001,
     "spreads": [
       {
         "nature": "Adamant",
@@ -1085,6 +1108,7 @@
   },
   "Meganium-Mega": {
     "name": "Meganium-Mega",
+    "usage": 0.0632098,
     "spreads": [
       {
         "nature": "Modest",
@@ -1130,6 +1154,7 @@
   },
   "Aerodactyl-Mega": {
     "name": "Aerodactyl-Mega",
+    "usage": 0.063045,
     "spreads": [
       {
         "nature": "Jolly",
@@ -1175,6 +1200,7 @@
   },
   "Sylveon": {
     "name": "Sylveon",
+    "usage": 0.056479299999999996,
     "spreads": [
       {
         "nature": "Quiet",
@@ -1223,6 +1249,7 @@
   },
   "Torkoal": {
     "name": "Torkoal",
+    "usage": 0.0524878,
     "spreads": [
       {
         "nature": "Quiet",
@@ -1271,6 +1298,7 @@
   },
   "Blastoise-Mega": {
     "name": "Blastoise-Mega",
+    "usage": 0.0512584,
     "spreads": [
       {
         "nature": "Quiet",
@@ -1316,6 +1344,7 @@
   },
   "Venusaur": {
     "name": "Venusaur",
+    "usage": 0.049563499999999996,
     "spreads": [
       {
         "nature": "Modest",
@@ -1364,6 +1393,7 @@
   },
   "Excadrill": {
     "name": "Excadrill",
+    "usage": 0.0495195,
     "spreads": [
       {
         "nature": "Adamant",
@@ -1412,6 +1442,7 @@
   },
   "Kommo-o": {
     "name": "Kommo-o",
+    "usage": 0.0494334,
     "spreads": [
       {
         "nature": "Timid",
@@ -1460,6 +1491,7 @@
   },
   "Gardevoir-Mega": {
     "name": "Gardevoir-Mega",
+    "usage": 0.0494102,
     "spreads": [
       {
         "nature": "Modest",
@@ -1505,6 +1537,7 @@
   },
   "Dragonite-Mega": {
     "name": "Dragonite-Mega",
+    "usage": 0.0494072,
     "spreads": [
       {
         "nature": "Modest",
@@ -1550,6 +1583,7 @@
   },
   "Scovillain-Mega": {
     "name": "Scovillain-Mega",
+    "usage": 0.047599,
     "spreads": [
       {
         "nature": "Calm",
@@ -1595,6 +1629,7 @@
   },
   "Primarina": {
     "name": "Primarina",
+    "usage": 0.0467876,
     "spreads": [
       {
         "nature": "Modest",
@@ -1643,6 +1678,7 @@
   },
   "Sableye": {
     "name": "Sableye",
+    "usage": 0.044896399999999996,
     "spreads": [
       {
         "nature": "Calm",
@@ -1691,6 +1727,7 @@
   },
   "Tyranitar": {
     "name": "Tyranitar",
+    "usage": 0.0425956,
     "spreads": [
       {
         "nature": "Jolly",
@@ -1739,6 +1776,7 @@
   },
   "Scizor-Mega": {
     "name": "Scizor-Mega",
+    "usage": 0.0412092,
     "spreads": [
       {
         "nature": "Adamant",
@@ -1784,6 +1822,7 @@
   },
   "Kangaskhan-Mega": {
     "name": "Kangaskhan-Mega",
+    "usage": 0.040989000000000005,
     "spreads": [
       {
         "nature": "Adamant",
@@ -1829,6 +1868,7 @@
   },
   "Ninetales-Alola": {
     "name": "Ninetales-Alola",
+    "usage": 0.0378733,
     "spreads": [
       {
         "nature": "Timid",
@@ -1877,6 +1917,7 @@
   },
   "Venusaur-Mega": {
     "name": "Venusaur-Mega",
+    "usage": 0.0362155,
     "spreads": [
       {
         "nature": "Modest",
@@ -1922,6 +1963,7 @@
   },
   "Politoed": {
     "name": "Politoed",
+    "usage": 0.0338036,
     "spreads": [
       {
         "nature": "Calm",
@@ -1970,6 +2012,7 @@
   },
   "Dragonite": {
     "name": "Dragonite",
+    "usage": 0.0324864,
     "spreads": [
       {
         "nature": "Adamant",
@@ -2018,6 +2061,7 @@
   },
   "Rotom-Heat": {
     "name": "Rotom-Heat",
+    "usage": 0.0305465,
     "spreads": [
       {
         "nature": "Timid",
@@ -2065,6 +2109,7 @@
   },
   "Dragapult": {
     "name": "Dragapult",
+    "usage": 0.0272045,
     "spreads": [
       {
         "nature": "Jolly",
@@ -2113,6 +2158,7 @@
   },
   "Hydreigon": {
     "name": "Hydreigon",
+    "usage": 0.026032000000000003,
     "spreads": [
       {
         "nature": "Modest",
@@ -2160,6 +2206,7 @@
   },
   "Glimmora-Mega": {
     "name": "Glimmora-Mega",
+    "usage": 0.0227589,
     "spreads": [
       {
         "nature": "Timid",
@@ -2205,6 +2252,7 @@
   },
   "Aggron-Mega": {
     "name": "Aggron-Mega",
+    "usage": 0.0221582,
     "spreads": [
       {
         "nature": "Careful",
@@ -2250,6 +2298,7 @@
   },
   "Volcarona": {
     "name": "Volcarona",
+    "usage": 0.021881400000000002,
     "spreads": [
       {
         "nature": "Bold",
@@ -2298,6 +2347,7 @@
   },
   "Tsareena": {
     "name": "Tsareena",
+    "usage": 0.021827,
     "spreads": [
       {
         "nature": "Jolly",
@@ -2346,6 +2396,7 @@
   },
   "Palafin": {
     "name": "Palafin",
+    "usage": 0.021779299999999998,
     "spreads": [
       {
         "nature": "Adamant",
@@ -2393,6 +2444,7 @@
   },
   "Charizard-Mega-X": {
     "name": "Charizard-Mega-X",
+    "usage": 0.0213367,
     "spreads": [
       {
         "nature": "Adamant",
@@ -2438,6 +2490,7 @@
   },
   "Clefable": {
     "name": "Clefable",
+    "usage": 0.02008,
     "spreads": [
       {
         "nature": "Bold",
@@ -2486,6 +2539,7 @@
   },
   "Crabominable-Mega": {
     "name": "Crabominable-Mega",
+    "usage": 0.0190155,
     "spreads": [
       {
         "nature": "Brave",
@@ -2531,6 +2585,7 @@
   },
   "Arcanine-Hisui": {
     "name": "Arcanine-Hisui",
+    "usage": 0.0188393,
     "spreads": [
       {
         "nature": "Jolly",
@@ -2579,6 +2634,7 @@
   },
   "Starmie-Mega": {
     "name": "Starmie-Mega",
+    "usage": 0.0187142,
     "spreads": [
       {
         "nature": "Jolly",
@@ -2624,6 +2680,7 @@
   },
   "Lopunny-Mega": {
     "name": "Lopunny-Mega",
+    "usage": 0.0178566,
     "spreads": [
       {
         "nature": "Jolly",
@@ -2669,6 +2726,7 @@
   },
   "Typhlosion-Hisui": {
     "name": "Typhlosion-Hisui",
+    "usage": 0.0177963,
     "spreads": [
       {
         "nature": "Modest",
@@ -2717,6 +2775,7 @@
   },
   "Zoroark-Hisui": {
     "name": "Zoroark-Hisui",
+    "usage": 0.0159199,
     "spreads": [
       {
         "nature": "Timid",
@@ -2764,6 +2823,7 @@
   },
   "Golurk-Mega": {
     "name": "Golurk-Mega",
+    "usage": 0.0147439,
     "spreads": [
       {
         "nature": "Brave",
@@ -2809,6 +2869,7 @@
   },
   "Orthworm": {
     "name": "Orthworm",
+    "usage": 0.014392700000000001,
     "spreads": [
       {
         "nature": "Careful",
@@ -2857,6 +2918,7 @@
   },
   "Hatterene": {
     "name": "Hatterene",
+    "usage": 0.0141259,
     "spreads": [
       {
         "nature": "Quiet",
@@ -2905,6 +2967,7 @@
   },
   "Meowscarada": {
     "name": "Meowscarada",
+    "usage": 0.0140516,
     "spreads": [
       {
         "nature": "Adamant",
@@ -2953,6 +3016,7 @@
   },
   "Camerupt-Mega": {
     "name": "Camerupt-Mega",
+    "usage": 0.013438499999999999,
     "spreads": [
       {
         "nature": "Quiet",
@@ -2998,6 +3062,7 @@
   },
   "Mimikyu": {
     "name": "Mimikyu",
+    "usage": 0.0134222,
     "spreads": [
       {
         "nature": "Brave",
@@ -3045,6 +3110,7 @@
   },
   "Oranguru": {
     "name": "Oranguru",
+    "usage": 0.0131777,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -3093,6 +3159,7 @@
   },
   "Mamoswine": {
     "name": "Mamoswine",
+    "usage": 0.0130468,
     "spreads": [
       {
         "nature": "Adamant",
@@ -3141,6 +3208,7 @@
   },
   "Gyarados-Mega": {
     "name": "Gyarados-Mega",
+    "usage": 0.0129157,
     "spreads": [
       {
         "nature": "Jolly",
@@ -3186,6 +3254,7 @@
   },
   "Gyarados": {
     "name": "Gyarados",
+    "usage": 0.0128345,
     "spreads": [
       {
         "nature": "Careful",
@@ -3234,6 +3303,7 @@
   },
   "Manectric-Mega": {
     "name": "Manectric-Mega",
+    "usage": 0.012238800000000001,
     "spreads": [
       {
         "nature": "Timid",
@@ -3279,6 +3349,7 @@
   },
   "Gallade": {
     "name": "Gallade",
+    "usage": 0.0120184,
     "spreads": [
       {
         "nature": "Brave",
@@ -3327,6 +3398,7 @@
   },
   "Drampa-Mega": {
     "name": "Drampa-Mega",
+    "usage": 0.0119001,
     "spreads": [
       {
         "nature": "Quiet",
@@ -3372,6 +3444,7 @@
   },
   "Tauros-Paldea-Aqua": {
     "name": "Tauros-Paldea-Aqua",
+    "usage": 0.0118786,
     "spreads": [
       {
         "nature": "Jolly",
@@ -3420,6 +3493,7 @@
   },
   "Basculegion-F": {
     "name": "Basculegion-F",
+    "usage": 0.0108872,
     "spreads": [
       {
         "nature": "Timid",
@@ -3468,6 +3542,7 @@
   },
   "Ceruledge": {
     "name": "Ceruledge",
+    "usage": 0.010578700000000002,
     "spreads": [
       {
         "nature": "Adamant",
@@ -3516,6 +3591,7 @@
   },
   "Rotom-Frost": {
     "name": "Rotom-Frost",
+    "usage": 0.010576700000000001,
     "spreads": [
       {
         "nature": "Timid",
@@ -3563,6 +3639,7 @@
   },
   "Scizor": {
     "name": "Scizor",
+    "usage": 0.0104057,
     "spreads": [
       {
         "nature": "Adamant",
@@ -3611,6 +3688,7 @@
   },
   "Lucario-Mega": {
     "name": "Lucario-Mega",
+    "usage": 0.010014400000000001,
     "spreads": [
       {
         "nature": "Jolly",
@@ -3656,6 +3734,7 @@
   },
   "Tinkaton": {
     "name": "Tinkaton",
+    "usage": 0.0096037,
     "spreads": [
       {
         "nature": "Impish",
@@ -3704,6 +3783,7 @@
   },
   "Kangaskhan": {
     "name": "Kangaskhan",
+    "usage": 0.0090851,
     "spreads": [
       {
         "nature": "Adamant",
@@ -3752,6 +3832,7 @@
   },
   "Garchomp-Mega": {
     "name": "Garchomp-Mega",
+    "usage": 0.0089424,
     "spreads": [
       {
         "nature": "Jolly",
@@ -3797,6 +3878,7 @@
   },
   "Heliolisk": {
     "name": "Heliolisk",
+    "usage": 0.008907,
     "spreads": [
       {
         "nature": "Timid",
@@ -3845,6 +3927,7 @@
   },
   "Snorlax": {
     "name": "Snorlax",
+    "usage": 0.0088787,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -3893,6 +3976,7 @@
   },
   "Araquanid": {
     "name": "Araquanid",
+    "usage": 0.0085877,
     "spreads": [
       {
         "nature": "Brave",
@@ -3941,6 +4025,7 @@
   },
   "Skarmory-Mega": {
     "name": "Skarmory-Mega",
+    "usage": 0.008494699999999999,
     "spreads": [
       {
         "nature": "Jolly",
@@ -3986,6 +4071,7 @@
   },
   "Gardevoir": {
     "name": "Gardevoir",
+    "usage": 0.0084032,
     "spreads": [
       {
         "nature": "Timid",
@@ -4034,6 +4120,7 @@
   },
   "Vivillon": {
     "name": "Vivillon",
+    "usage": 0.008198800000000001,
     "spreads": [
       {
         "nature": "Timid",
@@ -4082,6 +4169,7 @@
   },
   "Gengar": {
     "name": "Gengar",
+    "usage": 0.0081128,
     "spreads": [
       {
         "nature": "Timid",
@@ -4129,6 +4217,7 @@
   },
   "Meowstic": {
     "name": "Meowstic",
+    "usage": 0.0079464,
     "spreads": [
       {
         "nature": "Timid",
@@ -4177,6 +4266,7 @@
   },
   "Azumarill": {
     "name": "Azumarill",
+    "usage": 0.0078896,
     "spreads": [
       {
         "nature": "Brave",
@@ -4225,6 +4315,7 @@
   },
   "Conkeldurr": {
     "name": "Conkeldurr",
+    "usage": 0.0076161,
     "spreads": [
       {
         "nature": "Brave",
@@ -4273,6 +4364,7 @@
   },
   "Empoleon": {
     "name": "Empoleon",
+    "usage": 0.0075627,
     "spreads": [
       {
         "nature": "Modest",
@@ -4321,6 +4413,7 @@
   },
   "Espathra": {
     "name": "Espathra",
+    "usage": 0.007512799999999999,
     "spreads": [
       {
         "nature": "Timid",
@@ -4369,6 +4462,7 @@
   },
   "Raichu": {
     "name": "Raichu",
+    "usage": 0.007497500000000001,
     "spreads": [
       {
         "nature": "Timid",
@@ -4417,6 +4511,7 @@
   },
   "Arcanine": {
     "name": "Arcanine",
+    "usage": 0.007436700000000001,
     "spreads": [
       {
         "nature": "Jolly",
@@ -4465,6 +4560,7 @@
   },
   "Feraligatr-Mega": {
     "name": "Feraligatr-Mega",
+    "usage": 0.0071717,
     "spreads": [
       {
         "nature": "Adamant",
@@ -4510,6 +4606,7 @@
   },
   "Weavile": {
     "name": "Weavile",
+    "usage": 0.007138,
     "spreads": [
       {
         "nature": "Jolly",
@@ -4558,6 +4655,7 @@
   },
   "Chandelure-Mega": {
     "name": "Chandelure-Mega",
+    "usage": 0.0067763,
     "spreads": [
       {
         "nature": "Timid",
@@ -4603,6 +4701,7 @@
   },
   "Goodra-Hisui": {
     "name": "Goodra-Hisui",
+    "usage": 0.0067338,
     "spreads": [
       {
         "nature": "Impish",
@@ -4651,6 +4750,7 @@
   },
   "Glimmora": {
     "name": "Glimmora",
+    "usage": 0.0066778,
     "spreads": [
       {
         "nature": "Timid",
@@ -4699,6 +4799,7 @@
   },
   "Slowking-Galar": {
     "name": "Slowking-Galar",
+    "usage": 0.0061493,
     "spreads": [
       {
         "nature": "Quiet",
@@ -4747,6 +4848,7 @@
   },
   "Rotom-Mow": {
     "name": "Rotom-Mow",
+    "usage": 0.0060852,
     "spreads": [
       {
         "nature": "Timid",
@@ -4794,6 +4896,7 @@
   },
   "Vanilluxe": {
     "name": "Vanilluxe",
+    "usage": 0.0059426,
     "spreads": [
       {
         "nature": "Timid",
@@ -4842,6 +4945,7 @@
   },
   "Ampharos-Mega": {
     "name": "Ampharos-Mega",
+    "usage": 0.0057552,
     "spreads": [
       {
         "nature": "Quiet",
@@ -4887,6 +4991,7 @@
   },
   "Chandelure": {
     "name": "Chandelure",
+    "usage": 0.0057277,
     "spreads": [
       {
         "nature": "Modest",
@@ -4935,6 +5040,7 @@
   },
   "Greninja-Mega": {
     "name": "Greninja-Mega",
+    "usage": 0.0056516,
     "spreads": [
       {
         "nature": "Timid",
@@ -4980,6 +5086,7 @@
   },
   "Blastoise": {
     "name": "Blastoise",
+    "usage": 0.0055213,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -5028,6 +5135,7 @@
   },
   "Kleavor": {
     "name": "Kleavor",
+    "usage": 0.0054467,
     "spreads": [
       {
         "nature": "Adamant",
@@ -5076,6 +5184,7 @@
   },
   "Chesnaught-Mega": {
     "name": "Chesnaught-Mega",
+    "usage": 0.0052828,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -5121,6 +5230,7 @@
   },
   "Samurott-Hisui": {
     "name": "Samurott-Hisui",
+    "usage": 0.005079200000000001,
     "spreads": [
       {
         "nature": "Adamant",
@@ -5169,6 +5279,7 @@
   },
   "Hawlucha-Mega": {
     "name": "Hawlucha-Mega",
+    "usage": 0.0048965,
     "spreads": [
       {
         "nature": "Jolly",
@@ -5214,6 +5325,7 @@
   },
   "Abomasnow-Mega": {
     "name": "Abomasnow-Mega",
+    "usage": 0.004891400000000001,
     "spreads": [
       {
         "nature": "Quiet",
@@ -5259,6 +5371,7 @@
   },
   "Klefki": {
     "name": "Klefki",
+    "usage": 0.0048678,
     "spreads": [
       {
         "nature": "Bold",
@@ -5307,6 +5420,7 @@
   },
   "Excadrill-Mega": {
     "name": "Excadrill-Mega",
+    "usage": 0.0047703,
     "spreads": [
       {
         "nature": "Jolly",
@@ -5352,6 +5466,7 @@
   },
   "Banette-Mega": {
     "name": "Banette-Mega",
+    "usage": 0.0045831,
     "spreads": [
       {
         "nature": "Adamant",
@@ -5397,6 +5512,7 @@
   },
   "Chimecho-Mega": {
     "name": "Chimecho-Mega",
+    "usage": 0.0044056,
     "spreads": [
       {
         "nature": "Quiet",
@@ -5442,6 +5558,7 @@
   },
   "Alakazam-Mega": {
     "name": "Alakazam-Mega",
+    "usage": 0.0043286999999999996,
     "spreads": [
       {
         "nature": "Timid",
@@ -5487,6 +5604,7 @@
   },
   "Clefable-Mega": {
     "name": "Clefable-Mega",
+    "usage": 0.0039755,
     "spreads": [
       {
         "nature": "Modest",
@@ -5532,6 +5650,7 @@
   },
   "Floette-Eternal": {
     "name": "Floette-Eternal",
+    "usage": 0.0039138,
     "spreads": [
       {
         "nature": "Modest",
@@ -5580,6 +5699,7 @@
   },
   "Slowbro-Mega": {
     "name": "Slowbro-Mega",
+    "usage": 0.0038495,
     "spreads": [
       {
         "nature": "Bold",
@@ -5625,6 +5745,7 @@
   },
   "Gallade-Mega": {
     "name": "Gallade-Mega",
+    "usage": 0.0038401000000000004,
     "spreads": [
       {
         "nature": "Jolly",
@@ -5670,6 +5791,7 @@
   },
   "Rhyperior": {
     "name": "Rhyperior",
+    "usage": 0.0036831999999999998,
     "spreads": [
       {
         "nature": "Brave",
@@ -5718,6 +5840,7 @@
   },
   "Armarouge": {
     "name": "Armarouge",
+    "usage": 0.0036437,
     "spreads": [
       {
         "nature": "Quiet",
@@ -5766,6 +5889,7 @@
   },
   "Krookodile": {
     "name": "Krookodile",
+    "usage": 0.0035451,
     "spreads": [
       {
         "nature": "Adamant",
@@ -5814,6 +5938,7 @@
   },
   "Mudsdale": {
     "name": "Mudsdale",
+    "usage": 0.0034058,
     "spreads": [
       {
         "nature": "Brave",
@@ -5862,6 +5987,7 @@
   },
   "Lucario": {
     "name": "Lucario",
+    "usage": 0.0033195000000000004,
     "spreads": [
       {
         "nature": "Jolly",
@@ -5910,6 +6036,7 @@
   },
   "Alakazam": {
     "name": "Alakazam",
+    "usage": 0.0032839,
     "spreads": [
       {
         "nature": "Timid",
@@ -5958,6 +6085,7 @@
   },
   "Slowking": {
     "name": "Slowking",
+    "usage": 0.0031590000000000003,
     "spreads": [
       {
         "nature": "Sassy",
@@ -6006,6 +6134,7 @@
   },
   "Altaria-Mega": {
     "name": "Altaria-Mega",
+    "usage": 0.0031461,
     "spreads": [
       {
         "nature": "Modest",
@@ -6051,6 +6180,7 @@
   },
   "Glaceon": {
     "name": "Glaceon",
+    "usage": 0.0030711,
     "spreads": [
       {
         "nature": "Modest",
@@ -6099,6 +6229,7 @@
   },
   "Cofagrigus": {
     "name": "Cofagrigus",
+    "usage": 0.0030705,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -6146,6 +6277,7 @@
   },
   "Victreebel-Mega": {
     "name": "Victreebel-Mega",
+    "usage": 0.0030613000000000003,
     "spreads": [
       {
         "nature": "Modest",
@@ -6191,6 +6323,7 @@
   },
   "Decidueye-Hisui": {
     "name": "Decidueye-Hisui",
+    "usage": 0.0030018,
     "spreads": [
       {
         "nature": "Brave",
@@ -6239,6 +6372,7 @@
   },
   "Heracross-Mega": {
     "name": "Heracross-Mega",
+    "usage": 0.0028909,
     "spreads": [
       {
         "nature": "Adamant",
@@ -6284,6 +6418,7 @@
   },
   "Jolteon": {
     "name": "Jolteon",
+    "usage": 0.0026425,
     "spreads": [
       {
         "nature": "Timid",
@@ -6332,6 +6467,7 @@
   },
   "Bellibolt": {
     "name": "Bellibolt",
+    "usage": 0.0025615,
     "spreads": [
       {
         "nature": "Quiet",
@@ -6380,6 +6516,7 @@
   },
   "Noivern": {
     "name": "Noivern",
+    "usage": 0.0025196000000000003,
     "spreads": [
       {
         "nature": "Timid",
@@ -6428,6 +6565,7 @@
   },
   "Umbreon": {
     "name": "Umbreon",
+    "usage": 0.0024715,
     "spreads": [
       {
         "nature": "Bold",
@@ -6476,6 +6614,7 @@
   },
   "Ditto": {
     "name": "Ditto",
+    "usage": 0.0024001,
     "spreads": [
       {
         "nature": "Bold",
@@ -6521,6 +6660,7 @@
   },
   "Beedrill-Mega": {
     "name": "Beedrill-Mega",
+    "usage": 0.0022978,
     "spreads": [
       {
         "nature": "Jolly",
@@ -6566,6 +6706,7 @@
   },
   "Tauros-Paldea-Blaze": {
     "name": "Tauros-Paldea-Blaze",
+    "usage": 0.0022906000000000003,
     "spreads": [
       {
         "nature": "Jolly",
@@ -6614,6 +6755,7 @@
   },
   "Hydrapple": {
     "name": "Hydrapple",
+    "usage": 0.0022798,
     "spreads": [
       {
         "nature": "Quiet",
@@ -6662,6 +6804,7 @@
   },
   "Lycanroc": {
     "name": "Lycanroc",
+    "usage": 0.0022231,
     "spreads": [
       {
         "nature": "Adamant",
@@ -6710,6 +6853,7 @@
   },
   "Garganacl": {
     "name": "Garganacl",
+    "usage": 0.0021927,
     "spreads": [
       {
         "nature": "Impish",
@@ -6758,6 +6902,7 @@
   },
   "Drampa": {
     "name": "Drampa",
+    "usage": 0.0020388999999999997,
     "spreads": [
       {
         "nature": "Quiet",
@@ -6806,6 +6951,7 @@
   },
   "Altaria": {
     "name": "Altaria",
+    "usage": 0.0020174,
     "spreads": [
       {
         "nature": "Careful",
@@ -6854,6 +7000,7 @@
   },
   "Toxicroak": {
     "name": "Toxicroak",
+    "usage": 0.0020062,
     "spreads": [
       {
         "nature": "Adamant",
@@ -6902,6 +7049,7 @@
   },
   "Liepard": {
     "name": "Liepard",
+    "usage": 0.0019576,
     "spreads": [
       {
         "nature": "Timid",
@@ -6950,6 +7098,7 @@
   },
   "Alcremie": {
     "name": "Alcremie",
+    "usage": 0.0018590000000000002,
     "spreads": [
       {
         "nature": "Timid",
@@ -6998,6 +7147,7 @@
   },
   "Greninja": {
     "name": "Greninja",
+    "usage": 0.0017521000000000001,
     "spreads": [
       {
         "nature": "Timid",
@@ -7046,6 +7196,7 @@
   },
   "Wyrdeer": {
     "name": "Wyrdeer",
+    "usage": 0.001696,
     "spreads": [
       {
         "nature": "Bold",
@@ -7094,6 +7245,7 @@
   },
   "Pinsir-Mega": {
     "name": "Pinsir-Mega",
+    "usage": 0.0016124,
     "spreads": [
       {
         "nature": "Jolly",
@@ -7139,6 +7291,7 @@
   },
   "Toxapex": {
     "name": "Toxapex",
+    "usage": 0.0016078999999999998,
     "spreads": [
       {
         "nature": "Bold",
@@ -7187,6 +7340,7 @@
   },
   "Pidgeot-Mega": {
     "name": "Pidgeot-Mega",
+    "usage": 0.0016006999999999998,
     "spreads": [
       {
         "nature": "Timid",
@@ -7232,6 +7386,7 @@
   },
   "Gliscor": {
     "name": "Gliscor",
+    "usage": 0.0015984,
     "spreads": [
       {
         "nature": "Adamant",
@@ -7280,6 +7435,7 @@
   },
   "Emboar-Mega": {
     "name": "Emboar-Mega",
+    "usage": 0.0014846999999999998,
     "spreads": [
       {
         "nature": "Adamant",
@@ -7325,6 +7481,7 @@
   },
   "Reuniclus": {
     "name": "Reuniclus",
+    "usage": 0.0014699000000000001,
     "spreads": [
       {
         "nature": "Quiet",
@@ -7373,6 +7530,7 @@
   },
   "Skeledirge": {
     "name": "Skeledirge",
+    "usage": 0.0014493,
     "spreads": [
       {
         "nature": "Modest",
@@ -7421,6 +7579,7 @@
   },
   "Quaquaval": {
     "name": "Quaquaval",
+    "usage": 0.0014410999999999998,
     "spreads": [
       {
         "nature": "Jolly",
@@ -7469,6 +7628,7 @@
   },
   "Passimian": {
     "name": "Passimian",
+    "usage": 0.0014394000000000002,
     "spreads": [
       {
         "nature": "Jolly",
@@ -7517,6 +7677,7 @@
   },
   "Machamp": {
     "name": "Machamp",
+    "usage": 0.0013949000000000001,
     "spreads": [
       {
         "nature": "Brave",
@@ -7565,6 +7726,7 @@
   },
   "Serperior": {
     "name": "Serperior",
+    "usage": 0.0013853,
     "spreads": [
       {
         "nature": "Timid",
@@ -7613,6 +7775,7 @@
   },
   "Torterra": {
     "name": "Torterra",
+    "usage": 0.0013816,
     "spreads": [
       {
         "nature": "Impish",
@@ -7661,6 +7824,7 @@
   },
   "Hippowdon": {
     "name": "Hippowdon",
+    "usage": 0.0013642,
     "spreads": [
       {
         "nature": "Careful",
@@ -7709,6 +7873,7 @@
   },
   "Runerigus": {
     "name": "Runerigus",
+    "usage": 0.0013204,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -7756,6 +7921,7 @@
   },
   "Slowbro": {
     "name": "Slowbro",
+    "usage": 0.0013119,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -7804,6 +7970,7 @@
   },
   "Aromatisse": {
     "name": "Aromatisse",
+    "usage": 0.0012715,
     "spreads": [
       {
         "nature": "Sassy",
@@ -7852,6 +8019,7 @@
   },
   "Lycanroc-Dusk": {
     "name": "Lycanroc-Dusk",
+    "usage": 0.0012478,
     "spreads": [
       {
         "nature": "Jolly",
@@ -7899,6 +8067,7 @@
   },
   "Steelix-Mega": {
     "name": "Steelix-Mega",
+    "usage": 0.0012103,
     "spreads": [
       {
         "nature": "Brave",
@@ -7944,6 +8113,7 @@
   },
   "Slowbro-Galar": {
     "name": "Slowbro-Galar",
+    "usage": 0.0012060999999999999,
     "spreads": [
       {
         "nature": "Quiet",
@@ -7992,6 +8162,7 @@
   },
   "Ninetales": {
     "name": "Ninetales",
+    "usage": 0.0011832,
     "spreads": [
       {
         "nature": "Timid",
@@ -8040,6 +8211,7 @@
   },
   "Infernape": {
     "name": "Infernape",
+    "usage": 0.0011696,
     "spreads": [
       {
         "nature": "Jolly",
@@ -8088,6 +8260,7 @@
   },
   "Mr. Rime": {
     "name": "Mr. Rime",
+    "usage": 0.0011625000000000001,
     "spreads": [
       {
         "nature": "Quiet",
@@ -8136,6 +8309,7 @@
   },
   "Ariados": {
     "name": "Ariados",
+    "usage": 0.0011598,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -8184,6 +8358,7 @@
   },
   "Salazzle": {
     "name": "Salazzle",
+    "usage": 0.001116,
     "spreads": [
       {
         "nature": "Timid",
@@ -8232,6 +8407,7 @@
   },
   "Spiritomb": {
     "name": "Spiritomb",
+    "usage": 0.0011126999999999999,
     "spreads": [
       {
         "nature": "Sassy",
@@ -8280,6 +8456,7 @@
   },
   "Audino-Mega": {
     "name": "Audino-Mega",
+    "usage": 0.0011043,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -8325,6 +8502,7 @@
   },
   "Medicham-Mega": {
     "name": "Medicham-Mega",
+    "usage": 0.0010934,
     "spreads": [
       {
         "nature": "Jolly",
@@ -8370,6 +8548,7 @@
   },
   "Clawitzer": {
     "name": "Clawitzer",
+    "usage": 0.0010932,
     "spreads": [
       {
         "nature": "Quiet",
@@ -8417,6 +8596,7 @@
   },
   "Pangoro": {
     "name": "Pangoro",
+    "usage": 0.0010779,
     "spreads": [
       {
         "nature": "Hardy",
@@ -8465,6 +8645,7 @@
   },
   "Pikachu": {
     "name": "Pikachu",
+    "usage": 0.0010495,
     "spreads": [
       {
         "nature": "Jolly",
@@ -8513,6 +8694,7 @@
   },
   "Chesnaught": {
     "name": "Chesnaught",
+    "usage": 0.0010419000000000001,
     "spreads": [
       {
         "nature": "Impish",
@@ -8561,6 +8743,7 @@
   },
   "Beartic": {
     "name": "Beartic",
+    "usage": 0.0010323,
     "spreads": [
       {
         "nature": "Adamant",
@@ -8609,6 +8792,7 @@
   },
   "Medicham": {
     "name": "Medicham",
+    "usage": 0.0010301,
     "spreads": [
       {
         "nature": "Brave",
@@ -8657,6 +8841,7 @@
   },
   "Aurorus": {
     "name": "Aurorus",
+    "usage": 0.0010249,
     "spreads": [
       {
         "nature": "Quiet",
@@ -8705,6 +8890,7 @@
   },
   "Hawlucha": {
     "name": "Hawlucha",
+    "usage": 0.0010208,
     "spreads": [
       {
         "nature": "Jolly",
@@ -8753,6 +8939,7 @@
   },
   "Sharpedo-Mega": {
     "name": "Sharpedo-Mega",
+    "usage": 0.0010096,
     "spreads": [
       {
         "nature": "Adamant",
@@ -8798,6 +8985,7 @@
   },
   "Vaporeon": {
     "name": "Vaporeon",
+    "usage": 0.0010069,
     "spreads": [
       {
         "nature": "Bold",
@@ -8846,6 +9034,7 @@
   },
   "Houndoom-Mega": {
     "name": "Houndoom-Mega",
+    "usage": 0.0009962999999999999,
     "spreads": [
       {
         "nature": "Timid",
@@ -8891,6 +9080,7 @@
   },
   "Meowstic-M-Mega": {
     "name": "Meowstic-M-Mega",
+    "usage": 0.0008638,
     "spreads": [
       {
         "nature": "Timid",
@@ -8936,6 +9126,7 @@
   },
   "Espeon": {
     "name": "Espeon",
+    "usage": 0.0007904,
     "spreads": [
       {
         "nature": "Bold",
@@ -8984,6 +9175,7 @@
   },
   "Sableye-Mega": {
     "name": "Sableye-Mega",
+    "usage": 0.0007739,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -9029,6 +9221,7 @@
   },
   "Scovillain": {
     "name": "Scovillain",
+    "usage": 0.0007662,
     "spreads": [
       {
         "nature": "Modest",
@@ -9077,6 +9270,7 @@
   },
   "Luxray": {
     "name": "Luxray",
+    "usage": 0.0007496,
     "spreads": [
       {
         "nature": "Jolly",
@@ -9125,6 +9319,7 @@
   },
   "Trevenant": {
     "name": "Trevenant",
+    "usage": 0.0007038,
     "spreads": [
       {
         "nature": "Brave",
@@ -9173,6 +9368,7 @@
   },
   "Flapple": {
     "name": "Flapple",
+    "usage": 0.0006883,
     "spreads": [
       {
         "nature": "Jolly",
@@ -9221,6 +9417,7 @@
   },
   "Meowstic-F-Mega": {
     "name": "Meowstic-F-Mega",
+    "usage": 0.0006778000000000001,
     "spreads": [
       {
         "nature": "Timid",
@@ -9266,6 +9463,7 @@
   },
   "Sharpedo": {
     "name": "Sharpedo",
+    "usage": 0.0006586000000000001,
     "spreads": [
       {
         "nature": "Adamant",
@@ -9314,6 +9512,7 @@
   },
   "Diggersby": {
     "name": "Diggersby",
+    "usage": 0.0006405,
     "spreads": [
       {
         "nature": "Jolly",
@@ -9362,6 +9561,7 @@
   },
   "Charizard": {
     "name": "Charizard",
+    "usage": 0.0006343999999999999,
     "spreads": [
       {
         "nature": "Modest",
@@ -9410,6 +9610,7 @@
   },
   "Avalugg-Hisui": {
     "name": "Avalugg-Hisui",
+    "usage": 0.0006162,
     "spreads": [
       {
         "nature": "Brave",
@@ -9458,6 +9659,7 @@
   },
   "Glalie-Mega": {
     "name": "Glalie-Mega",
+    "usage": 0.000605,
     "spreads": [
       {
         "nature": "Adamant",
@@ -9503,6 +9705,7 @@
   },
   "Sandaconda": {
     "name": "Sandaconda",
+    "usage": 0.0005915,
     "spreads": [
       {
         "nature": "Careful",
@@ -9551,6 +9754,7 @@
   },
   "Rampardos": {
     "name": "Rampardos",
+    "usage": 0.0005914,
     "spreads": [
       {
         "nature": "Brave",
@@ -9599,6 +9803,7 @@
   },
   "Audino": {
     "name": "Audino",
+    "usage": 0.0005896,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -9647,6 +9852,7 @@
   },
   "Goodra": {
     "name": "Goodra",
+    "usage": 0.0005691,
     "spreads": [
       {
         "nature": "Modest",
@@ -9695,6 +9901,7 @@
   },
   "Abomasnow": {
     "name": "Abomasnow",
+    "usage": 0.0005624,
     "spreads": [
       {
         "nature": "Quiet",
@@ -9743,6 +9950,7 @@
   },
   "Tyrantrum": {
     "name": "Tyrantrum",
+    "usage": 0.0005581,
     "spreads": [
       {
         "nature": "Jolly",
@@ -9791,6 +9999,7 @@
   },
   "Typhlosion": {
     "name": "Typhlosion",
+    "usage": 0.0005359,
     "spreads": [
       {
         "nature": "Timid",
@@ -9839,6 +10048,7 @@
   },
   "Leafeon": {
     "name": "Leafeon",
+    "usage": 0.0005342,
     "spreads": [
       {
         "nature": "Adamant",
@@ -9887,6 +10097,7 @@
   },
   "Absol": {
     "name": "Absol",
+    "usage": 0.0005287,
     "spreads": [
       {
         "nature": "Adamant",
@@ -9935,6 +10146,7 @@
   },
   "Morpeko": {
     "name": "Morpeko",
+    "usage": 0.0004705,
     "spreads": [
       {
         "nature": "Jolly",
@@ -9982,6 +10194,7 @@
   },
   "Steelix": {
     "name": "Steelix",
+    "usage": 0.00046019999999999996,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -10030,6 +10243,7 @@
   },
   "Appletun": {
     "name": "Appletun",
+    "usage": 0.00046019999999999996,
     "spreads": [
       {
         "nature": "Sassy",
@@ -10078,6 +10292,7 @@
   },
   "Roserade": {
     "name": "Roserade",
+    "usage": 0.00043,
     "spreads": [
       {
         "nature": "Timid",
@@ -10126,6 +10341,7 @@
   },
   "Avalugg": {
     "name": "Avalugg",
+    "usage": 0.0004119,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -10174,6 +10390,7 @@
   },
   "Flareon": {
     "name": "Flareon",
+    "usage": 0.0004077,
     "spreads": [
       {
         "nature": "Brave",
@@ -10222,6 +10439,7 @@
   },
   "Bastiodon": {
     "name": "Bastiodon",
+    "usage": 0.0004046,
     "spreads": [
       {
         "nature": "Relaxed",
@@ -10270,6 +10488,7 @@
   },
   "Gourgeist-Super": {
     "name": "Gourgeist-Super",
+    "usage": 0.0004014,
     "spreads": [
       {
         "nature": "Brave",
@@ -10318,6 +10537,7 @@
   },
   "Golurk": {
     "name": "Golurk",
+    "usage": 0.000391,
     "spreads": [
       {
         "nature": "Brave",
@@ -10366,6 +10586,7 @@
   },
   "Toucannon": {
     "name": "Toucannon",
+    "usage": 0.00038449999999999997,
     "spreads": [
       {
         "nature": "Adamant",
@@ -10414,6 +10635,7 @@
   },
   "Raichu-Alola": {
     "name": "Raichu-Alola",
+    "usage": 0.000361,
     "spreads": [
       {
         "nature": "Timid",
@@ -10461,6 +10683,7 @@
   },
   "Manectric": {
     "name": "Manectric",
+    "usage": 0.0003544,
     "spreads": [
       {
         "nature": "Timid",
@@ -10509,6 +10732,7 @@
   },
   "Froslass": {
     "name": "Froslass",
+    "usage": 0.00034070000000000004,
     "spreads": [
       {
         "nature": "Timid",
@@ -10557,6 +10781,7 @@
   },
   "Crabominable": {
     "name": "Crabominable",
+    "usage": 0.0003405,
     "spreads": [
       {
         "nature": "Brave",
@@ -10605,6 +10830,7 @@
   },
   "Simipour": {
     "name": "Simipour",
+    "usage": 0.0003397,
     "spreads": [
       {
         "nature": "Timid",
@@ -10653,6 +10879,7 @@
   },
   "Starmie": {
     "name": "Starmie",
+    "usage": 0.0003344,
     "spreads": [
       {
         "nature": "Timid",
@@ -10701,6 +10928,7 @@
   },
   "Absol-Mega": {
     "name": "Absol-Mega",
+    "usage": 0.0003286,
     "spreads": [
       {
         "nature": "Jolly",
@@ -10746,6 +10974,7 @@
   },
   "Skarmory": {
     "name": "Skarmory",
+    "usage": 0.0003241,
     "spreads": [
       {
         "nature": "Sassy",
@@ -10794,6 +11023,7 @@
   },
   "Emolga": {
     "name": "Emolga",
+    "usage": 0.0003032,
     "spreads": [
       {
         "nature": "Timid",
@@ -10842,6 +11072,7 @@
   },
   "Decidueye": {
     "name": "Decidueye",
+    "usage": 0.0003028,
     "spreads": [
       {
         "nature": "Adamant",
@@ -10890,6 +11121,7 @@
   },
   "Florges": {
     "name": "Florges",
+    "usage": 0.00027089999999999997,
     "spreads": [
       {
         "nature": "Bold",
@@ -10938,6 +11170,7 @@
   },
   "Zoroark": {
     "name": "Zoroark",
+    "usage": 0.00025069999999999997,
     "spreads": [
       {
         "nature": "Timid",
@@ -10985,6 +11218,7 @@
   },
   "Aggron": {
     "name": "Aggron",
+    "usage": 0.0002287,
     "spreads": [
       {
         "nature": "Adamant",
@@ -11033,6 +11267,7 @@
   },
   "Castform": {
     "name": "Castform",
+    "usage": 0.0002212,
     "spreads": [
       {
         "nature": "Timid",
@@ -11080,6 +11315,7 @@
   },
   "Heracross": {
     "name": "Heracross",
+    "usage": 0.00021250000000000002,
     "spreads": [
       {
         "nature": "Jolly",
@@ -11128,6 +11364,7 @@
   },
   "Arbok": {
     "name": "Arbok",
+    "usage": 0.00019630000000000003,
     "spreads": [
       {
         "nature": "Adamant",
@@ -11176,6 +11413,7 @@
   },
   "Rotom-Fan": {
     "name": "Rotom-Fan",
+    "usage": 0.0001939,
     "spreads": [
       {
         "nature": "Timid",
@@ -11223,6 +11461,7 @@
   },
   "Polteageist": {
     "name": "Polteageist",
+    "usage": 0.0001816,
     "spreads": [
       {
         "nature": "Timid",
@@ -11271,6 +11510,7 @@
   },
   "Stunfisk": {
     "name": "Stunfisk",
+    "usage": 0.0001804,
     "spreads": [
       {
         "nature": "Calm",
@@ -11319,6 +11559,7 @@
   },
   "Garbodor": {
     "name": "Garbodor",
+    "usage": 0.0001592,
     "spreads": [
       {
         "nature": "Adamant",
@@ -11367,6 +11608,7 @@
   },
   "Emboar": {
     "name": "Emboar",
+    "usage": 0.0001573,
     "spreads": [
       {
         "nature": "Brave",
@@ -11415,6 +11657,7 @@
   },
   "Glalie": {
     "name": "Glalie",
+    "usage": 0.0001548,
     "spreads": [
       {
         "nature": "Jolly",
@@ -11463,6 +11706,7 @@
   },
   "Dedenne": {
     "name": "Dedenne",
+    "usage": 0.00015350000000000002,
     "spreads": [
       {
         "nature": "Timid",
@@ -11511,6 +11755,7 @@
   },
   "Delphox": {
     "name": "Delphox",
+    "usage": 0.00013769999999999999,
     "spreads": [
       {
         "nature": "Timid",
@@ -11559,6 +11804,7 @@
   },
   "Ampharos": {
     "name": "Ampharos",
+    "usage": 0.0001266,
     "spreads": [
       {
         "nature": "Bold",
@@ -11607,6 +11853,7 @@
   },
   "Chimecho": {
     "name": "Chimecho",
+    "usage": 0.0001257,
     "spreads": [
       {
         "nature": "Sassy",
@@ -11654,6 +11901,7 @@
   },
   "Simisage": {
     "name": "Simisage",
+    "usage": 0.00011350000000000001,
     "spreads": [
       {
         "nature": "Timid",
@@ -11702,6 +11950,7 @@
   },
   "Lycanroc-Midnight": {
     "name": "Lycanroc-Midnight",
+    "usage": 0.00010449999999999999,
     "spreads": [
       {
         "nature": "Adamant",
@@ -11750,6 +11999,7 @@
   },
   "Gourgeist": {
     "name": "Gourgeist",
+    "usage": 0.0001014,
     "spreads": [
       {
         "nature": "Jolly",

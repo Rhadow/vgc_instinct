@@ -7,6 +7,8 @@ import type { PokemonMetaData } from './types';
 export const FALLBACK_META: Record<string, PokemonMetaData> = {
   'Incineroar': {
     name: 'Incineroar',
+    usage: 0.1,
+    usage: 0.5,
     spreads: [
       { nature: 'Careful', hp: 252, atk: 0, def: 4, spa: 0, spd: 252, spe: 0 },
       { nature: 'Adamant', hp: 252, atk: 252, def: 0, spa: 0, spd: 4, spe: 0 },
@@ -18,6 +20,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Flutter Mane': {
     name: 'Flutter Mane',
+    usage: 0.1,
     spreads: [
       { nature: 'Timid', hp: 0, atk: 0, def: 4, spa: 252, spd: 0, spe: 252 },
       { nature: 'Modest', hp: 4, atk: 0, def: 0, spa: 252, spd: 0, spe: 252 },
@@ -28,6 +31,8 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Landorus-Therian': {
     name: 'Landorus-Therian',
+    usage: 0.1,
+    usage: 0.1,
     spreads: [
       { nature: 'Adamant', hp: 4, atk: 252, def: 0, spa: 0, spd: 0, spe: 252 },
       { nature: 'Jolly', hp: 0, atk: 252, def: 0, spa: 0, spd: 4, spe: 252 },
@@ -38,6 +43,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Rillaboom': {
     name: 'Rillaboom',
+    usage: 0.1,
     spreads: [
       { nature: 'Adamant', hp: 252, atk: 252, def: 4, spa: 0, spd: 0, spe: 0 },
       { nature: 'Brave', hp: 252, atk: 252, def: 0, spa: 0, spd: 4, spe: 0 },
@@ -48,6 +54,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Urshifu-Rapid-Strike': {
     name: 'Urshifu-Rapid-Strike',
+    usage: 0.1,
     spreads: [
       { nature: 'Jolly', hp: 0, atk: 252, def: 0, spa: 0, spd: 4, spe: 252 },
       { nature: 'Adamant', hp: 4, atk: 252, def: 0, spa: 0, spd: 0, spe: 252 },
@@ -58,6 +65,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Tornadus': {
     name: 'Tornadus',
+    usage: 0.1,
     spreads: [
       { nature: 'Timid', hp: 4, atk: 0, def: 0, spa: 252, spd: 0, spe: 252 },
     ],
@@ -67,6 +75,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Amoonguss': {
     name: 'Amoonguss',
+    usage: 0.1,
     spreads: [
       { nature: 'Calm', hp: 252, atk: 0, def: 4, spa: 0, spd: 252, spe: 0 },
       { nature: 'Sassy', hp: 252, atk: 0, def: 4, spa: 0, spd: 252, spe: 0 },
@@ -77,6 +86,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Iron Hands': {
     name: 'Iron Hands',
+    usage: 0.1,
     spreads: [
       { nature: 'Adamant', hp: 252, atk: 252, def: 0, spa: 0, spd: 4, spe: 0 },
     ],
@@ -86,6 +96,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Kingambit': {
     name: 'Kingambit',
+    usage: 0.1,
     spreads: [
       { nature: 'Adamant', hp: 252, atk: 252, def: 0, spa: 0, spd: 4, spe: 0 },
     ],
@@ -95,6 +106,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Pelipper': {
     name: 'Pelipper',
+    usage: 0.1,
     spreads: [
       { nature: 'Bold', hp: 252, atk: 0, def: 252, spa: 0, spd: 4, spe: 0 },
       { nature: 'Modest', hp: 252, atk: 0, def: 0, spa: 252, spd: 4, spe: 0 },
@@ -105,6 +117,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Gholdengo': {
     name: 'Gholdengo',
+    usage: 0.1,
     spreads: [
       { nature: 'Modest', hp: 4, atk: 0, def: 0, spa: 252, spd: 0, spe: 252 },
       { nature: 'Timid', hp: 0, atk: 0, def: 4, spa: 252, spd: 0, spe: 252 },
@@ -115,6 +128,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Ogerpon-Wellspring': {
     name: 'Ogerpon-Wellspring',
+    usage: 0.1,
     spreads: [
       { nature: 'Jolly', hp: 0, atk: 252, def: 0, spa: 0, spd: 4, spe: 252 },
     ],
@@ -124,6 +138,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Chien-Pao': {
     name: 'Chien-Pao',
+    usage: 0.1,
     spreads: [
       { nature: 'Jolly', hp: 0, atk: 252, def: 0, spa: 0, spd: 4, spe: 252 },
     ],
@@ -133,6 +148,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Farigiraf': {
     name: 'Farigiraf',
+    usage: 0.1,
     spreads: [
       { nature: 'Calm', hp: 252, atk: 0, def: 0, spa: 4, spd: 252, spe: 0 },
     ],
@@ -142,6 +158,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Arcanine': {
     name: 'Arcanine',
+    usage: 0.1,
     spreads: [
       { nature: 'Adamant', hp: 252, atk: 252, def: 0, spa: 0, spd: 4, spe: 0 },
       { nature: 'Impish', hp: 252, atk: 0, def: 252, spa: 0, spd: 4, spe: 0 },
@@ -152,6 +169,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Tsareena': {
     name: 'Tsareena',
+    usage: 0.1,
     spreads: [
       { nature: 'Adamant', hp: 252, atk: 252, def: 0, spa: 0, spd: 4, spe: 0 },
     ],
@@ -161,6 +179,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Dusclops': {
     name: 'Dusclops',
+    usage: 0.1,
     spreads: [
       { nature: 'Relaxed', hp: 252, atk: 0, def: 252, spa: 0, spd: 4, spe: 0 },
       { nature: 'Sassy', hp: 252, atk: 0, def: 4, spa: 0, spd: 252, spe: 0 },
@@ -171,6 +190,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Charizard-Mega-Y': {
     name: 'Charizard-Mega-Y',
+    usage: 0.1,
     spreads: [
       { nature: 'Timid', hp: 0, atk: 0, def: 4, spa: 252, spd: 0, spe: 252 },
       { nature: 'Modest', hp: 4, atk: 0, def: 0, spa: 252, spd: 0, spe: 252 },
@@ -181,6 +201,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Kangaskhan-Mega': {
     name: 'Kangaskhan-Mega',
+    usage: 0.1,
     spreads: [
       { nature: 'Adamant', hp: 4, atk: 252, def: 0, spa: 0, spd: 0, spe: 252 },
       { nature: 'Jolly', hp: 0, atk: 252, def: 0, spa: 0, spd: 4, spe: 252 },
@@ -191,6 +212,7 @@ export const FALLBACK_META: Record<string, PokemonMetaData> = {
   },
   'Salamence-Mega': {
     name: 'Salamence-Mega',
+    usage: 0.1,
     spreads: [
       { nature: 'Naive', hp: 0, atk: 252, def: 0, spa: 4, spd: 0, spe: 252 },
       { nature: 'Adamant', hp: 4, atk: 252, def: 0, spa: 0, spd: 0, spe: 252 },

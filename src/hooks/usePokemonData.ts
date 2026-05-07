@@ -1,59 +1,50 @@
 import { useState, useEffect, useCallback } from 'react';
-import type { PokemonFullData, PokemonMetaData } from '../data/types';
-import { fetchPokemonData } from '../data/providers/pokeapi';
+import type { PokemonFullData } from '../data/types';
 import { loadMetaData, getMetaPokemonNames, getMetaPokemon } from '../data/providers/smogon';
 import type { QuizDataSource } from '../quiz/engine';
+
+// Statically import the generated Pokemon data (contains all 250 Meta Pokemon)
+import pokemonDataJson from '../data/pokemonData.json';
+
+const fullDataCache = pokemonDataJson as Record<string, PokemonFullData>;
 
 interface UsePokemonDataReturn {
   loading: boolean;
   error: string | null;
   dataSource: QuizDataSource | null;
   pokemonCount: number;
+  totalMeta: number;
 }
 
 export function usePokemonData(): UsePokemonDataReturn {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [fullDataCache, setFullDataCache] = useState<Record<string, PokemonFullData>>({});
   const [metaLoaded, setMetaLoaded] = useState(false);
+  const [totalMeta, setTotalMeta] = useState(0);
 
   // Load meta data on mount
   useEffect(() => {
     loadMetaData()
-      .then(() => setMetaLoaded(true))
+      .then(() => {
+        setMetaLoaded(true);
+        setTotalMeta(getMetaPokemonNames().length);
+      })
       .catch((err) => setError(`Failed to load Pokémon data: ${err.message}`))
       .finally(() => setLoading(false));
   }, []);
 
-  // Preload full data for top Pokémon
-  useEffect(() => {
-    if (!metaLoaded) return;
-
-    const names = getMetaPokemonNames().slice(0, 50); // Preload top 50
-    const cache: Record<string, PokemonFullData> = {};
-
-    Promise.all(
-      names.map(async (name) => {
-        const data = await fetchPokemonData(name);
-        if (data) cache[name] = data;
-      })
-    ).then(() => {
-      setFullDataCache(cache);
-    });
-  }, [metaLoaded]);
-
   const getFullData = useCallback((name: string): PokemonFullData | null => {
     return fullDataCache[name] ?? null;
-  }, [fullDataCache]);
+  }, []);
 
   const getSpriteUrl = useCallback((name: string): string => {
     const full = fullDataCache[name];
     return full?.spriteUrl ?? '';
-  }, [fullDataCache]);
+  }, []);
 
   const dataSource: QuizDataSource | null = metaLoaded ? {
     getMetaPokemonNames: () => {
-      // Only return names we have full data for
+      // Return names that exist in our static cache
       return getMetaPokemonNames().filter((n) => fullDataCache[n]);
     },
     getMetaPokemon: (name: string) => getMetaPokemon(name),
@@ -66,5 +57,6 @@ export function usePokemonData(): UsePokemonDataReturn {
     error,
     dataSource,
     pokemonCount: Object.keys(fullDataCache).length,
+    totalMeta,
   };
 }
