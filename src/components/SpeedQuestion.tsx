@@ -51,7 +51,6 @@ function SortableCard({
     transform: CSS.Transform.toString(verticalOnly),
     transition,
     zIndex: isDragging ? 50 : 0,
-    touchAction: 'none',
   };
 
   const pokemonIndex = parseInt(id.split('-')[1]);
@@ -229,12 +228,14 @@ export function SpeedQuestionView({ question, onAnswer, answered }: SpeedQuestio
 
       {/* Submit button */}
       {!answered && (
-        <button
-          onClick={handleSubmit}
-          className="w-full py-3 rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple text-white font-bold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-accent-blue/30 active:scale-[0.98]"
-        >
-          Submit Order
-        </button>
+        <div className="mt-6 mb-8">
+          <button
+            onClick={handleSubmit}
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple text-white font-bold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-accent-blue/30 active:scale-[0.98]"
+          >
+            Submit Order
+          </button>
+        </div>
       )}
 
       {/* Speed breakdown detail (after answer) */}
