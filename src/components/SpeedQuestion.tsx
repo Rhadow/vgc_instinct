@@ -44,11 +44,13 @@ function SortableCard({
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
     useSortable({ id, disabled: answered });
 
+  // Lock movement to vertical axis only
+  const verticalOnly = transform ? { ...transform, x: 0 } : transform;
+
   const style: React.CSSProperties = {
-    transform: CSS.Transform.toString(transform),
+    transform: CSS.Transform.toString(verticalOnly),
     transition,
     zIndex: isDragging ? 50 : 0,
-    opacity: isDragging ? 0.8 : 1,
     touchAction: 'none',
   };
 
@@ -67,7 +69,11 @@ function SortableCard({
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <div className="flex items-center gap-3">
+      <div className={`flex items-center gap-3 rounded-xl transition-all duration-150 ${
+        isDragging
+          ? 'scale-[1.03] shadow-lg shadow-accent-blue/20 bg-bg-card/90 ring-1 ring-accent-blue/30'
+          : answered ? '' : 'cursor-grab active:cursor-grabbing'
+      }`}>
         <div className="w-8 h-8 rounded-full bg-bg-secondary border border-border flex items-center justify-center text-sm font-bold text-text-secondary shrink-0">
           {index + 1}
         </div>
@@ -80,6 +86,15 @@ function SortableCard({
           showSpeed={answered}
           finalSpeed={speed}
         />
+        {!answered && (
+          <div className="shrink-0 pr-2 text-text-muted/40">
+            <svg width="12" height="20" viewBox="0 0 12 20" fill="currentColor">
+              <circle cx="3" cy="3" r="1.5" /><circle cx="9" cy="3" r="1.5" />
+              <circle cx="3" cy="10" r="1.5" /><circle cx="9" cy="10" r="1.5" />
+              <circle cx="3" cy="17" r="1.5" /><circle cx="9" cy="17" r="1.5" />
+            </svg>
+          </div>
+        )}
       </div>
     </div>
   );
