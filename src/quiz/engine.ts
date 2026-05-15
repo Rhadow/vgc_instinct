@@ -28,16 +28,21 @@ function generateWrongOptions(actualMinPct: number, actualMaxPct: number): strin
   const range = actualMaxPct - actualMinPct;
   const safeRange = Math.min(range, 15);
   
-  const offsets = [
+  // Shuffle offsets so we don't always try them in the same order
+  const offsets = shuffleArray([
     { min: -15, max: -8 },
     { min: 8, max: 15 },
     { min: -25, max: -18 },
     { min: 18, max: 25 },
     { min: -35, max: -28 },
     { min: -45, max: -38 },
-  ];
+    { min: 28, max: 40 },
+    { min: -55, max: -45 },
+  ]);
 
   const wrongs: string[] = [];
+  const correctStr = formatRange(actualMinPct, actualMaxPct);
+  const usedStrings = new Set<string>([correctStr]);
   const usedRanges: Array<[number, number]> = [[actualMinPct, actualMaxPct]];
   
   let hasOHKO = actualMinPct >= 100;
@@ -69,10 +74,12 @@ function generateWrongOptions(actualMinPct: number, actualMaxPct: number): strin
       ([existMin, existMax]) => newMin <= existMax && newMax >= existMin
     );
 
-    if (!overlaps) {
+    const str = formatRange(newMin, newMax);
+    if (!overlaps && !usedStrings.has(str)) {
       if (newMin >= 100) hasOHKO = true;
       usedRanges.push([newMin, newMax]);
-      wrongs.push(formatRange(newMin, newMax));
+      usedStrings.add(str);
+      wrongs.push(str);
     }
   }
 

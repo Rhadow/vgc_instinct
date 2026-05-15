@@ -44,11 +44,12 @@ function SortableCard({
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
     useSortable({ id, disabled: answered });
 
-  const style = {
+  const style: React.CSSProperties = {
     transform: CSS.Transform.toString(transform),
     transition,
     zIndex: isDragging ? 50 : 0,
     opacity: isDragging ? 0.8 : 1,
+    touchAction: 'none',
   };
 
   const pokemonIndex = parseInt(id.split('-')[1]);
@@ -98,7 +99,7 @@ export function SpeedQuestionView({ question, onAnswer, answered }: SpeedQuestio
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
-    useSensor(TouchSensor, { activationConstraint: { delay: 150, tolerance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 100, tolerance: 8 } }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
   );
 
