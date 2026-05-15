@@ -68,27 +68,32 @@ function SortableCard({
 
   return (
     <div ref={setNodeRef} style={style} {...attributes}>
-      <div className={`flex items-center gap-2 rounded-xl transition-all duration-150 ${
+      <div className={`flex items-stretch gap-0 rounded-xl transition-all duration-150 ${
         isDragging
-          ? 'scale-[1.03] shadow-lg shadow-accent-blue/20 bg-bg-card/90 ring-1 ring-accent-blue/30'
+          ? 'scale-[1.03] shadow-lg shadow-accent-blue/20 ring-1 ring-accent-blue/30'
           : ''
       }`}>
         {/* Drag handle — only this area triggers drag on touch */}
         <div
           {...listeners}
-          className={`flex flex-col items-center gap-0.5 pl-1 pr-1 py-3 shrink-0 select-none ${
-            answered ? '' : 'cursor-grab active:cursor-grabbing'
+          className={`flex flex-col items-center justify-center gap-1 px-2.5 shrink-0 select-none rounded-l-xl border-r border-border/50 ${
+            answered
+              ? 'bg-bg-secondary/30'
+              : 'bg-bg-secondary/60 cursor-grab active:cursor-grabbing active:bg-accent-blue/10'
           }`}
           style={{ touchAction: 'none' }}
         >
-          <div className="w-7 h-7 rounded-full bg-bg-secondary border border-border flex items-center justify-center text-xs font-bold text-text-secondary">
+          {!answered && (
+            <svg width="8" height="6" viewBox="0 0 8 6" fill="currentColor" className="text-text-muted/50">
+              <path d="M4 0L7.5 5H0.5L4 0Z" />
+            </svg>
+          )}
+          <div className="w-6 h-6 rounded-md bg-bg-card border border-border flex items-center justify-center text-[11px] font-bold text-text-secondary">
             {index + 1}
           </div>
           {!answered && (
-            <svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor" className="text-text-muted/40 mt-0.5">
-              <circle cx="2.5" cy="2" r="1.2" /><circle cx="7.5" cy="2" r="1.2" />
-              <circle cx="2.5" cy="8" r="1.2" /><circle cx="7.5" cy="8" r="1.2" />
-              <circle cx="2.5" cy="14" r="1.2" /><circle cx="7.5" cy="14" r="1.2" />
+            <svg width="8" height="6" viewBox="0 0 8 6" fill="currentColor" className="text-text-muted/50">
+              <path d="M4 6L0.5 1H7.5L4 6Z" />
             </svg>
           )}
         </div>
@@ -194,7 +199,7 @@ export function SpeedQuestionView({ question, onAnswer, answered }: SpeedQuestio
       </div>
 
       <p className="text-center text-text-secondary text-sm">
-        {answered ? 'Correct turn order:' : 'Drag to arrange: 1st to move → 4th to move'}
+        {answered ? 'Correct turn order:' : 'Use the ▲▼ handle to reorder: fastest → slowest'}
       </p>
 
       {/* Sortable cards */}

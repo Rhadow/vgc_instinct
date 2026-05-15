@@ -174,9 +174,9 @@ export function HomeScreen({ onStart, pokemonCount, totalMeta, loading, stats }:
         </div>
       )}
 
-      {/* Loading / status */}
-      <div className="mt-8 text-center w-full max-w-sm mb-12">
-        {pokemonCount < totalMeta && totalMeta > 0 ? (
+      {/* Loading indicator — only shown while data is still loading */}
+      {pokemonCount < totalMeta && totalMeta > 0 && (
+        <div className="mt-8 text-center w-full max-w-sm mb-12">
           <div className="space-y-2">
             <div className="h-1 rounded-full bg-bg-secondary overflow-hidden">
               <div
@@ -185,15 +185,11 @@ export function HomeScreen({ onStart, pokemonCount, totalMeta, loading, stats }:
               />
             </div>
             <p className="text-text-muted text-[11px]">
-              Loading Pokémon data… {pokemonCount} / {totalMeta} ({loadPct}%)
+              Loading Pokémon data…
             </p>
           </div>
-        ) : (
-          <p className="text-text-muted text-[11px]">
-            {pokemonCount} Pokémon ready
-          </p>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Footer / Legal Disclaimer */}
       <div className="mt-auto pt-8 max-w-md text-center">
