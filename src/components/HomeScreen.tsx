@@ -13,7 +13,7 @@ interface HomeScreenProps {
 }
 
 export function HomeScreen({ onStart, pokemonCount, totalMeta, loading, stats }: HomeScreenProps) {
-  const [metaMode, setMetaMode] = useState(false);
+  const [metaMode, setMetaMode] = useState(true);
   const damageHighScore = getHighScore('damage');
   const speedHighScore = getHighScore('speed');
   const isLoading = loading || pokemonCount < 4;

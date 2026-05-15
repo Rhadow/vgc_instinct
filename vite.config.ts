@@ -51,6 +51,18 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            { name: 'smogon-calc', test: /@smogon\/calc/ },
+            { name: 'dnd-kit', test: /@dnd-kit/ },
+          ],
+        },
+      },
+    },
+  },
   test: {
     globals: true,
     environment: 'jsdom',
