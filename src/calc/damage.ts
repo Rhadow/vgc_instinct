@@ -66,8 +66,13 @@ export function calcDamage(
     if (Array.isArray(dmg)) {
       // dmg could be number[] or number[][] for multi-hit
       if (Array.isArray(dmg[0])) {
-        // Multi-hit: flatten or take first hit
-        rolls = (dmg as number[][]).map((hit) => hit[0] ?? 0);
+        // Multi-hit (e.g. Surging Strikes): each sub-array is one hit's 16 rolls
+        // Sum the min/max across all hits for total damage
+        const hitArrays = dmg as number[][];
+        const totalMin = hitArrays.reduce((sum, hit) => sum + Math.min(...hit), 0);
+        const totalMax = hitArrays.reduce((sum, hit) => sum + Math.max(...hit), 0);
+        // Build synthetic rolls array representing the total range
+        rolls = [totalMin, totalMax];
       } else {
         rolls = dmg as number[];
       }

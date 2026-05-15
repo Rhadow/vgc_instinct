@@ -1,20 +1,24 @@
 import { useState } from 'react';
 import { getHighScore } from '../quiz/engine';
 import type { QuizMode } from '../data/types';
+import { useInstallPrompt } from '../hooks/useInstallPrompt';
+import type { SessionStats } from '../hooks/useSessionHistory';
 
 interface HomeScreenProps {
   onStart: (mode: QuizMode, metaMode: boolean) => void;
   pokemonCount: number;
   totalMeta: number;
   loading: boolean;
+  stats: SessionStats;
 }
 
-export function HomeScreen({ onStart, pokemonCount, totalMeta, loading }: HomeScreenProps) {
+export function HomeScreen({ onStart, pokemonCount, totalMeta, loading, stats }: HomeScreenProps) {
   const [metaMode, setMetaMode] = useState(false);
   const damageHighScore = getHighScore('damage');
   const speedHighScore = getHighScore('speed');
   const isLoading = loading || pokemonCount < 4;
   const loadPct = totalMeta > 0 ? Math.round((pokemonCount / totalMeta) * 100) : 0;
+  const { canShow: canInstall, promptInstall, dismiss: dismissInstall } = useInstallPrompt();
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center px-4 py-8 animate-fade-in">
@@ -31,6 +35,32 @@ export function HomeScreen({ onStart, pokemonCount, totalMeta, loading }: HomeSc
         </p>
         <p className="text-text-muted text-xs mt-1">Champions 2026 · Regulation M-A</p>
       </div>
+
+      {/* PWA Install Banner */}
+      {canInstall && (
+        <div className="w-full max-w-sm mb-4 animate-slide-up">
+          <div className="rounded-xl border border-accent-blue/20 bg-accent-blue/5 p-3 flex items-center gap-3">
+            <span className="text-lg">📲</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-semibold text-text-primary">Install Instinct</p>
+              <p className="text-[10px] text-text-muted">Add to home screen for offline access</p>
+            </div>
+            <button
+              onClick={promptInstall}
+              className="text-[10px] font-bold bg-accent-blue text-white px-3 py-1.5 rounded-lg hover:bg-accent-blue/80 transition-colors shrink-0"
+            >
+              Install
+            </button>
+            <button
+              onClick={dismissInstall}
+              className="text-text-muted/40 hover:text-text-muted text-sm transition-colors shrink-0"
+              aria-label="Dismiss"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Mode buttons */}
       <div className="w-full max-w-sm space-y-4">
@@ -98,6 +128,51 @@ export function HomeScreen({ onStart, pokemonCount, totalMeta, loading }: HomeSc
           </label>
         </div>
       </div>
+
+      {/* Session Stats */}
+      {stats.totalSessions > 0 && (
+        <div className="w-full max-w-sm mt-6 animate-fade-in">
+          <div className="rounded-xl border border-border bg-bg-card/50 p-4">
+            <h3 className="text-xs font-bold text-text-secondary mb-3 uppercase tracking-wider">Your Stats</h3>
+            <div className="grid grid-cols-3 gap-3 text-center">
+              <div>
+                <p className="text-xl font-extrabold text-accent-blue tabular-nums">{stats.totalSessions}</p>
+                <p className="text-[10px] text-text-muted mt-0.5">Sessions</p>
+              </div>
+              <div>
+                <p className="text-xl font-extrabold text-accent-purple tabular-nums">{stats.currentStreak}🔥</p>
+                <p className="text-[10px] text-text-muted mt-0.5">Streak</p>
+              </div>
+              <div>
+                <p className="text-xl font-extrabold text-accent-amber tabular-nums">
+                  {Math.max(stats.damageAvg, stats.speedAvg)}
+                </p>
+                <p className="text-[10px] text-text-muted mt-0.5">Avg Score</p>
+              </div>
+            </div>
+            {/* Recent sessions */}
+            {stats.recentSessions.length > 0 && (
+              <div className="mt-3 pt-3 border-t border-border/50 space-y-1.5">
+                {stats.recentSessions.slice(0, 3).map((session, i) => (
+                  <div key={i} className="flex items-center justify-between text-[11px]">
+                    <span className="text-text-muted">
+                      {session.mode === 'damage' ? '⚔️' : '⚡'}{' '}
+                      {new Date(session.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                    </span>
+                    <span className={`font-bold tabular-nums ${
+                      session.score >= session.totalQuestions * 7 ? 'text-accent-green'
+                      : session.score >= session.totalQuestions * 4 ? 'text-accent-amber'
+                      : 'text-text-secondary'
+                    }`}>
+                      {session.score} pts
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Loading / status */}
       <div className="mt-8 text-center w-full max-w-sm mb-12">

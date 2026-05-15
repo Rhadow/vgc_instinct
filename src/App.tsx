@@ -1,14 +1,34 @@
 import { usePokemonData } from './hooks/usePokemonData';
 import { useQuizSession } from './hooks/useQuizSession';
+import { useSessionHistory } from './hooks/useSessionHistory';
 import { HomeScreen } from './components/HomeScreen';
 import { DamageQuestionView } from './components/DamageQuestion';
 import { SpeedQuestionView } from './components/SpeedQuestion';
 import { ResultScreen } from './components/ResultScreen';
 import type { DamageQuestion, SpeedQuestion } from './quiz/questionTypes';
+import { useEffect, useRef } from 'react';
 
 function App() {
   const { loading, error, dataSource, pokemonCount, totalMeta } = usePokemonData();
   const quiz = useQuizSession(dataSource);
+  const { stats, recordSession } = useSessionHistory();
+
+  // Record session when results are shown
+  const recordedRef = useRef(false);
+  useEffect(() => {
+    if (quiz.state === 'results' && quiz.mode && !recordedRef.current) {
+      recordedRef.current = true;
+      recordSession({
+        mode: quiz.mode,
+        score: quiz.score,
+        totalQuestions: quiz.totalQuestions,
+        metaMode: quiz.metaMode,
+      });
+    }
+    if (quiz.state === 'idle') {
+      recordedRef.current = false;
+    }
+  }, [quiz.state, quiz.mode, quiz.score, quiz.totalQuestions, quiz.metaMode, recordSession]);
 
   // Error state
   if (error) {
@@ -31,6 +51,7 @@ function App() {
         pokemonCount={pokemonCount}
         totalMeta={totalMeta}
         loading={loading || quiz.loading}
+        stats={stats}
       />
     );
   }

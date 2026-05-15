@@ -68,14 +68,30 @@ function SortableCard({
     : undefined;
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <div className={`flex items-center gap-3 rounded-xl transition-all duration-150 ${
+    <div ref={setNodeRef} style={style} {...attributes}>
+      <div className={`flex items-center gap-2 rounded-xl transition-all duration-150 ${
         isDragging
           ? 'scale-[1.03] shadow-lg shadow-accent-blue/20 bg-bg-card/90 ring-1 ring-accent-blue/30'
-          : answered ? '' : 'cursor-grab active:cursor-grabbing'
+          : ''
       }`}>
-        <div className="w-8 h-8 rounded-full bg-bg-secondary border border-border flex items-center justify-center text-sm font-bold text-text-secondary shrink-0">
-          {index + 1}
+        {/* Drag handle — only this area triggers drag on touch */}
+        <div
+          {...listeners}
+          className={`flex flex-col items-center gap-0.5 pl-1 pr-1 py-3 shrink-0 select-none ${
+            answered ? '' : 'cursor-grab active:cursor-grabbing'
+          }`}
+          style={{ touchAction: 'none' }}
+        >
+          <div className="w-7 h-7 rounded-full bg-bg-secondary border border-border flex items-center justify-center text-xs font-bold text-text-secondary">
+            {index + 1}
+          </div>
+          {!answered && (
+            <svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor" className="text-text-muted/40 mt-0.5">
+              <circle cx="2.5" cy="2" r="1.2" /><circle cx="7.5" cy="2" r="1.2" />
+              <circle cx="2.5" cy="8" r="1.2" /><circle cx="7.5" cy="8" r="1.2" />
+              <circle cx="2.5" cy="14" r="1.2" /><circle cx="7.5" cy="14" r="1.2" />
+            </svg>
+          )}
         </div>
         <PokemonCard
           pokemon={pokemon}
@@ -86,15 +102,6 @@ function SortableCard({
           showSpeed={answered}
           finalSpeed={speed}
         />
-        {!answered && (
-          <div className="shrink-0 pr-2 text-text-muted/40">
-            <svg width="12" height="20" viewBox="0 0 12 20" fill="currentColor">
-              <circle cx="3" cy="3" r="1.5" /><circle cx="9" cy="3" r="1.5" />
-              <circle cx="3" cy="10" r="1.5" /><circle cx="9" cy="10" r="1.5" />
-              <circle cx="3" cy="17" r="1.5" /><circle cx="9" cy="17" r="1.5" />
-            </svg>
-          </div>
-        )}
       </div>
     </div>
   );

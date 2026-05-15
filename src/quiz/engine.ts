@@ -116,7 +116,7 @@ const KNOWN_STATUS_MOVES = new Set([
   'Haze', 'Safeguard', 'Coaching',
 ]);
 
-const DAMAGING_PIVOT_MOVES = new Set(['U-turn', 'Volt Switch', 'Flip Turn', 'Parting Shot']);
+const DAMAGING_PIVOT_MOVES = new Set(['U-turn', 'Volt Switch', 'Flip Turn']);
 
 function isDamagingMove(moveName: string): boolean {
   if (DAMAGING_PIVOT_MOVES.has(moveName)) return true;

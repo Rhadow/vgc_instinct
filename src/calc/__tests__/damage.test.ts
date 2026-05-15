@@ -79,6 +79,26 @@ describe('calcDamage', () => {
     );
     expect(result).not.toBeNull();
     // Super effective fire on grass should do significant damage
+    // Super effective fire on grass should do significant damage
     expect(result!.maxPercent).toBeGreaterThan(50);
+  });
+
+  it('sums multi-hit move damage across all hits (Surging Strikes)', () => {
+    const urshifu = makeAttacker({
+      name: 'Urshifu-Rapid-Strike',
+      baseStats: { hp: 100, atk: 130, def: 100, spa: 63, spd: 60, spe: 97 },
+      types: ['Fighting', 'Water'],
+      ability: 'Unseen Fist',
+      item: '',
+      spread: { nature: 'Jolly', hp: 4, atk: 252, def: 0, spa: 0, spd: 0, spe: 252 },
+    });
+    const incineroar = makeDefender();
+
+    const result = calcDamage(urshifu, incineroar, 'Surging Strikes');
+    expect(result).not.toBeNull();
+    // Surging Strikes hits 3 times — total damage should be summed
+    // Each hit does ~36%, so total should be ~109-133%
+    expect(result!.minPercent).toBeGreaterThan(80);
+    expect(result!.maxPercent).toBeGreaterThan(100);
   });
 });
