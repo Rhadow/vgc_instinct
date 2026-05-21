@@ -84,7 +84,7 @@ export function buildCalendarDays(
 export function useDailyChallenge(): {
   isTodayComplete: boolean;
   todayScore: number | null;
-  saveDailyResult: (score: number, totalQuestions: number) => void;
+  saveDailyResult: (score: number, totalQuestions: number, dateKey?: string) => void;
   dailyStreak: number;
   calendarDays: Array<{ date: string; completed: boolean; score?: number }>;
 } {
@@ -111,11 +111,12 @@ export function useDailyChallenge(): {
   );
 
   const saveDailyResult = useCallback(
-    (score: number, totalQuestions: number) => {
-      const existing = history.find((r) => r.date === today);
-      if (existing) return; // already saved today
+    (score: number, totalQuestions: number, dateKey?: string) => {
+      const key = dateKey ?? today;
+      const existing = history.find((r) => r.date === key);
+      if (existing) return; // already saved
 
-      const newResult: DailyResult = { date: today, score, totalQuestions };
+      const newResult: DailyResult = { date: key, score, totalQuestions };
       const updated = [...history, newResult];
       setHistory(updated);
       saveHistory(updated);

@@ -7,7 +7,7 @@ import type { QuizDataSource } from '../quiz/engine';
 import type { WeaknessEntry } from './useWeaknessTracker';
 import { generateTypeQuestion, checkTypeAnswer } from '../quiz/typeQuiz';
 import type { TypeQuestion } from '../quiz/typeQuiz';
-import { generateDailyChallenge } from '../quiz/dailyChallenge';
+import { generateDailyChallenge, getTodayKey } from '../quiz/dailyChallenge';
 
 const TOTAL_QUESTIONS = 10;
 
@@ -29,6 +29,7 @@ interface UseQuizSessionReturn {
   submitTypeAnswer: (index: number) => void;
   nextQuestion: () => Promise<void>;
   reset: () => void;
+  dailyDateKey: string | null;
 }
 
 export function useQuizSession(
@@ -43,6 +44,7 @@ export function useQuizSession(
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [dailyDateKey, setDailyDateKey] = useState<string | null>(null);
 
   // Track question history to prevent repeats within a session
   const historyRef = useRef<Set<string>>(new Set());
@@ -67,11 +69,14 @@ export function useQuizSession(
     setScore(0);
     setCurrentIndex(0);
     setQuestions([]);
+    setDailyDateKey(null);
     historyRef.current = new Set(); // Reset history for new session
 
     if (quizMode === 'daily') {
       if (dataSource) {
-        const dailyQuestions = generateDailyChallenge(dataSource);
+        const todayKey = getTodayKey();
+        setDailyDateKey(todayKey);
+        const dailyQuestions = generateDailyChallenge(dataSource, todayKey);
         if (dailyQuestions && dailyQuestions.length > 0) {
           setQuestions(dailyQuestions);
           setState('playing');
@@ -120,7 +125,7 @@ export function useQuizSession(
 
   const nextQuestion = useCallback(async () => {
     const nextIdx = currentIndex + 1;
-    const totalQs = mode === 'daily' ? 5 : TOTAL_QUESTIONS;
+    const totalQs = mode === 'daily' ? questions.length : TOTAL_QUESTIONS;
 
     if (nextIdx >= totalQs) {
       const finalScore = score;
@@ -143,7 +148,7 @@ export function useQuizSession(
       setState('playing');
     }
     setLoading(false);
-  }, [currentIndex, score, mode, metaMode, generateQuestion]);
+  }, [currentIndex, score, mode, metaMode, questions.length, generateQuestion]);
 
 
   const reset = useCallback(() => {
@@ -153,6 +158,7 @@ export function useQuizSession(
     setAnswers([]);
     setCurrentIndex(0);
     setScore(0);
+    setDailyDateKey(null);
     historyRef.current = new Set();
   }, []);
 
@@ -162,7 +168,7 @@ export function useQuizSession(
     metaMode,
     currentQuestion: questions[currentIndex] ?? null,
     currentIndex,
-    totalQuestions: mode === 'daily' ? 5 : TOTAL_QUESTIONS,
+    totalQuestions: mode === 'daily' ? questions.length : TOTAL_QUESTIONS,
     score,
     answers,
     loading,
@@ -172,6 +178,7 @@ export function useQuizSession(
     submitTypeAnswer,
     nextQuestion,
     reset,
+    dailyDateKey,
   };
 }
 

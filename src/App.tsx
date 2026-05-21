@@ -99,13 +99,13 @@ function App() {
         metaMode: quiz.metaMode,
       });
       if (quiz.mode === 'daily') {
-        saveDailyResult(quiz.score, 5);
+        saveDailyResult(quiz.score, quiz.totalQuestions, quiz.dailyDateKey || undefined);
       }
     }
     if (quiz.state === 'idle') {
       recordedRef.current = false;
     }
-  }, [quiz.state, quiz.mode, quiz.score, quiz.totalQuestions, quiz.metaMode, recordSession, saveDailyResult]);
+  }, [quiz.state, quiz.mode, quiz.score, quiz.totalQuestions, quiz.metaMode, quiz.dailyDateKey, recordSession, saveDailyResult]);
 
   // Error state
   if (error) {
@@ -184,18 +184,21 @@ function App() {
           </div>
         ) : quiz.currentQuestion?.type === 'damage' ? (
           <DamageQuestionView
+            key={quiz.currentIndex}
             question={quiz.currentQuestion as DamageQuestion}
             onAnswer={quiz.submitDamageAnswer}
             answered={quiz.state === 'answered'}
           />
         ) : quiz.currentQuestion?.type === 'speed' ? (
           <SpeedQuestionView
+            key={quiz.currentIndex}
             question={quiz.currentQuestion as SpeedQuestion}
             onAnswer={quiz.submitSpeedAnswer}
             answered={quiz.state === 'answered'}
           />
         ) : quiz.currentQuestion?.type === 'type' ? (
           <TypeQuestionView
+            key={quiz.currentIndex}
             question={quiz.currentQuestion as TypeQuestion}
             onAnswer={quiz.submitTypeAnswer}
             answered={quiz.state === 'answered'}

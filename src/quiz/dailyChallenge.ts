@@ -3,7 +3,7 @@
  * Produces a deterministic set of 5 questions seeded by the current date.
  * Same seed = same questions for all users on the same day.
  */
-import { createSeededRng } from './seededRng';
+import { createSeededRng, type SeededRng } from './seededRng';
 import type { QuizQuestion } from './questionTypes';
 import type { TypeQuestion } from './typeQuiz';
 import type { QuizDataSource } from './engine';
@@ -16,7 +16,7 @@ import { getAbilityDisplayName } from '../data/abilityNames';
 import type { DamageQuestion, SpeedQuestion } from './questionTypes';
 
 
-function getTodayKey(): string {
+export function getTodayKey(): string {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
@@ -46,16 +46,10 @@ function formatRange(min: number, max: number): string {
   return `${min.toFixed(1)}% – ${max.toFixed(1)}%`;
 }
 
-interface SeededHelpers {
-  random(): number;
-  randomFrom<T>(arr: T[]): T;
-  shuffle<T>(arr: T[]): T[];
-}
-
 function buildAppPokemon(
   meta: { name: string; spreads: AppPokemon['spread'][]; items: string[]; abilities: string[] },
   fullData: { baseStats: AppPokemon['baseStats']; types: string[] },
-  rng: SeededHelpers,
+  rng: SeededRng,
 ): AppPokemon {
   return {
     name: meta.name,
@@ -71,7 +65,7 @@ function buildAppPokemon(
 function generateSeededWrongOptions(
   actualMinPct: number,
   actualMaxPct: number,
-  rng: SeededHelpers,
+  rng: SeededRng,
 ): string[] {
   const baseMin = actualMinPct >= 100 ? 100 : actualMinPct;
   const range = actualMaxPct - actualMinPct;
@@ -143,116 +137,121 @@ export function generateDailyChallenge(
   const pickName = (): string => rng.randomFrom(names);
 
   // Generate 2 damage questions
-  for (let q = 0; q < 2; q++) {
-    for (let attempt = 0; attempt < 20; attempt++) {
-      const atkName = pickName();
-      let defName = pickName();
-      while (defName === atkName) defName = pickName();
+  let damageCount = 0;
+  let attempts = 0;
+  while (damageCount < 2 && attempts < 1000) {
+    attempts++;
+    const atkName = pickName();
+    let defName = pickName();
+    while (defName === atkName) defName = pickName();
 
-      const atkMeta = source.getMetaPokemon(atkName);
-      const defMeta = source.getMetaPokemon(defName);
-      if (!atkMeta || !defMeta) continue;
+    const atkMeta = source.getMetaPokemon(atkName);
+    const defMeta = source.getMetaPokemon(defName);
+    if (!atkMeta || !defMeta) continue;
 
-      const atkFull = source.getFullData(atkName);
-      const defFull = source.getFullData(defName);
-      if (!atkFull || !defFull) continue;
+    const atkFull = source.getFullData(atkName);
+    const defFull = source.getFullData(defName);
+    if (!atkFull || !defFull) continue;
 
-      const damagingMoves = atkMeta.moves.filter(isDamagingMove);
-      if (damagingMoves.length === 0) continue;
+    const damagingMoves = atkMeta.moves.filter(isDamagingMove);
+    if (damagingMoves.length === 0) continue;
 
-      const moveName = rng.randomFrom(damagingMoves);
-      const key = `${atkName}|${defName}|${moveName}`;
-      if (history.has(key)) continue;
+    const moveName = rng.randomFrom(damagingMoves);
+    const key = `${atkName}|${defName}|${moveName}`;
+    if (history.has(key) && attempts < 500) continue;
 
-      const attacker = buildAppPokemon(atkMeta, atkFull, rng);
-      const defender = buildAppPokemon(defMeta, defFull, rng);
+    const attacker = buildAppPokemon(atkMeta, atkFull, rng);
+    const defender = buildAppPokemon(defMeta, defFull, rng);
 
-      const result = calcDamage(attacker, defender, moveName);
-      if (!result || result.maxPercent === 0) continue;
+    const result = calcDamage(attacker, defender, moveName);
+    if (!result || result.maxPercent === 0) continue;
 
-      history.add(key);
+    history.add(key);
 
-      const correctStr = formatRange(result.minPercent, result.maxPercent);
-      const wrongs = generateSeededWrongOptions(result.minPercent, result.maxPercent, rng);
-      const allOptions = [correctStr, ...wrongs];
-      const shuffled = rng.shuffle(allOptions);
-      const correctIndex = shuffled.indexOf(correctStr);
+    const correctStr = formatRange(result.minPercent, result.maxPercent);
+    const wrongs = generateSeededWrongOptions(result.minPercent, result.maxPercent, rng);
+    const allOptions = [correctStr, ...wrongs];
+    const shuffled = rng.shuffle(allOptions);
+    const correctIndex = shuffled.indexOf(correctStr);
 
-      const calcMove = new Move(Generations.get(9), moveName);
+    const calcMove = new Move(Generations.get(9), moveName);
 
-      const dmgQ: DamageQuestion = {
-        type: 'damage',
-        attacker,
-        defender,
-        moveName,
-        moveType: calcMove.type,
-        attackerSprite: source.getSpriteUrl(atkName),
-        defenderSprite: source.getSpriteUrl(defName),
-        correctResult: result,
-        options: shuffled,
-        correctIndex,
-      };
-      questions.push(dmgQ);
-      break;
-    }
+    const dmgQ: DamageQuestion = {
+      type: 'damage',
+      attacker,
+      defender,
+      moveName,
+      moveType: calcMove.type,
+      attackerSprite: source.getSpriteUrl(atkName),
+      defenderSprite: source.getSpriteUrl(defName),
+      correctResult: result,
+      options: shuffled,
+      correctIndex,
+    };
+    questions.push(dmgQ);
+    damageCount++;
   }
 
   // Generate 2 speed questions
-  for (let q = 0; q < 2; q++) {
-    for (let attempt = 0; attempt < 10; attempt++) {
-      const pickedSet = new Set<string>();
-      while (pickedSet.size < 4) pickedSet.add(pickName());
-      const picked = Array.from(pickedSet);
+  let speedCount = 0;
+  attempts = 0;
+  while (speedCount < 2 && attempts < 1000) {
+    attempts++;
+    const pickedSet = new Set<string>();
+    while (pickedSet.size < 4) pickedSet.add(pickName());
+    const picked = Array.from(pickedSet);
 
-      const key = [...picked].sort().join('|');
-      if (history.has(key)) continue;
+    const key = [...picked].sort().join('|');
+    if (history.has(key) && attempts < 500) continue;
 
-      const pokemons: AppPokemon[] = [];
-      const sprites: string[] = [];
-      let valid = true;
+    const pokemons: AppPokemon[] = [];
+    const sprites: string[] = [];
+    let valid = true;
 
-      for (const name of picked) {
-        const meta = source.getMetaPokemon(name);
-        const full = source.getFullData(name);
-        if (!meta || !full) { valid = false; break; }
-        pokemons.push(buildAppPokemon(meta, full, rng));
-        sprites.push(source.getSpriteUrl(name));
-      }
-      if (!valid) continue;
-
-      const trickRoom = rng.random() < 0.3;
-      const tailwind = pokemons.map(() => rng.random() < 0.2);
-      const paralysis = pokemons.map(() => rng.random() < 0.15);
-      const statStages = pokemons.map(() => (rng.random() < 0.2 ? -1 : 0));
-
-      const contexts: SpeedContext[] = pokemons.map((pokemon, i) => ({
-        pokemon,
-        trickRoom,
-        tailwind: tailwind[i],
-        statStage: statStages[i],
-        paralysis: paralysis[i],
-      }));
-
-      const correctOrder = calcSpeedOrder(contexts);
-      history.add(key);
-
-      const spdQ: SpeedQuestion = {
-        type: 'speed',
-        pokemons,
-        sprites,
-        trickRoom,
-        tailwind,
-        paralysis,
-        statStages,
-        correctOrder,
-      };
-      questions.push(spdQ);
-      break;
+    for (const name of picked) {
+      const meta = source.getMetaPokemon(name);
+      const full = source.getFullData(name);
+      if (!meta || !full) { valid = false; break; }
+      pokemons.push(buildAppPokemon(meta, full, rng));
+      sprites.push(source.getSpriteUrl(name));
     }
+    if (!valid) continue;
+
+    const trickRoom = rng.random() < 0.3;
+    const tailwind = pokemons.map(() => rng.random() < 0.2);
+    const paralysis = pokemons.map(() => rng.random() < 0.15);
+    const statStages = pokemons.map(() => (rng.random() < 0.2 ? -1 : 0));
+
+    const contexts: SpeedContext[] = pokemons.map((pokemon, i) => ({
+      pokemon,
+      trickRoom,
+      tailwind: tailwind[i],
+      statStage: statStages[i],
+      paralysis: paralysis[i],
+    }));
+
+    const correctOrder = calcSpeedOrder(contexts);
+    history.add(key);
+
+    const spdQ: SpeedQuestion = {
+      type: 'speed',
+      pokemons,
+      sprites,
+      trickRoom,
+      tailwind,
+      paralysis,
+      statStages,
+      correctOrder,
+    };
+    questions.push(spdQ);
+    speedCount++;
   }
 
   // Generate 1 type question
-  for (let attempt = 0; attempt < 20; attempt++) {
+  let typeCount = 0;
+  attempts = 0;
+  while (typeCount < 1 && attempts < 1000) {
+    attempts++;
     const defName = pickName();
     const defMeta = source.getMetaPokemon(defName);
     const defFull = source.getFullData(defName);
@@ -260,7 +259,7 @@ export function generateDailyChallenge(
 
     const attackingType = rng.randomFrom([...ALL_TYPES]);
     const key = `type|${attackingType}|${defName}`;
-    if (history.has(key)) continue;
+    if (history.has(key) && attempts < 500) continue;
 
     const multiplier = calcTypeEffectiveness(attackingType, defFull.types);
     const correctLabel = multiplierToLabel(multiplier);
@@ -291,7 +290,7 @@ export function generateDailyChallenge(
       correctIndex: combined.indexOf(correctLabel),
     };
     questions.push(typeQ);
-    break;
+    typeCount++;
   }
 
   return questions;

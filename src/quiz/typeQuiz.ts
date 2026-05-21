@@ -20,7 +20,8 @@ export interface TypeQuestion {
 
 function getWeightedRandomPokemon(source: QuizDataSource, metaMode?: boolean): string {
   const names = source.getMetaPokemonNames();
-  if (!metaMode) {
+  if (names.length === 0) return '';
+  if (!metaMode || names.length < 75) {
     return names[Math.floor(Math.random() * names.length)];
   }
   const sortedNames = [...names].sort((a, b) => {
@@ -29,8 +30,8 @@ function getWeightedRandomPokemon(source: QuizDataSource, metaMode?: boolean): s
     return usageB - usageA;
   });
   const r = Math.random();
-  if (r < 0.60) return sortedNames[Math.floor(Math.random() * Math.min(50, sortedNames.length))];
-  if (r < 0.95) return sortedNames[Math.floor(50 + Math.random() * Math.min(25, sortedNames.length - 50))];
+  if (r < 0.60) return sortedNames[Math.floor(Math.random() * 50)];
+  if (r < 0.95) return sortedNames[Math.floor(50 + Math.random() * 25)];
   return sortedNames[Math.floor(75 + Math.random() * (sortedNames.length - 75))];
 }
 
