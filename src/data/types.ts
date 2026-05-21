@@ -89,4 +89,4 @@ export interface SpeedResult {
   effectiveOrder: number;
 }
 
-export type QuizMode = 'damage' | 'speed' | 'type' | 'daily';
+export type QuizMode = 'damage' | 'speed' | 'type' | 'daily' | 'casual';

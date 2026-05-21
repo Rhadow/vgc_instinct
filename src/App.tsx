@@ -6,8 +6,9 @@ import { DamageQuestionView } from './components/DamageQuestion';
 import { SpeedQuestionView } from './components/SpeedQuestion';
 import { TypeQuestionView } from './components/TypeQuestion';
 import { ResultScreen } from './components/ResultScreen';
-import type { DamageQuestion, SpeedQuestion } from './quiz/questionTypes';
+import type { DamageQuestion, SpeedQuestion, CasualQuestion } from './quiz/questionTypes';
 import type { TypeQuestion } from './quiz/typeQuiz';
+import { CasualQuestionView } from './components/CasualQuestion';
 import { useEffect, useRef, useMemo } from 'react';
 import { useWeaknessTracker } from './hooks/useWeaknessTracker';
 import { useDailyChallenge } from './hooks/useDailyChallenge';
@@ -78,6 +79,10 @@ function App() {
         } else if (question.type === 'type') {
           const tq = question as TypeQuestion;
           recordResult(tq.defender.name, correct);
+        } else if (question.type === 'casual') {
+          const cq = question as CasualQuestion;
+          const targetPokemonName = cq.options[cq.correctIndex].name;
+          recordResult(targetPokemonName, correct);
         }
       });
       processedAnswersRef.current = quiz.answers.length;
@@ -201,6 +206,13 @@ function App() {
             key={quiz.currentIndex}
             question={quiz.currentQuestion as TypeQuestion}
             onAnswer={quiz.submitTypeAnswer}
+            answered={quiz.state === 'answered'}
+          />
+        ) : quiz.currentQuestion?.type === 'casual' ? (
+          <CasualQuestionView
+            key={quiz.currentIndex}
+            question={quiz.currentQuestion as CasualQuestion}
+            onAnswer={quiz.submitCasualAnswer}
             answered={quiz.state === 'answered'}
           />
         ) : null}

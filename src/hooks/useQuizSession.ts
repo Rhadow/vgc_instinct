@@ -1,13 +1,14 @@
 import { useState, useCallback, useRef } from 'react';
 import type { QuizMode } from '../data/types';
 import type { QuizQuestion, QuizAnswer } from '../quiz/questionTypes';
-import type { DamageQuestion, SpeedQuestion } from '../quiz/questionTypes';
+import type { DamageQuestion, SpeedQuestion, CasualQuestion } from '../quiz/questionTypes';
 import { generateDamageQuestion, generateSpeedQuestion, checkDamageAnswer, checkSpeedAnswer, saveHighScore } from '../quiz/engine';
 import type { QuizDataSource } from '../quiz/engine';
 import type { WeaknessEntry } from './useWeaknessTracker';
 import { generateTypeQuestion, checkTypeAnswer } from '../quiz/typeQuiz';
 import type { TypeQuestion } from '../quiz/typeQuiz';
 import { generateDailyChallenge, getTodayKey } from '../quiz/dailyChallenge';
+import { generateCasualQuestions, checkCasualAnswer } from '../quiz/casualQuiz';
 
 const TOTAL_QUESTIONS = 10;
 
@@ -27,6 +28,7 @@ interface UseQuizSessionReturn {
   submitDamageAnswer: (index: number) => void;
   submitSpeedAnswer: (order: number[]) => void;
   submitTypeAnswer: (index: number) => void;
+  submitCasualAnswer: (index: number) => void;
   nextQuestion: () => Promise<void>;
   reset: () => void;
   dailyDateKey: string | null;
@@ -82,6 +84,16 @@ export function useQuizSession(
           setState('playing');
         }
       }
+    } else if (quizMode === 'casual') {
+      if (dataSource) {
+        const todayKey = getTodayKey();
+        setDailyDateKey(todayKey);
+        const casualQuestions = generateCasualQuestions(dataSource, todayKey);
+        if (casualQuestions && casualQuestions.length > 0) {
+          setQuestions(casualQuestions);
+          setState('playing');
+        }
+      }
     } else {
       const q = await generateQuestion(quizMode, isMetaMode);
       if (q) {
@@ -122,10 +134,20 @@ export function useQuizSession(
     setState('answered');
   }, [questions, currentIndex]);
 
+  const submitCasualAnswer = useCallback((selectedIndex: number) => {
+    const question = questions[currentIndex] as CasualQuestion;
+    if (!question) return;
+
+    const answer = checkCasualAnswer(question, selectedIndex);
+    setAnswers((prev) => [...prev, answer]);
+    setScore((prev) => prev + answer.pointsEarned);
+    setState('answered');
+  }, [questions, currentIndex]);
+
 
   const nextQuestion = useCallback(async () => {
     const nextIdx = currentIndex + 1;
-    const totalQs = mode === 'daily' ? questions.length : TOTAL_QUESTIONS;
+    const totalQs = (mode === 'daily' || mode === 'casual') ? questions.length : TOTAL_QUESTIONS;
 
     if (nextIdx >= totalQs) {
       const finalScore = score;
@@ -134,7 +156,7 @@ export function useQuizSession(
       return;
     }
 
-    if (mode === 'daily') {
+    if (mode === 'daily' || mode === 'casual') {
       setCurrentIndex(nextIdx);
       setState('playing');
       return;
@@ -168,7 +190,7 @@ export function useQuizSession(
     metaMode,
     currentQuestion: questions[currentIndex] ?? null,
     currentIndex,
-    totalQuestions: mode === 'daily' ? questions.length : TOTAL_QUESTIONS,
+    totalQuestions: (mode === 'daily' || mode === 'casual') ? questions.length : TOTAL_QUESTIONS,
     score,
     answers,
     loading,
@@ -176,6 +198,7 @@ export function useQuizSession(
     submitDamageAnswer,
     submitSpeedAnswer,
     submitTypeAnswer,
+    submitCasualAnswer,
     nextQuestion,
     reset,
     dailyDateKey,

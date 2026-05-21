@@ -27,7 +27,15 @@ export interface SpeedQuestion {
   correctOrder: SpeedResult[];
 }
 
-export type QuizQuestion = DamageQuestion | SpeedQuestion | TypeQuestion;
+export interface CasualQuestion {
+  type: 'casual';
+  targetTypes: string[];
+  options: AppPokemon[];
+  sprites: string[];
+  correctIndex: number;
+}
+
+export type QuizQuestion = DamageQuestion | SpeedQuestion | TypeQuestion | CasualQuestion;
 
 export interface QuizAnswer {
   question: QuizQuestion;
