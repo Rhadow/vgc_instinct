@@ -77,24 +77,74 @@ export function generateCasualQuestions(
 
       // 2. We have a valid target Pokémon! Now select 3 wrong options.
       const wrongs: AppPokemon[] = [];
-      const wrongNames = new Set<string>([correctName]);
-      let wrongAttempt = 0;
+      const targetIsDual = targetTypes.length === 2;
+      
+      let candidateNames: string[] = [];
 
-      while (wrongs.length < 3 && wrongAttempt < 200) {
-        wrongAttempt++;
-        const candidateName = rng.randomFrom(names);
-        if (wrongNames.has(candidateName)) continue;
+      if (targetIsDual) {
+        // Shuffle the two target types to decide which one to try first
+        const [typeA, typeB] = targetTypes;
+        const typeChoices = rng.shuffle([typeA, typeB]);
+        
+        for (const sharedType of typeChoices) {
+          const matchingNames = names.filter((name) => {
+            if (name === correctName) return false;
+            const full = source.getFullData(name);
+            if (!full) return false;
+            // Must have the shared type, but not be equal to the target types
+            return full.types.includes(sharedType) && !areTypesEqual(full.types, targetTypes);
+          });
+          
+          if (matchingNames.length >= 3) {
+            candidateNames = matchingNames;
+            break;
+          }
+        }
+      } else {
+        // Target is mono-type
+        const monoType = targetTypes[0];
+        const matchingNames = names.filter((name) => {
+          if (name === correctName) return false;
+          const full = source.getFullData(name);
+          if (!full) return false;
+          // Must have the mono type, but be a dual-type (length === 2)
+          return full.types.includes(monoType) && full.types.length === 2;
+        });
 
-        const candMeta = source.getMetaPokemon(candidateName);
-        const candFull = source.getFullData(candidateName);
-        if (!candMeta || !candFull) continue;
+        if (matchingNames.length >= 3) {
+          candidateNames = matchingNames;
+        }
+      }
 
-        // Verify the types are not equal to the target types
-        if (areTypesEqual(candFull.types, targetTypes)) continue;
+      // If we found enough smart candidates, shuffle and pick 3. Otherwise, fall back to standard logic
+      if (candidateNames.length >= 3) {
+        const selectedNames = rng.shuffle(candidateNames).slice(0, 3);
+        selectedNames.forEach((candidateName) => {
+          const candMeta = source.getMetaPokemon(candidateName)!;
+          const candFull = source.getFullData(candidateName)!;
+          wrongs.push(buildAppPokemon(candMeta, candFull, rng));
+        });
+      } else {
+        // Fallback: standard random wrong options (types not equal to target types)
+        const wrongNames = new Set<string>([correctName]);
+        let wrongAttempt = 0;
 
-        const wrongMon = buildAppPokemon(candMeta, candFull, rng);
-        wrongs.push(wrongMon);
-        wrongNames.add(candidateName);
+        while (wrongs.length < 3 && wrongAttempt < 200) {
+          wrongAttempt++;
+          const candidateName = rng.randomFrom(names);
+          if (wrongNames.has(candidateName)) continue;
+
+          const candMeta = source.getMetaPokemon(candidateName);
+          const candFull = source.getFullData(candidateName);
+          if (!candMeta || !candFull) continue;
+
+          // Verify the types are not equal to the target types
+          if (areTypesEqual(candFull.types, targetTypes)) continue;
+
+          const wrongMon = buildAppPokemon(candMeta, candFull, rng);
+          wrongs.push(wrongMon);
+          wrongNames.add(candidateName);
+        }
       }
 
       // If we couldn't find 3 valid wrong options, try another correct Pokémon

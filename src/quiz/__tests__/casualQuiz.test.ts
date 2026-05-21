@@ -2,11 +2,12 @@ import { describe, it, expect } from 'vitest';
 import { generateCasualQuestions, checkCasualAnswer } from '../casualQuiz';
 import type { QuizDataSource } from '../engine';
 
-// Mock data source with enough variety to generate questions
+// Mock data source with enough variety to generate questions and hard mode distractors
 const mockDataSource: QuizDataSource = {
   getMetaPokemonNames: () => [
     'Charizard', 'Pikachu', 'Venusaur', 'Blastoise', 'Garchomp', 
-    'Aegislash', 'Gengar', 'Talonflame', 'Sableye', 'Sylveon'
+    'Aegislash', 'Gengar', 'Talonflame', 'Sableye', 'Sylveon',
+    'Moltres', 'Cinderace', 'Blaziken', 'RotomHeat', 'Volcarona'
   ],
   getMetaPokemon: (name) => {
     const data: Record<string, any> = {
@@ -20,6 +21,11 @@ const mockDataSource: QuizDataSource = {
       Talonflame: { name: 'Talonflame', spreads: [{ nature: 'Jolly', hp: 0, atk: 252, def: 0, spa: 0, spd: 4, spe: 252 }], moves: ['Brave Bird'], items: ['sharpbeak'], abilities: ['Gale Wings'] },
       Sableye: { name: 'Sableye', spreads: [{ nature: 'Calm', hp: 252, atk: 0, def: 128, spa: 0, spd: 128, spe: 0 }], moves: ['Foul Play'], items: ['roseliberry'], abilities: ['Prankster'] },
       Sylveon: { name: 'Sylveon', spreads: [{ nature: 'Modest', hp: 252, atk: 0, def: 0, spa: 252, spd: 4, spe: 0 }], moves: ['Hyper Voice'], items: ['pixieplate'], abilities: ['Pixilate'] },
+      Moltres: { name: 'Moltres', spreads: [{ nature: 'Timid', hp: 0, atk: 0, def: 0, spa: 252, spd: 4, spe: 252 }], moves: ['Fire Blast'], items: ['charcoal'], abilities: ['Pressure'] },
+      Cinderace: { name: 'Cinderace', spreads: [{ nature: 'Jolly', hp: 0, atk: 252, def: 0, spa: 0, spd: 4, spe: 252 }], moves: ['Pyro Ball'], items: ['lifeorb'], abilities: ['Libero'] },
+      Blaziken: { name: 'Blaziken', spreads: [{ nature: 'Jolly', hp: 0, atk: 252, def: 0, spa: 0, spd: 4, spe: 252 }], moves: ['Flare Blitz'], items: ['lifeorb'], abilities: ['Speed Boost'] },
+      RotomHeat: { name: 'RotomHeat', spreads: [{ nature: 'Timid', hp: 252, atk: 0, def: 0, spa: 252, spd: 4, spe: 0 }], moves: ['Overheat'], items: ['sitrusberry'], abilities: ['Levitate'] },
+      Volcarona: { name: 'Volcarona', spreads: [{ nature: 'Timid', hp: 0, atk: 0, def: 0, spa: 252, spd: 4, spe: 252 }], moves: ['Fiery Dance'], items: ['heavyboots'], abilities: ['Flame Body'] },
     };
     return data[name];
   },
@@ -35,6 +41,11 @@ const mockDataSource: QuizDataSource = {
       Talonflame: { name: 'Talonflame', baseStats: { hp: 78, atk: 81, def: 71, spa: 74, spd: 69, spe: 126 }, types: ['Fire', 'Flying'], abilities: ['Gale Wings'], spriteUrl: 'talonflame.png' },
       Sableye: { name: 'Sableye', baseStats: { hp: 50, atk: 75, def: 75, spa: 65, spd: 65, spe: 50 }, types: ['Dark', 'Ghost'], abilities: ['Prankster'], spriteUrl: 'sableye.png' },
       Sylveon: { name: 'Sylveon', baseStats: { hp: 95, atk: 65, def: 65, spa: 110, spd: 130, spe: 60 }, types: ['Fairy'], abilities: ['Pixilate'], spriteUrl: 'sylveon.png' },
+      Moltres: { name: 'Moltres', baseStats: { hp: 90, atk: 100, def: 90, spa: 125, spd: 85, spe: 90 }, types: ['Fire', 'Flying'], abilities: ['Pressure'], spriteUrl: 'moltres.png' },
+      Cinderace: { name: 'Cinderace', baseStats: { hp: 80, atk: 116, def: 75, spa: 65, spd: 75, spe: 119 }, types: ['Fire'], abilities: ['Libero'], spriteUrl: 'cinderace.png' },
+      Blaziken: { name: 'Blaziken', baseStats: { hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80 }, types: ['Fire', 'Fighting'], abilities: ['Speed Boost'], spriteUrl: 'blaziken.png' },
+      RotomHeat: { name: 'RotomHeat', baseStats: { hp: 50, atk: 65, def: 107, spa: 105, spd: 107, spe: 86 }, types: ['Electric', 'Fire'], abilities: ['Levitate'], spriteUrl: 'rotomheat.png' },
+      Volcarona: { name: 'Volcarona', baseStats: { hp: 85, atk: 60, def: 65, spa: 135, spd: 105, spe: 100 }, types: ['Bug', 'Fire'], abilities: ['Flame Body'], spriteUrl: 'volcarona.png' },
     };
     return data[name];
   },
@@ -101,5 +112,44 @@ describe('Casual Quiz Core Logic', () => {
     const wrongAns = checkCasualAnswer(firstQ, wrongIdx);
     expect(wrongAns.correct).toBe(false);
     expect(wrongAns.pointsEarned).toBe(0);
+  });
+
+  it('should apply harder distractor logic for dual-type and mono-type questions when sufficient candidates exist', () => {
+    let testedDual = false;
+    let testedMono = false;
+
+    // Test across a few dates to guarantee we hit the qualifying target Pokémon
+    for (let day = 20; day <= 30; day++) {
+      const questions = generateCasualQuestions(mockDataSource, `2026-05-${day}`);
+      
+      questions.forEach((q) => {
+        if (q.targetTypes.length === 2) {
+          const [t1, t2] = q.targetTypes;
+          
+          const allShareOneTargetType = q.options.every((opt) => opt.types.includes(t1) || opt.types.includes(t2));
+          if (allShareOneTargetType) {
+            const allShareT1 = q.options.every((opt) => opt.types.includes(t1));
+            const allShareT2 = q.options.every((opt) => opt.types.includes(t2));
+            expect(allShareT1 || allShareT2).toBe(true);
+            testedDual = true;
+          }
+        } else if (q.targetTypes.length === 1) {
+          const mono = q.targetTypes[0];
+          
+          const allShareMonoType = q.options.every((opt) => opt.types.includes(mono));
+          if (allShareMonoType) {
+            q.options.forEach((opt, idx) => {
+              if (idx !== q.correctIndex) {
+                expect(opt.types.length).toBe(2);
+              }
+            });
+            testedMono = true;
+          }
+        }
+      });
+    }
+
+    expect(testedDual).toBe(true);
+    expect(testedMono).toBe(true);
   });
 });

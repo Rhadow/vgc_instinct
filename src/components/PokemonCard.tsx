@@ -75,30 +75,42 @@ export function PokemonCard({
       </h3>
 
       {/* Type badges */}
-      {!hideTypes && pokemon.types && pokemon.types.length > 0 && (
-        <div className="flex justify-center gap-1 mt-1">
-          {pokemon.types.map((type) => {
-            const colors = getTypeColor(type);
-            return (
-              <span
-                key={type}
-                className="text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded"
-                style={{
-                  backgroundColor: colors.bg,
-                  color: colors.text,
-                  border: `1px solid ${colors.border}`,
-                }}
-              >
-                {type}
-              </span>
-            );
-          })}
-        </div>
-      )}
+      <div 
+        className="transition-all duration-300 ease-out overflow-hidden flex justify-center gap-1"
+        style={{
+          maxHeight: hideTypes ? '0px' : '30px',
+          opacity: hideTypes ? 0 : 1,
+          marginTop: hideTypes ? '0px' : '4px',
+        }}
+      >
+        {pokemon.types && pokemon.types.length > 0 && pokemon.types.map((type) => {
+          const colors = getTypeColor(type);
+          return (
+            <span
+              key={type}
+              className="text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded"
+              style={{
+                backgroundColor: colors.bg,
+                color: colors.text,
+                border: `1px solid ${colors.border}`,
+              }}
+            >
+              {type}
+            </span>
+          );
+        })}
+      </div>
 
       {/* Details */}
-      {!hideDetails && (
-        <div className="mt-2 space-y-1 text-xs text-text-secondary">
+      <div
+        className="transition-all duration-500 ease-out overflow-hidden text-xs text-text-secondary"
+        style={{
+          maxHeight: hideDetails ? '0px' : '150px',
+          opacity: hideDetails ? 0 : 1,
+          marginTop: hideDetails ? '0px' : '8px',
+        }}
+      >
+        <div className="space-y-1">
           {/* Item */}
           {pokemon.item && pokemon.item !== 'nothing' && (
             <p className="flex items-center gap-1.5">
@@ -134,7 +146,7 @@ export function PokemonCard({
             </p>
           )}
         </div>
-      )}
+      </div>
 
       {/* Speed badge */}
       {showSpeed && finalSpeed !== undefined && (
