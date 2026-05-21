@@ -4,6 +4,7 @@ import type { QuizQuestion, QuizAnswer } from '../quiz/questionTypes';
 import type { DamageQuestion, SpeedQuestion } from '../quiz/questionTypes';
 import { generateDamageQuestion, generateSpeedQuestion, checkDamageAnswer, checkSpeedAnswer, saveHighScore } from '../quiz/engine';
 import type { QuizDataSource } from '../quiz/engine';
+import type { WeaknessEntry } from './useWeaknessTracker';
 
 const TOTAL_QUESTIONS = 10;
 
@@ -26,7 +27,10 @@ interface UseQuizSessionReturn {
   reset: () => void;
 }
 
-export function useQuizSession(dataSource: QuizDataSource | null): UseQuizSessionReturn {
+export function useQuizSession(
+  dataSource: QuizDataSource | null,
+  weaknessMap?: Record<string, WeaknessEntry>
+): UseQuizSessionReturn {
   const [state, setState] = useState<QuizState>('idle');
   const [mode, setMode] = useState<QuizMode | null>(null);
   const [metaMode, setMetaMode] = useState<boolean>(false);
@@ -42,11 +46,11 @@ export function useQuizSession(dataSource: QuizDataSource | null): UseQuizSessio
   const generateQuestion = useCallback(async (quizMode: QuizMode, isMetaMode: boolean): Promise<QuizQuestion | null> => {
     if (!dataSource) return null;
     if (quizMode === 'damage') {
-      return generateDamageQuestion(dataSource, historyRef.current, 20, isMetaMode);
+      return generateDamageQuestion(dataSource, historyRef.current, 20, isMetaMode, weaknessMap);
     } else {
-      return generateSpeedQuestion(dataSource, historyRef.current, 10, isMetaMode);
+      return generateSpeedQuestion(dataSource, historyRef.current, 10, isMetaMode, weaknessMap);
     }
-  }, [dataSource]);
+  }, [dataSource, weaknessMap]);
 
   const startSession = useCallback(async (quizMode: QuizMode, isMetaMode: boolean = false) => {
     setLoading(true);

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import type { QuizMode } from '../data/types';
 
 export interface SessionRecord {
@@ -39,7 +39,8 @@ export interface SessionStats {
   recentSessions: SessionRecord[];
 }
 
-function computeStats(records: SessionRecord[]): SessionStats {
+/** Exported for testing. Pure function — no side effects. */
+export function computeStats(records: SessionRecord[]): SessionStats {
   const damageSessions = records.filter((r) => r.mode === 'damage');
   const speedSessions = records.filter((r) => r.mode === 'speed');
 
@@ -70,21 +71,16 @@ function computeStats(records: SessionRecord[]): SessionStats {
 }
 
 export function useSessionHistory() {
-  const [history, setHistory] = useState<SessionRecord[]>([]);
-  const [stats, setStats] = useState<SessionStats>(() => computeStats([]));
+  const [history, setHistory] = useState<SessionRecord[]>(() => loadHistory());
 
-  useEffect(() => {
-    const records = loadHistory();
-    setHistory(records);
-    setStats(computeStats(records));
-  }, []);
+  // Stats are derived from history — always in sync, no batching issues
+  const stats = useMemo(() => computeStats(history), [history]);
 
   const recordSession = useCallback((session: Omit<SessionRecord, 'date'>) => {
     const record: SessionRecord = { ...session, date: new Date().toISOString() };
     setHistory((prev) => {
       const updated = [...prev, record];
       saveHistory(updated);
-      setStats(computeStats(updated));
       return updated;
     });
   }, []);

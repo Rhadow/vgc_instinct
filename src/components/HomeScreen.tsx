@@ -10,9 +10,19 @@ interface HomeScreenProps {
   totalMeta: number;
   loading: boolean;
   stats: SessionStats;
+  weakestPokemon?: Array<{ name: string; difficulty: number }>;
+  getSpriteUrl?: (name: string) => string;
 }
 
-export function HomeScreen({ onStart, pokemonCount, totalMeta, loading, stats }: HomeScreenProps) {
+export function HomeScreen({
+  onStart,
+  pokemonCount,
+  totalMeta,
+  loading,
+  stats,
+  weakestPokemon,
+  getSpriteUrl,
+}: HomeScreenProps) {
   const [metaMode, setMetaMode] = useState(true);
   const damageHighScore = getHighScore('damage');
   const speedHighScore = getHighScore('speed');
@@ -173,6 +183,55 @@ export function HomeScreen({ onStart, pokemonCount, totalMeta, loading, stats }:
           </div>
         </div>
       )}
+
+      {/* Weak Spots Section */}
+      {weakestPokemon && weakestPokemon.length > 0 && getSpriteUrl && (
+        <div className="w-full max-w-sm mt-4 animate-fade-in">
+          <div className="rounded-xl border border-border bg-bg-card/50 p-4">
+            <h3 className="text-xs font-bold text-text-secondary mb-3 uppercase tracking-wider flex items-center gap-1.5">
+              🧠 Your Weak Spots
+            </h3>
+            <div className="space-y-3">
+              {weakestPokemon.map(({ name, difficulty }) => {
+                const sprite = getSpriteUrl(name);
+                const pct = Math.min((difficulty / 3.0) * 100, 100);
+                let label = "Normal";
+                let colorClass = "text-accent-blue bg-accent-blue/10 border-accent-blue/20";
+                let barColor = "bg-accent-blue";
+                if (difficulty >= 1.5) {
+                  label = "Critical";
+                  colorClass = "text-accent-red bg-accent-red/10 border-accent-red/20";
+                  barColor = "bg-accent-red";
+                } else if (difficulty >= 0.7) {
+                  label = "Medium";
+                  colorClass = "text-accent-amber bg-accent-amber/10 border-accent-amber/20";
+                  barColor = "bg-accent-amber";
+                }
+
+                return (
+                  <div key={name} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-bg-secondary flex items-center justify-center border border-border overflow-hidden shrink-0">
+                      <img src={sprite} alt={name} className="w-8 h-8 object-contain" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <span className="text-xs font-bold text-text-primary truncate">{name}</span>
+                        <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded border ${colorClass}`}>
+                          {label}
+                        </span>
+                      </div>
+                      <div className="h-1 rounded-full bg-bg-secondary overflow-hidden">
+                        <div className={`h-full rounded-full ${barColor}`} style={{ width: `${pct}%` }} />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
 
       {/* Loading indicator — only shown while data is still loading */}
       {pokemonCount < totalMeta && totalMeta > 0 && (

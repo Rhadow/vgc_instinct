@@ -1,4 +1,5 @@
 import type { AppPokemon, AppField, DamageResult, SpeedResult, QuizMode } from '../data/types';
+import type { TypeQuestion } from './typeQuiz';
 
 export interface DamageQuestion {
   type: 'damage';
@@ -26,7 +27,7 @@ export interface SpeedQuestion {
   correctOrder: SpeedResult[];
 }
 
-export type QuizQuestion = DamageQuestion | SpeedQuestion;
+export type QuizQuestion = DamageQuestion | SpeedQuestion | TypeQuestion;
 
 export interface QuizAnswer {
   question: QuizQuestion;

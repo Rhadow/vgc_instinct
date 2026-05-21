@@ -4,6 +4,8 @@ import { calcDamage } from '../calc/damage';
 import { calcSpeedOrder } from '../calc/speed';
 import { Generations, Move } from '@smogon/calc';
 import { getAbilityDisplayName } from '../data/abilityNames';
+import { computeDifficulty } from '../hooks/useWeaknessTracker';
+import type { WeaknessEntry } from '../hooks/useWeaknessTracker';
 
 function randomFrom<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -203,26 +205,68 @@ function generateDamageField(attacker: AppPokemon, defender: AppPokemon): AppFie
   return { weather, terrain };
 }
 
-function getWeightedRandomPokemon(source: QuizDataSource, metaMode?: boolean): string {
+export function getWeightedRandomPokemon(
+  source: QuizDataSource,
+  metaMode?: boolean,
+  weaknessMap?: Record<string, WeaknessEntry>,
+): string {
   const names = source.getMetaPokemonNames();
-  if (!metaMode) return randomFrom(names);
+  if (names.length === 0) return '';
+  if (!metaMode && !weaknessMap) return randomFrom(names);
 
-  // Meta Mode: Weight by usage tiers
-  // 60% Top 50 | 35% Top 75 (51-75) | 5% Rest
-  const sortedNames = [...names].sort((a, b) => {
-    const usageA = source.getMetaPokemon(a)?.usage || 0;
-    const usageB = source.getMetaPokemon(b)?.usage || 0;
-    return usageB - usageA;
+  // 1. Determine base weights
+  const baseWeights: Record<string, number> = {};
+  if (metaMode) {
+    const sortedNames = [...names].sort((a, b) => {
+      const usageA = source.getMetaPokemon(a)?.usage || 0;
+      const usageB = source.getMetaPokemon(b)?.usage || 0;
+      return usageB - usageA;
+    });
+
+    const tier3Count = Math.max(1, sortedNames.length - 75);
+    const tier3Weight = 5 / tier3Count;
+
+    sortedNames.forEach((name, i) => {
+      if (i < 50) {
+        baseWeights[name] = 1.2;
+      } else if (i < 75) {
+        baseWeights[name] = 1.4;
+      } else {
+        baseWeights[name] = tier3Weight;
+      }
+    });
+  } else {
+    names.forEach((name) => {
+      baseWeights[name] = 1.0;
+    });
+  }
+
+  // 2. Adjust weights based on difficulty in weaknessMap
+  const adjustedWeights = names.map((name) => {
+    const base = baseWeights[name] ?? 1.0;
+    let multiplier = 1.0;
+    if (weaknessMap && weaknessMap[name]) {
+      const difficulty = computeDifficulty(weaknessMap[name]);
+      multiplier = 1.0 + difficulty * 2.0; // Up to 7x boost
+    }
+    return { name, weight: base * multiplier };
   });
 
-  const r = Math.random();
-  if (r < 0.60) {
-    return randomFrom(sortedNames.slice(0, 50));
-  } else if (r < 0.95) {
-    return randomFrom(sortedNames.slice(50, 75));
-  } else {
-    return randomFrom(sortedNames.slice(75));
+  // 3. Cumulative weighted selection
+  const totalWeight = adjustedWeights.reduce((sum, item) => sum + item.weight, 0);
+  if (totalWeight <= 0) {
+    return randomFrom(names);
   }
+
+  let r = Math.random() * totalWeight;
+  for (const item of adjustedWeights) {
+    r -= item.weight;
+    if (r <= 0) {
+      return item.name;
+    }
+  }
+
+  return adjustedWeights[adjustedWeights.length - 1].name;
 }
 
 export async function generateDamageQuestion(
@@ -230,14 +274,15 @@ export async function generateDamageQuestion(
   history: Set<string> = new Set(),
   maxAttempts: number = 20,
   metaMode?: boolean,
+  weaknessMap?: Record<string, WeaknessEntry>,
 ): Promise<DamageQuestion | null> {
   const names = source.getMetaPokemonNames();
   if (names.length < 2) return null;
 
   for (let attempt = 0; attempt < maxAttempts; attempt++) {
-    const atkName = getWeightedRandomPokemon(source, metaMode);
-    let defName = getWeightedRandomPokemon(source, metaMode);
-    while (defName === atkName) defName = getWeightedRandomPokemon(source, metaMode);
+    const atkName = getWeightedRandomPokemon(source, metaMode, weaknessMap);
+    let defName = getWeightedRandomPokemon(source, metaMode, weaknessMap);
+    while (defName === atkName) defName = getWeightedRandomPokemon(source, metaMode, weaknessMap);
 
     const atkMeta = source.getMetaPokemon(atkName);
     const defMeta = source.getMetaPokemon(defName);
@@ -298,6 +343,7 @@ export async function generateSpeedQuestion(
   history: Set<string> = new Set(),
   maxAttempts: number = 10,
   metaMode?: boolean,
+  weaknessMap?: Record<string, WeaknessEntry>,
 ): Promise<SpeedQuestion | null> {
   const names = source.getMetaPokemonNames();
   if (names.length < 4) return null;
@@ -305,7 +351,7 @@ export async function generateSpeedQuestion(
   for (let attempt = 0; attempt < maxAttempts; attempt++) {
     const pickedSet = new Set<string>();
     while (pickedSet.size < 4) {
-      pickedSet.add(getWeightedRandomPokemon(source, metaMode));
+      pickedSet.add(getWeightedRandomPokemon(source, metaMode, weaknessMap));
     }
     const picked = Array.from(pickedSet);
 

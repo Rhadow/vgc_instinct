@@ -7,11 +7,42 @@ import { SpeedQuestionView } from './components/SpeedQuestion';
 import { ResultScreen } from './components/ResultScreen';
 import type { DamageQuestion, SpeedQuestion } from './quiz/questionTypes';
 import { useEffect, useRef } from 'react';
+import { useWeaknessTracker } from './hooks/useWeaknessTracker';
 
 function App() {
   const { loading, error, dataSource, pokemonCount, totalMeta } = usePokemonData();
-  const quiz = useQuizSession(dataSource);
+  const { recordResult, getWeakestPokemon, weaknessMap } = useWeaknessTracker();
+  const quiz = useQuizSession(dataSource, weaknessMap);
   const { stats, recordSession } = useSessionHistory();
+
+  // Record weakness results when answers change
+  const processedAnswersRef = useRef<number>(0);
+  useEffect(() => {
+    if (quiz.answers.length > processedAnswersRef.current) {
+      const newAnswers = quiz.answers.slice(processedAnswersRef.current);
+      newAnswers.forEach((ans) => {
+        const { question, correct } = ans;
+        if (question.type === 'damage') {
+          const dq = question as DamageQuestion;
+          recordResult(dq.attacker.name, correct);
+          recordResult(dq.defender.name, correct);
+        } else if (question.type === 'speed') {
+          const sq = question as SpeedQuestion;
+          const userOrder = ans.userAnswer as number[];
+          sq.pokemons.forEach((pokemon, index) => {
+            const userPos = userOrder.indexOf(index);
+            const correctPos = sq.correctOrder.findIndex((r) => r.pokemon.name === pokemon.name);
+            const isCorrect = userPos === correctPos;
+            recordResult(pokemon.name, isCorrect);
+          });
+        }
+      });
+      processedAnswersRef.current = quiz.answers.length;
+    }
+    if (quiz.state === 'idle') {
+      processedAnswersRef.current = 0;
+    }
+  }, [quiz.answers, quiz.state, recordResult]);
 
   // Record session when results are shown
   const recordedRef = useRef(false);
@@ -52,6 +83,8 @@ function App() {
         totalMeta={totalMeta}
         loading={loading || quiz.loading}
         stats={stats}
+        weakestPokemon={getWeakestPokemon(5)}
+        getSpriteUrl={dataSource ? dataSource.getSpriteUrl : undefined}
       />
     );
   }
