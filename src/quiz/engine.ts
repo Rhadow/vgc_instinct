@@ -29,63 +29,114 @@ function generateWrongOptions(actualMinPct: number, actualMaxPct: number): strin
   const baseMin = actualMinPct >= 100 ? 100 : actualMinPct;
   const range = actualMaxPct - actualMinPct;
   const safeRange = Math.min(range, 15);
-  
-  // Shuffle offsets so we don't always try them in the same order
-  const offsets = shuffleArray([
-    { min: -15, max: -8 },
-    { min: 8, max: 15 },
-    { min: -25, max: -18 },
-    { min: 18, max: 25 },
-    { min: -35, max: -28 },
-    { min: -45, max: -38 },
-    { min: 28, max: 40 },
-    { min: -55, max: -45 },
-  ]);
-
-  const wrongs: string[] = [];
   const correctStr = formatRange(actualMinPct, actualMaxPct);
+
+  let attemptsOuter = 0;
+  while (attemptsOuter < 10) {
+    attemptsOuter++;
+    
+    // Choose a target rank for correct answer uniformly:
+    // 0 = correct is smallest, 3 = correct is largest
+    let targetRank = Math.floor(Math.random() * 4);
+    if (actualMinPct >= 100) {
+      targetRank = 3; // Must be largest if it's OHKO
+    }
+
+    const smallerCount = targetRank;
+    const largerCount = 3 - targetRank;
+
+    const wrongs: string[] = [];
+    const usedStrings = new Set<string>([correctStr]);
+    const usedRanges: Array<[number, number]> = [[actualMinPct, actualMaxPct]];
+
+    // Generate smaller options
+    let smallerGenerated = 0;
+    let attempt = 0;
+    while (smallerGenerated < smallerCount && attempt < 100) {
+      attempt++;
+      // Negative shift: -8% to -50%
+      const shift = -(8 + Math.random() * 42);
+      let newMin = Math.max(0, baseMin + shift);
+      let newMax = newMin + safeRange + (Math.random() * 4 - 2);
+      newMax = Math.max(newMin + 1, newMax);
+      newMin = parseFloat(newMin.toFixed(1));
+      newMax = parseFloat(newMax.toFixed(1));
+
+      const overlaps = usedRanges.some(
+        ([existMin, existMax]) => newMin <= existMax && newMax >= existMin
+      );
+      const str = formatRange(newMin, newMax);
+
+      if (!overlaps && !usedStrings.has(str)) {
+        usedRanges.push([newMin, newMax]);
+        usedStrings.add(str);
+        wrongs.push(str);
+        smallerGenerated++;
+      }
+    }
+
+    // Generate larger options
+    let largerGenerated = 0;
+    attempt = 0;
+    while (largerGenerated < largerCount && attempt < 100) {
+      attempt++;
+      // Positive shift: +8% to +50%
+      const shift = 8 + Math.random() * 42;
+      let newMin = baseMin + shift;
+      let newMax = newMin + safeRange + (Math.random() * 4 - 2);
+      newMax = Math.max(newMin + 1, newMax);
+      newMin = parseFloat(newMin.toFixed(1));
+      newMax = parseFloat(newMax.toFixed(1));
+
+      // Don't generate OHKO options unless correct was already OHKO (which is handled by targetRank=3)
+      if (newMin >= 100) continue;
+
+      const overlaps = usedRanges.some(
+        ([existMin, existMax]) => newMin <= existMax && newMax >= existMin
+      );
+      const str = formatRange(newMin, newMax);
+
+      if (!overlaps && !usedStrings.has(str)) {
+        usedRanges.push([newMin, newMax]);
+        usedStrings.add(str);
+        wrongs.push(str);
+        largerGenerated++;
+      }
+    }
+
+    if (wrongs.length === 3) {
+      return wrongs;
+    }
+  }
+
+  // Fallback: standard simple shift generation if rank-based fails
+  // (e.g. correct answer is too small to have smaller options)
+  const wrongs: string[] = [];
   const usedStrings = new Set<string>([correctStr]);
   const usedRanges: Array<[number, number]> = [[actualMinPct, actualMaxPct]];
-  
-  let hasOHKO = actualMinPct >= 100;
-
   let attempt = 0;
   while (wrongs.length < 3 && attempt < 200) {
     attempt++;
-    let shift: number;
-    if (attempt <= offsets.length) {
-      const offset = offsets[attempt - 1];
-      shift = offset.min + Math.random() * (offset.max - offset.min);
-    } else {
-      // Allow much larger negative shifts when we need non-OHKO options
-      shift = (Math.random() * 140) - 100; // -100 to +40
-    }
-
+    const shift = (Math.random() * 100) - 50; // -50 to +50
     let newMin = Math.max(0, baseMin + shift);
     let newMax = newMin + safeRange + (Math.random() * 4 - 2);
     newMax = Math.max(newMin + 1, newMax);
-
     newMin = parseFloat(newMin.toFixed(1));
     newMax = parseFloat(newMax.toFixed(1));
 
-    if (hasOHKO && newMin >= 100) {
-      continue;
-    }
+    if (actualMinPct < 100 && newMin >= 100) continue;
 
     const overlaps = usedRanges.some(
       ([existMin, existMax]) => newMin <= existMax && newMax >= existMin
     );
-
     const str = formatRange(newMin, newMax);
     if (!overlaps && !usedStrings.has(str)) {
-      if (newMin >= 100) hasOHKO = true;
       usedRanges.push([newMin, newMax]);
       usedStrings.add(str);
       wrongs.push(str);
     }
   }
-
-  return wrongs.slice(0, 3);
+  return wrongs;
 }
 
 function buildAppPokemon(meta: PokemonMetaData, fullData: PokemonFullData): AppPokemon {

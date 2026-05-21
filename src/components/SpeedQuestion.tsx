@@ -21,7 +21,6 @@ import type { SpeedQuestion } from '../quiz/questionTypes';
 import type { SpeedContext } from '../data/types';
 import { calcFinalSpeedWithBreakdown } from '../calc/speed';
 import { PokemonCard } from './PokemonCard';
-import { generateSpeedInsight } from '../calc/insightSummary';
 
 interface SpeedQuestionViewProps {
   question: SpeedQuestion;
@@ -231,13 +230,6 @@ export function SpeedQuestionView({ question, onAnswer, answered }: SpeedQuestio
           </div>
         </SortableContext>
       </DndContext>
-
-      {/* Insight bar (immediate feedback) */}
-      {answered && (
-        <div className="rounded-xl p-3 text-center text-sm font-medium animate-fade-in bg-accent-blue/10 text-accent-blue border border-accent-blue/20">
-          {generateSpeedInsight(question)}
-        </div>
-      )}
 
       {/* Submit button */}
       {!answered && (

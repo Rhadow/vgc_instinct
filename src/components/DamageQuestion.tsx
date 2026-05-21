@@ -4,7 +4,6 @@ import { PokemonCard } from './PokemonCard';
 import { getMoveDisplayName } from '../data/moveNames';
 import { analyzeDamage } from '../calc/damageBreakdown';
 import { getTypeColor } from '../data/typeColors';
-import { generateDamageInsight } from '../calc/insightSummary';
 
 const WEATHER_EMOJI: Record<string, string> = {
   Sun: '☀️', Rain: '🌧️', Sand: '🏜️', Snow: '❄️',
@@ -38,9 +37,6 @@ export function DamageQuestionView({ question, onAnswer, answered }: DamageQuest
     () => (answered ? analyzeDamage(question.attacker, question.defender, question.moveName, question.field) : null),
     [answered, question],
   );
-
-  // Generate insight text once we have a breakdown
-  const insight = breakdown ? generateDamageInsight(question, breakdown) : null;
 
   const moveTypeColor = getTypeColor(question.moveType);
 
@@ -133,17 +129,6 @@ export function DamageQuestionView({ question, onAnswer, answered }: DamageQuest
           );
         })}
       </div>
-
-      {/* Insight bar (immediate feedback) */}
-      {answered && insight && (
-        <div className={`rounded-xl p-3 text-center text-sm font-medium animate-fade-in ${
-          selectedIndex === question.correctIndex
-            ? 'bg-accent-green/10 text-accent-green border border-accent-green/20'
-            : 'bg-accent-red/10 text-accent-red border border-accent-red/20'
-        }`}>
-          {insight}
-        </div>
-      )}
 
       {/* Details section (after answer) */}
       {answered && (

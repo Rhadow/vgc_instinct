@@ -70,50 +70,110 @@ function generateSeededWrongOptions(
   const baseMin = actualMinPct >= 100 ? 100 : actualMinPct;
   const range = actualMaxPct - actualMinPct;
   const safeRange = Math.min(range, 15);
-
-  const offsets = rng.shuffle([
-    { min: -15, max: -8 }, { min: 8, max: 15 },
-    { min: -25, max: -18 }, { min: 18, max: 25 },
-    { min: -35, max: -28 }, { min: 28, max: 40 },
-  ]);
-
-  const wrongs: string[] = [];
   const correctStr = formatRange(actualMinPct, actualMaxPct);
-  const usedStrings = new Set<string>([correctStr]);
-  const usedRanges: [number, number][] = [[actualMinPct, actualMaxPct]];
-  let hasOHKO = actualMinPct >= 100;
 
-  for (let attempt = 0; attempt < 100 && wrongs.length < 3; attempt++) {
-    let shift: number;
-    if (attempt < offsets.length) {
-      const offset = offsets[attempt];
-      shift = offset.min + rng.random() * (offset.max - offset.min);
-    } else {
-      shift = rng.random() * 140 - 100;
+  let attemptsOuter = 0;
+  while (attemptsOuter < 10) {
+    attemptsOuter++;
+    
+    // Choose a target rank deterministically via seeded rng:
+    // 0 = correct is smallest, 3 = correct is largest
+    let targetRank = rng.randomInt(0, 3);
+    if (actualMinPct >= 100) {
+      targetRank = 3;
     }
 
+    const smallerCount = targetRank;
+    const largerCount = 3 - targetRank;
+
+    const wrongs: string[] = [];
+    const usedStrings = new Set<string>([correctStr]);
+    const usedRanges: [number, number][] = [[actualMinPct, actualMaxPct]];
+
+    // Generate smaller options
+    let smallerGenerated = 0;
+    let attempt = 0;
+    while (smallerGenerated < smallerCount && attempt < 100) {
+      attempt++;
+      const shift = -(8 + rng.random() * 42);
+      let newMin = Math.max(0, baseMin + shift);
+      let newMax = newMin + safeRange + (rng.random() * 4 - 2);
+      newMax = Math.max(newMin + 1, newMax);
+      newMin = parseFloat(newMin.toFixed(1));
+      newMax = parseFloat(newMax.toFixed(1));
+
+      const overlaps = usedRanges.some(
+        ([existMin, existMax]) => newMin <= existMax && newMax >= existMin,
+      );
+      const str = formatRange(newMin, newMax);
+
+      if (!overlaps && !usedStrings.has(str)) {
+        usedRanges.push([newMin, newMax]);
+        usedStrings.add(str);
+        wrongs.push(str);
+        smallerGenerated++;
+      }
+    }
+
+    // Generate larger options
+    let largerGenerated = 0;
+    attempt = 0;
+    while (largerGenerated < largerCount && attempt < 100) {
+      attempt++;
+      const shift = 8 + rng.random() * 42;
+      let newMin = baseMin + shift;
+      let newMax = newMin + safeRange + (rng.random() * 4 - 2);
+      newMax = Math.max(newMin + 1, newMax);
+      newMin = parseFloat(newMin.toFixed(1));
+      newMax = parseFloat(newMax.toFixed(1));
+
+      if (newMin >= 100) continue;
+
+      const overlaps = usedRanges.some(
+        ([existMin, existMax]) => newMin <= existMax && newMax >= existMin,
+      );
+      const str = formatRange(newMin, newMax);
+
+      if (!overlaps && !usedStrings.has(str)) {
+        usedRanges.push([newMin, newMax]);
+        usedStrings.add(str);
+        wrongs.push(str);
+        largerGenerated++;
+      }
+    }
+
+    if (wrongs.length === 3) {
+      return wrongs;
+    }
+  }
+
+  // Fallback
+  const wrongs: string[] = [];
+  const usedStrings = new Set<string>([correctStr]);
+  const usedRanges: [number, number][] = [[actualMinPct, actualMaxPct]];
+  let attempt = 0;
+  while (wrongs.length < 3 && attempt < 200) {
+    attempt++;
+    const shift = (rng.random() * 100) - 50;
     let newMin = Math.max(0, baseMin + shift);
     let newMax = newMin + safeRange + (rng.random() * 4 - 2);
     newMax = Math.max(newMin + 1, newMax);
     newMin = parseFloat(newMin.toFixed(1));
     newMax = parseFloat(newMax.toFixed(1));
 
-    if (hasOHKO && newMin >= 100) continue;
+    if (actualMinPct < 100 && newMin >= 100) continue;
 
     const overlaps = usedRanges.some(
       ([existMin, existMax]) => newMin <= existMax && newMax >= existMin,
     );
-
     const str = formatRange(newMin, newMax);
     if (!overlaps && !usedStrings.has(str)) {
-      if (newMin >= 100) hasOHKO = true;
       usedRanges.push([newMin, newMax]);
       usedStrings.add(str);
       wrongs.push(str);
     }
   }
-
-  return wrongs.slice(0, 3);
+  return wrongs;
 }
 
 /**
