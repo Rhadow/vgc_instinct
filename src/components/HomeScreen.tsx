@@ -8,6 +8,8 @@ import type { useAchievements } from '../hooks/useAchievements';
 import { DailyChallengeCard } from './DailyChallenge';
 import { BadgeGrid } from './BadgeGrid';
 
+import type { useCasualChallenge } from '../hooks/useCasualChallenge';
+
 interface HomeScreenProps {
   onStart: (mode: QuizMode, metaMode: boolean) => void;
   pokemonCount: number;
@@ -17,6 +19,7 @@ interface HomeScreenProps {
   weakestPokemon?: Array<{ name: string; difficulty: number }>;
   getSpriteUrl?: (name: string) => string;
   daily: ReturnType<typeof useDailyChallenge>;
+  casual: ReturnType<typeof useCasualChallenge>;
   achievements: ReturnType<typeof useAchievements>;
 }
 
@@ -29,6 +32,7 @@ export function HomeScreen({
   weakestPokemon,
   getSpriteUrl,
   daily,
+  casual,
   achievements,
 }: HomeScreenProps) {
   const [activeTab, setActiveTab] = useState<'competitive' | 'casual'>('competitive');
@@ -311,34 +315,71 @@ export function HomeScreen({
         </div>
       ) : (
         <div className="w-full max-w-sm space-y-4 animate-slide-up">
-          {/* Daily Casual Launcher */}
-          <button
-            onClick={() => onStart('casual', false)}
-            disabled={isLoading}
-            className="w-full group relative overflow-hidden rounded-2xl border p-5 text-left transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40 disabled:hover:scale-100 bg-gradient-to-br from-bg-card to-bg-card/80 border-border hover:border-accent-purple/40 hover:shadow-xl hover:shadow-accent-purple/5"
-          >
-            <div className="absolute top-0 right-0 w-24 h-24 bg-accent-purple/5 rounded-full blur-2xl -translate-y-6 translate-x-6 group-hover:bg-accent-purple/10 transition-colors" />
-            <div className="relative">
-              <div className="flex items-center justify-between mb-2">
-                <h2 className="text-lg font-bold text-text-primary flex items-center gap-2">
-                  <span className="text-xl">🎨</span> Daily Type Match
-                </h2>
+          {/* Daily Casual Launcher Card */}
+          <div className="rounded-2xl border border-accent-purple/30 bg-gradient-to-br from-bg-card to-bg-card/80 p-5 space-y-4 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-accent-purple/5 rounded-full blur-2xl -translate-y-6 translate-x-6" />
+            
+            <div className="relative flex items-center justify-between">
+              <h2 className="text-lg font-bold text-text-primary flex items-center gap-2">
+                <span className="text-xl">🎨</span> Daily Type Match
+              </h2>
+              <div className="flex gap-1.5 items-center">
                 {casualHighScore > 0 && (
                   <span className="text-[10px] font-semibold bg-accent-amber/15 text-accent-amber px-2 py-0.5 rounded-full border border-accent-amber/20">
                     Best: {casualHighScore}
                   </span>
                 )}
-              </div>
-              <p className="text-xs text-text-muted leading-relaxed mb-4">
-                Test your type knowledge by matching the correct types to a Pokémon option card. Quick 5 questions seeded daily!
-              </p>
-              <div className="flex items-center gap-1.5 text-[10px] font-bold text-accent-purple uppercase tracking-wider">
-                <span>⚡ Zero Typing</span>
-                <span>•</span>
-                <span>🏆 Official Type SVGs</span>
+                {casual.casualStreak > 0 && (
+                  <span className="text-[10px] font-bold bg-accent-purple/15 text-accent-purple px-2 py-0.5 rounded-full border border-accent-purple/20">
+                    {casual.casualStreak} day streak
+                  </span>
+                )}
               </div>
             </div>
-          </button>
+
+            <div className="relative">
+              <p className="text-xs text-text-muted leading-relaxed">
+                Test your type knowledge by matching the correct types to a Pokémon option card. Quick 5 questions seeded daily!
+              </p>
+            </div>
+
+            <div className="relative flex items-center gap-1.5 text-[10px] font-bold text-accent-purple uppercase tracking-wider">
+              <span>⚡ Zero Typing</span>
+              <span>•</span>
+              <span>🏆 Official Type SVGs</span>
+            </div>
+
+            {casual.isTodayComplete ? (
+              <div className="relative pt-2 text-center space-y-3">
+                <div className="space-y-1">
+                  <p className="text-accent-green font-bold text-sm">✅ Completed!</p>
+                  <p className="text-text-muted text-xs">
+                    Score: {casual.todayScore}/50 pts
+                  </p>
+                </div>
+                <button
+                  onClick={() => onStart('casual', false)}
+                  className="w-full py-2.5 rounded-xl bg-gradient-to-r from-accent-purple to-accent-pink text-white font-bold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-accent-purple/30 active:scale-[0.98]"
+                >
+                  View Results
+                </button>
+              </div>
+            ) : (
+              <div className="relative pt-2">
+                <button
+                  onClick={() => onStart('casual', false)}
+                  disabled={isLoading}
+                  className="w-full py-2.5 rounded-xl bg-gradient-to-r from-accent-purple to-accent-pink text-white font-bold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-accent-purple/30 active:scale-[0.98] disabled:opacity-40"
+                >
+                  Start Today's Quiz
+                </button>
+              </div>
+            )}
+
+            <p className="text-[10px] text-text-muted text-center relative">
+              5 questions • Seeded daily • Same for everyone
+            </p>
+          </div>
 
           {/* Casual Stats */}
           {stats.totalSessions > 0 && (

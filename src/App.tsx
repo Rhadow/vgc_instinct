@@ -12,9 +12,12 @@ import { CasualQuestionView } from './components/CasualQuestion';
 import { useEffect, useRef, useMemo } from 'react';
 import { useWeaknessTracker } from './hooks/useWeaknessTracker';
 import { useDailyChallenge } from './hooks/useDailyChallenge';
+import { useCasualChallenge, getTodayKey } from './hooks/useCasualChallenge';
+import { generateCasualQuestions, checkCasualAnswer } from './quiz/casualQuiz';
 import { useAchievements } from './hooks/useAchievements';
 import type { AchievementContext } from './hooks/useAchievements';
 import { AchievementToast } from './components/AchievementToast';
+import type { QuizMode } from './data/types';
 
 function App() {
   const { loading, error, dataSource, pokemonCount, totalMeta } = usePokemonData();
@@ -24,6 +27,7 @@ function App() {
 
   const daily = useDailyChallenge();
   const { saveDailyResult } = daily;
+  const casual = useCasualChallenge();
 
   // Compute achievement context dynamically
   const achievementContext = useMemo((): AchievementContext => {
@@ -105,6 +109,13 @@ function App() {
       });
       if (quiz.mode === 'daily') {
         saveDailyResult(quiz.score, quiz.totalQuestions, quiz.dailyDateKey || undefined);
+      } else if (quiz.mode === 'casual') {
+        casual.saveCasualResult(
+          quiz.score,
+          quiz.totalQuestions,
+          quiz.answers.map((ans) => ans.userAnswer as number),
+          quiz.dailyDateKey || undefined
+        );
       }
     }
     if (quiz.state === 'idle') {
@@ -127,10 +138,23 @@ function App() {
 
   let content;
 
+  const handleStartSession = async (mode: QuizMode, metaMode: boolean = false) => {
+    if (mode === 'casual' && casual.isTodayComplete && casual.todayAnswers && dataSource) {
+      const todayKey = getTodayKey();
+      const qs = generateCasualQuestions(dataSource, todayKey);
+      if (qs && qs.length > 0) {
+        const ans = qs.map((q, idx) => checkCasualAnswer(q, casual.todayAnswers![idx]));
+        quiz.restoreSession('casual', qs, ans, casual.todayScore || 0, todayKey);
+      }
+      return;
+    }
+    await quiz.startSession(mode, metaMode);
+  };
+
   if (quiz.state === 'idle') {
     content = (
       <HomeScreen
-        onStart={quiz.startSession}
+        onStart={handleStartSession}
         pokemonCount={pokemonCount}
         totalMeta={totalMeta}
         loading={loading || quiz.loading}
@@ -138,6 +162,7 @@ function App() {
         weakestPokemon={getWeakestPokemon(5)}
         getSpriteUrl={dataSource ? dataSource.getSpriteUrl : undefined}
         daily={daily}
+        casual={casual}
         achievements={achievements}
       />
     );

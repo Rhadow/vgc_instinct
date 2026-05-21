@@ -31,6 +31,13 @@ interface UseQuizSessionReturn {
   submitCasualAnswer: (index: number) => void;
   nextQuestion: () => Promise<void>;
   reset: () => void;
+  restoreSession: (
+    mode: QuizMode,
+    questions: QuizQuestion[],
+    answers: QuizAnswer[],
+    score: number,
+    dateKey?: string
+  ) => void;
   dailyDateKey: string | null;
 }
 
@@ -173,6 +180,22 @@ export function useQuizSession(
   }, [currentIndex, score, mode, metaMode, questions.length, generateQuestion]);
 
 
+  const restoreSession = useCallback((
+    quizMode: QuizMode,
+    restoredQuestions: QuizQuestion[],
+    restoredAnswers: QuizAnswer[],
+    restoredScore: number,
+    dateKey?: string
+  ) => {
+    setMode(quizMode);
+    setQuestions(restoredQuestions);
+    setAnswers(restoredAnswers);
+    setScore(restoredScore);
+    setCurrentIndex(restoredQuestions.length - 1);
+    setState('results');
+    if (dateKey) setDailyDateKey(dateKey);
+  }, []);
+
   const reset = useCallback(() => {
     setState('idle');
     setMode(null);
@@ -201,6 +224,7 @@ export function useQuizSession(
     submitCasualAnswer,
     nextQuestion,
     reset,
+    restoreSession,
     dailyDateKey,
   };
 }

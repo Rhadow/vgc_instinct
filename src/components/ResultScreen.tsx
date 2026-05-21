@@ -1,5 +1,4 @@
-import type { QuizAnswer } from '../quiz/questionTypes';
-import type { DamageQuestion } from '../quiz/questionTypes';
+import type { QuizAnswer, DamageQuestion, CasualQuestion } from '../quiz/questionTypes';
 import type { TypeQuestion } from '../quiz/typeQuiz';
 import { getMoveDisplayName } from '../data/moveNames';
 
@@ -56,8 +55,10 @@ export function ResultScreen({ score, totalQuestions, answers, mode, onRestart, 
         {answers.map((answer, i) => {
           const isDamage = answer.question.type === 'damage';
           const isType = answer.question.type === 'type';
+          const isCasual = answer.question.type === 'casual';
           const dq = answer.question as DamageQuestion;
           const tq = answer.question as TypeQuestion;
+          const cq = answer.question as CasualQuestion;
           return (
             <div
               key={i}
@@ -74,6 +75,8 @@ export function ResultScreen({ score, totalQuestions, answers, mode, onRestart, 
                     ? `${dq.attacker.name} → ${dq.defender.name} (${getMoveDisplayName(dq.moveName)})`
                     : isType
                     ? `Type Effectiveness: ${tq.attackingType} vs ${tq.defender.name}`
+                    : isCasual
+                    ? `Type Match: ${cq.targetTypes.join('/')}`
                     : `Speed Tier Sort`
                   }
                 </p>
@@ -87,6 +90,11 @@ export function ResultScreen({ score, totalQuestions, answers, mode, onRestart, 
                     Correct: {tq.correctLabel}
                   </p>
                 )}
+                {isCasual && (
+                  <p className="text-[10px] text-text-muted">
+                    Correct: {cq.options[cq.correctIndex].name}
+                  </p>
+                )}
               </div>
               <span className="text-xs font-bold text-text-secondary">
                 +{answer.pointsEarned}
@@ -98,7 +106,7 @@ export function ResultScreen({ score, totalQuestions, answers, mode, onRestart, 
 
       {/* Action buttons */}
       <div className="w-full max-w-sm mx-auto space-y-3 mt-auto">
-        {mode !== 'daily' && (
+        {mode !== 'daily' && mode !== 'casual' && (
           <button
             onClick={onRestart}
             className="w-full py-3 rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple text-white font-bold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-accent-blue/30 active:scale-[0.98]"
