@@ -2,7 +2,17 @@ import { createSeededRng, type SeededRng } from './seededRng';
 import type { QuizDataSource } from './engine';
 import type { CasualQuestion, QuizAnswer } from './questionTypes';
 import type { AppPokemon } from '../data/types';
-import { getAbilityDisplayName } from '../data/abilityNames';
+import casualPokemonDataJson from '../data/casualPokemonData.json';
+
+interface CasualPokemonEntry {
+  name: string;
+  baseStats: { hp: number; atk: number; def: number; spa: number; spd: number; spe: number };
+  types: string[];
+  abilities: string[];
+  spriteUrl: string;
+}
+
+const casualData = casualPokemonDataJson as Record<string, CasualPokemonEntry>;
 
 /**
  * Compares two type lists, ignoring order.
@@ -22,33 +32,29 @@ function serializeTypes(types: string[]): string {
 }
 
 /**
- * Builds an AppPokemon instance from meta and full data.
+ * Builds an AppPokemon instance from a National Dex entry with sensible, clean defaults.
  */
-function buildAppPokemon(
-  meta: { name: string; spreads: AppPokemon['spread'][]; items: string[]; abilities: string[] },
-  fullData: { baseStats: AppPokemon['baseStats']; types: string[] },
-  rng: SeededRng,
-): AppPokemon {
+function buildCasualAppPokemon(entry: CasualPokemonEntry, rng: SeededRng): AppPokemon {
   return {
-    name: meta.name,
-    baseStats: fullData.baseStats,
-    types: fullData.types,
-    ability: getAbilityDisplayName(rng.randomFrom(meta.abilities)),
-    item: rng.randomFrom(meta.items),
-    spread: rng.randomFrom(meta.spreads),
+    name: entry.name,
+    baseStats: entry.baseStats,
+    types: entry.types,
+    ability: entry.abilities.length > 0 ? rng.randomFrom(entry.abilities) : 'No Ability',
+    item: 'nothing',
+    spread: { nature: 'Serious', hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
     level: 50,
   };
 }
 
 /**
- * Generates 5 daily deterministic casual questions.
+ * Generates 5 daily deterministic casual questions using the expanded National Dex database.
  */
 export function generateCasualQuestions(
-  source: QuizDataSource,
+  _source: QuizDataSource, // Retained signature for compatibility
   dateKey: string,
 ): CasualQuestion[] {
   const rng = createSeededRng(`casual-challenge-${dateKey}`);
-  const names = source.getMetaPokemonNames();
+  const names = Object.keys(casualData);
 
   if (names.length < 4) return [];
 
@@ -63,15 +69,14 @@ export function generateCasualQuestions(
 
     while (questionAttempt < 100 && !success) {
       questionAttempt++;
-      // 1. Pick a target Pokémon
+      // 1. Pick a target Pokémon from the expanded pool
       const correctName = rng.randomFrom(names);
       if (usedPokemonNames.has(correctName)) continue;
 
-      const correctMeta = source.getMetaPokemon(correctName);
-      const correctFull = source.getFullData(correctName);
-      if (!correctMeta || !correctFull || correctFull.types.length === 0) continue;
+      const correctEntry = casualData[correctName];
+      if (!correctEntry || correctEntry.types.length === 0) continue;
 
-      const targetTypes = correctFull.types;
+      const targetTypes = correctEntry.types;
       const typeKey = serializeTypes(targetTypes);
       if (usedTargetTypes.has(typeKey)) continue;
 
@@ -89,10 +94,10 @@ export function generateCasualQuestions(
         for (const sharedType of typeChoices) {
           const matchingNames = names.filter((name) => {
             if (name === correctName) return false;
-            const full = source.getFullData(name);
-            if (!full) return false;
+            const entry = casualData[name];
+            if (!entry) return false;
             // Must have the shared type, but not be equal to the target types
-            return full.types.includes(sharedType) && !areTypesEqual(full.types, targetTypes);
+            return entry.types.includes(sharedType) && !areTypesEqual(entry.types, targetTypes);
           });
           
           if (matchingNames.length >= 3) {
@@ -105,10 +110,10 @@ export function generateCasualQuestions(
         const monoType = targetTypes[0];
         const matchingNames = names.filter((name) => {
           if (name === correctName) return false;
-          const full = source.getFullData(name);
-          if (!full) return false;
+          const entry = casualData[name];
+          if (!entry) return false;
           // Must have the mono type, but be a dual-type (length === 2)
-          return full.types.includes(monoType) && full.types.length === 2;
+          return entry.types.includes(monoType) && entry.types.length === 2;
         });
 
         if (matchingNames.length >= 3) {
@@ -120,9 +125,8 @@ export function generateCasualQuestions(
       if (candidateNames.length >= 3) {
         const selectedNames = rng.shuffle(candidateNames).slice(0, 3);
         selectedNames.forEach((candidateName) => {
-          const candMeta = source.getMetaPokemon(candidateName)!;
-          const candFull = source.getFullData(candidateName)!;
-          wrongs.push(buildAppPokemon(candMeta, candFull, rng));
+          const entry = casualData[candidateName]!;
+          wrongs.push(buildCasualAppPokemon(entry, rng));
         });
       } else {
         // Fallback: standard random wrong options (types not equal to target types)
@@ -134,14 +138,13 @@ export function generateCasualQuestions(
           const candidateName = rng.randomFrom(names);
           if (wrongNames.has(candidateName)) continue;
 
-          const candMeta = source.getMetaPokemon(candidateName);
-          const candFull = source.getFullData(candidateName);
-          if (!candMeta || !candFull) continue;
+          const entry = casualData[candidateName];
+          if (!entry) continue;
 
           // Verify the types are not equal to the target types
-          if (areTypesEqual(candFull.types, targetTypes)) continue;
+          if (areTypesEqual(entry.types, targetTypes)) continue;
 
-          const wrongMon = buildAppPokemon(candMeta, candFull, rng);
+          const wrongMon = buildCasualAppPokemon(entry, rng);
           wrongs.push(wrongMon);
           wrongNames.add(candidateName);
         }
@@ -151,12 +154,12 @@ export function generateCasualQuestions(
       if (wrongs.length < 3) continue;
 
       // 3. We successfully built a full question!
-      const correctMon = buildAppPokemon(correctMeta, correctFull, rng);
+      const correctMon = buildCasualAppPokemon(correctEntry, rng);
       const options = [correctMon, ...wrongs];
       const shuffledOptions = rng.shuffle(options);
       const correctIndex = shuffledOptions.findIndex((m) => m.name === correctName);
 
-      const sprites = shuffledOptions.map((m) => source.getSpriteUrl(m.name));
+      const sprites = shuffledOptions.map((m) => casualData[m.name]?.spriteUrl || '');
 
       questions.push({
         type: 'casual',

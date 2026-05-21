@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "fetch-stats": "tsx scripts/fetch-smogon-stats.ts"
+    "fetch-stats": "tsx scripts/fetch-smogon-stats.ts",
+    "fetch-casual": "tsx scripts/fetchCasualPokemon.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
