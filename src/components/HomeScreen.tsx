@@ -3,6 +3,10 @@ import { getHighScore } from '../quiz/engine';
 import type { QuizMode } from '../data/types';
 import { useInstallPrompt } from '../hooks/useInstallPrompt';
 import type { SessionStats } from '../hooks/useSessionHistory';
+import type { useDailyChallenge } from '../hooks/useDailyChallenge';
+import type { useAchievements } from '../hooks/useAchievements';
+import { DailyChallengeCard } from './DailyChallenge';
+import { BadgeGrid } from './BadgeGrid';
 
 interface HomeScreenProps {
   onStart: (mode: QuizMode, metaMode: boolean) => void;
@@ -12,6 +16,8 @@ interface HomeScreenProps {
   stats: SessionStats;
   weakestPokemon?: Array<{ name: string; difficulty: number }>;
   getSpriteUrl?: (name: string) => string;
+  daily: ReturnType<typeof useDailyChallenge>;
+  achievements: ReturnType<typeof useAchievements>;
 }
 
 export function HomeScreen({
@@ -22,10 +28,13 @@ export function HomeScreen({
   stats,
   weakestPokemon,
   getSpriteUrl,
+  daily,
+  achievements,
 }: HomeScreenProps) {
   const [metaMode, setMetaMode] = useState(true);
   const damageHighScore = getHighScore('damage');
   const speedHighScore = getHighScore('speed');
+  const typeHighScore = getHighScore('type');
   const isLoading = loading || pokemonCount < 4;
   const loadPct = totalMeta > 0 ? Math.round((pokemonCount / totalMeta) * 100) : 0;
   const { canShow: canInstall, promptInstall, dismiss: dismissInstall } = useInstallPrompt();
@@ -120,6 +129,29 @@ export function HomeScreen({
           </div>
         </button>
 
+        <button
+          onClick={() => onStart('type', metaMode)}
+          disabled={isLoading || pokemonCount < 2}
+          className="w-full group relative overflow-hidden rounded-2xl border p-5 text-left transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40 disabled:hover:scale-100 bg-gradient-to-br from-bg-card to-bg-card/80 border-border hover:border-accent-purple/40 hover:shadow-xl hover:shadow-accent-purple/5"
+        >
+          <div className="absolute top-0 right-0 w-24 h-24 bg-accent-purple/5 rounded-full blur-2xl -translate-y-6 translate-x-6 group-hover:bg-accent-purple/10 transition-colors" />
+          <div className="relative">
+            <div className="flex items-center justify-between mb-1.5">
+              <h2 className="text-lg font-bold text-text-primary flex items-center gap-2">
+                <span className="text-xl">🛡️</span> Type Quiz
+              </h2>
+              {typeHighScore > 0 && (
+                <span className="text-[10px] font-semibold bg-accent-purple/15 text-accent-purple px-2 py-0.5 rounded-full border border-accent-purple/20">
+                  Best: {typeHighScore}
+                </span>
+              )}
+            </div>
+            <p className="text-xs text-text-muted leading-relaxed">
+              Test your type effectiveness matchup knowledge against dual-type meta threats.
+            </p>
+          </div>
+        </button>
+
         <div className="pt-2">
           <label className="flex items-center justify-center gap-2 cursor-pointer group">
             <div className="relative">
@@ -139,6 +171,15 @@ export function HomeScreen({
         </div>
       </div>
 
+      {/* Daily Challenge */}
+      <div className="w-full max-w-sm mt-6">
+        <DailyChallengeCard
+          daily={daily}
+          onStart={() => onStart('daily', false)}
+          disabled={isLoading}
+        />
+      </div>
+
       {/* Session Stats */}
       {stats.totalSessions > 0 && (
         <div className="w-full max-w-sm mt-6 animate-fade-in">
@@ -155,7 +196,7 @@ export function HomeScreen({
               </div>
               <div>
                 <p className="text-xl font-extrabold text-accent-amber tabular-nums">
-                  {Math.max(stats.damageAvg, stats.speedAvg)}
+                  {Math.max(stats.damageAvg, stats.speedAvg, stats.totalSessions > 0 ? getHighScore('type') : 0)}
                 </p>
                 <p className="text-[10px] text-text-muted mt-0.5">Avg Score</p>
               </div>
@@ -166,7 +207,7 @@ export function HomeScreen({
                 {stats.recentSessions.slice(0, 3).map((session, i) => (
                   <div key={i} className="flex items-center justify-between text-[11px]">
                     <span className="text-text-muted">
-                      {session.mode === 'damage' ? '⚔️' : '⚡'}{' '}
+                      {session.mode === 'damage' ? '⚔️' : session.mode === 'speed' ? '⚡' : '🛡️'}{' '}
                       {new Date(session.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
                     </span>
                     <span className={`font-bold tabular-nums ${
@@ -232,6 +273,14 @@ export function HomeScreen({
         </div>
       )}
 
+      {/* Achievements Badge Grid */}
+      <div className="mt-4 w-full max-w-sm">
+        <BadgeGrid
+          badges={achievements.badges}
+          unlockedCount={achievements.unlockedCount}
+          totalCount={achievements.totalCount}
+        />
+      </div>
 
       {/* Loading indicator — only shown while data is still loading */}
       {pokemonCount < totalMeta && totalMeta > 0 && (

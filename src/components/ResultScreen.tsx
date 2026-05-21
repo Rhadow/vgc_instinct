@@ -1,5 +1,6 @@
 import type { QuizAnswer } from '../quiz/questionTypes';
 import type { DamageQuestion } from '../quiz/questionTypes';
+import type { TypeQuestion } from '../quiz/typeQuiz';
 import { getMoveDisplayName } from '../data/moveNames';
 
 interface ResultScreenProps {
@@ -54,7 +55,9 @@ export function ResultScreen({ score, totalQuestions, answers, mode, onRestart, 
         <h3 className="text-sm font-semibold text-text-secondary mb-2">Question Breakdown</h3>
         {answers.map((answer, i) => {
           const isDamage = answer.question.type === 'damage';
-          const q = answer.question as DamageQuestion;
+          const isType = answer.question.type === 'type';
+          const dq = answer.question as DamageQuestion;
+          const tq = answer.question as TypeQuestion;
           return (
             <div
               key={i}
@@ -68,13 +71,20 @@ export function ResultScreen({ score, totalQuestions, answers, mode, onRestart, 
               <div className="flex-1 min-w-0">
                 <p className="text-xs text-text-primary truncate">
                   {isDamage
-                    ? `${q.attacker.name} → ${q.defender.name} (${getMoveDisplayName(q.moveName)})`
-                    : `Speed order (${answer.question.type})`
+                    ? `${dq.attacker.name} → ${dq.defender.name} (${getMoveDisplayName(dq.moveName)})`
+                    : isType
+                    ? `Type Effectiveness: ${tq.attackingType} vs ${tq.defender.name}`
+                    : `Speed Tier Sort`
                   }
                 </p>
                 {isDamage && (
                   <p className="text-[10px] text-text-muted">
-                    {q.correctResult.minPercent.toFixed(1)}% – {q.correctResult.maxPercent.toFixed(1)}%
+                    {dq.correctResult.minPercent.toFixed(1)}% – {dq.correctResult.maxPercent.toFixed(1)}%
+                  </p>
+                )}
+                {isType && (
+                  <p className="text-[10px] text-text-muted">
+                    Correct: {tq.correctLabel}
                   </p>
                 )}
               </div>
@@ -88,12 +98,19 @@ export function ResultScreen({ score, totalQuestions, answers, mode, onRestart, 
 
       {/* Action buttons */}
       <div className="w-full max-w-sm mx-auto space-y-3 mt-auto">
-        <button
-          onClick={onRestart}
-          className="w-full py-3 rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple text-white font-bold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-accent-blue/30 active:scale-[0.98]"
-        >
-          Play Again ({mode === 'damage' ? '⚔️ Damage' : '⚡ Speed'})
-        </button>
+        {mode !== 'daily' && (
+          <button
+            onClick={onRestart}
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple text-white font-bold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-accent-blue/30 active:scale-[0.98]"
+          >
+            Play Again ({
+              mode === 'damage' ? '⚔️ Damage'
+              : mode === 'speed' ? '⚡ Speed'
+              : mode === 'type' ? '🛡️ Type Quiz'
+              : 'Quiz'
+            })
+          </button>
+        )}
         <button
           onClick={onHome}
           className="w-full py-3 rounded-xl bg-bg-card border border-border text-text-secondary font-medium text-sm transition-all duration-200 hover:bg-bg-card-hover"

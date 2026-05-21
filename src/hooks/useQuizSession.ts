@@ -5,6 +5,9 @@ import type { DamageQuestion, SpeedQuestion } from '../quiz/questionTypes';
 import { generateDamageQuestion, generateSpeedQuestion, checkDamageAnswer, checkSpeedAnswer, saveHighScore } from '../quiz/engine';
 import type { QuizDataSource } from '../quiz/engine';
 import type { WeaknessEntry } from './useWeaknessTracker';
+import { generateTypeQuestion, checkTypeAnswer } from '../quiz/typeQuiz';
+import type { TypeQuestion } from '../quiz/typeQuiz';
+import { generateDailyChallenge } from '../quiz/dailyChallenge';
 
 const TOTAL_QUESTIONS = 10;
 
@@ -23,6 +26,7 @@ interface UseQuizSessionReturn {
   startSession: (mode: QuizMode, metaMode?: boolean) => Promise<void>;
   submitDamageAnswer: (index: number) => void;
   submitSpeedAnswer: (order: number[]) => void;
+  submitTypeAnswer: (index: number) => void;
   nextQuestion: () => Promise<void>;
   reset: () => void;
 }
@@ -47,9 +51,12 @@ export function useQuizSession(
     if (!dataSource) return null;
     if (quizMode === 'damage') {
       return generateDamageQuestion(dataSource, historyRef.current, 20, isMetaMode, weaknessMap);
-    } else {
+    } else if (quizMode === 'speed') {
       return generateSpeedQuestion(dataSource, historyRef.current, 10, isMetaMode, weaknessMap);
+    } else if (quizMode === 'type') {
+      return generateTypeQuestion(dataSource, historyRef.current, 20, isMetaMode);
     }
+    return null;
   }, [dataSource, weaknessMap]);
 
   const startSession = useCallback(async (quizMode: QuizMode, isMetaMode: boolean = false) => {
@@ -62,13 +69,23 @@ export function useQuizSession(
     setQuestions([]);
     historyRef.current = new Set(); // Reset history for new session
 
-    const q = await generateQuestion(quizMode, isMetaMode);
-    if (q) {
-      setQuestions([q]);
-      setState('playing');
+    if (quizMode === 'daily') {
+      if (dataSource) {
+        const dailyQuestions = generateDailyChallenge(dataSource);
+        if (dailyQuestions && dailyQuestions.length > 0) {
+          setQuestions(dailyQuestions);
+          setState('playing');
+        }
+      }
+    } else {
+      const q = await generateQuestion(quizMode, isMetaMode);
+      if (q) {
+        setQuestions([q]);
+        setState('playing');
+      }
     }
     setLoading(false);
-  }, [generateQuestion]);
+  }, [dataSource, generateQuestion]);
 
   const submitDamageAnswer = useCallback((selectedIndex: number) => {
     const question = questions[currentIndex] as DamageQuestion;
@@ -90,13 +107,31 @@ export function useQuizSession(
     setState('answered');
   }, [questions, currentIndex]);
 
+  const submitTypeAnswer = useCallback((selectedIndex: number) => {
+    const question = questions[currentIndex] as TypeQuestion;
+    if (!question) return;
+
+    const answer = checkTypeAnswer(question, selectedIndex);
+    setAnswers((prev) => [...prev, answer]);
+    setScore((prev) => prev + answer.pointsEarned);
+    setState('answered');
+  }, [questions, currentIndex]);
+
+
   const nextQuestion = useCallback(async () => {
     const nextIdx = currentIndex + 1;
+    const totalQs = mode === 'daily' ? 5 : TOTAL_QUESTIONS;
 
-    if (nextIdx >= TOTAL_QUESTIONS) {
+    if (nextIdx >= totalQs) {
       const finalScore = score;
       if (mode) saveHighScore(mode, finalScore);
       setState('results');
+      return;
+    }
+
+    if (mode === 'daily') {
+      setCurrentIndex(nextIdx);
+      setState('playing');
       return;
     }
 
@@ -109,6 +144,7 @@ export function useQuizSession(
     }
     setLoading(false);
   }, [currentIndex, score, mode, metaMode, generateQuestion]);
+
 
   const reset = useCallback(() => {
     setState('idle');
@@ -126,14 +162,16 @@ export function useQuizSession(
     metaMode,
     currentQuestion: questions[currentIndex] ?? null,
     currentIndex,
-    totalQuestions: TOTAL_QUESTIONS,
+    totalQuestions: mode === 'daily' ? 5 : TOTAL_QUESTIONS,
     score,
     answers,
     loading,
     startSession,
     submitDamageAnswer,
     submitSpeedAnswer,
+    submitTypeAnswer,
     nextQuestion,
     reset,
   };
 }
+
